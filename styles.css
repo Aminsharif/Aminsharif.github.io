@@ -91,8 +91,8 @@ a:link, a:visited, a:active {
     height: auto;
     min-height: 350px;
     width: auto;
-    top: 25%;
-    bottom: 25%;
+    /* top: 25%;
+    bottom: 25%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,6 +122,14 @@ a:link, a:visited, a:active {
     font-family: var(--roboto);
     font-weight: 400;
     font-size: 2.5rem;
+    color: #fff; 
+    text-shadow: 3px 3px 6px rgba(0,0,0, 0.24);
+    margin: 0.5rem 0 0 0;
+}
+.h5-dt {
+    font-family: var(--roboto);
+    font-weight: 400;
+    font-size: 1.5rem;
     color: #fff; 
     text-shadow: 3px 3px 6px rgba(0,0,0, 0.24);
     margin: 0.5rem 0 0 0;
@@ -808,9 +816,9 @@ h4 {
             text-align: center; 
         }
 
-        .h1-fm {
+        /* .h1-fm {
             font-size: 10vw;
-        }
+        } */
 
         .h3-dt {
             font-size: 10vw;
