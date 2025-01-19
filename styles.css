@@ -215,8 +215,8 @@ a:link, a:visited, a:active {
 }
 
 .p-about-me {
-    width: 80%;
-    font-family: var(--roboto);
+    width: 100%;
+    /* font-family: var(--roboto); */
     padding: 3vw;
     font-weight: 100;
     line-height: 140%;
@@ -696,7 +696,7 @@ h4 {
 
     .p-about-me {
         width: 70vw;
-        font-family: var(--roboto);
+        /* font-family: var(--roboto); */
         font-weight: 100;
         line-height: 140%;
         text-align:justify;
