@@ -1,302 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <title>Amin Sharif - Full-Stack Developer & Data Scientist</title>
+    <meta name="description" content="Full-Stack Developer turned Data Scientist with 5+ years experience in .NET, Angular, Python, Machine Learning, and Generative AI">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&family=Tangerine&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <title>Amin Sharif | Data Scientist </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <nav class="navbar">
-        <div class="menu">
-            <div class="menu__link"><a class="a_menu" href="#home">Home</a></div>
-            <div class="menu__link"><a class="a_menu" href="#about-me">About me</a></div>
-            <div class="menu__link"><a class="a_menu" href="#my-portfolio">Portfolio</a></div>
-            <div class="menu__link"><a class="a_menu" href="#education">Education</a></div>
-            <div class="menu__link"><a class="a_menu" href="#contact">Contact</a></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Amin Sharif</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section  -->
-    <section class="section-hero" id="home">
-        <div id="particles-js-hero" class="particles-js-hero"></div>
-        <div class="hero-card">
-            <h1 class="h1-fm">Amin Sharif</h1>
-            <h5 class="h5-dt h1-fm">Data Scientist |</h5>
-            <h5 class="h5-dt h1-fm">Full-Stack Developer |</h5>
-            <h5 class="h5-dt h1-fm">Generative AI Developer</h5>
-            <div class="logo-icons">
-                <a href="#" target="_blank"><img class="logo-git" src="img/icons/github-icon.svg" alt="github logo"></a>
-                <a href="#" target="_blank"><img class="logo-lin" src="img/icons/linkedin-icon.svg"
-                        alt="icon linkedin"></a>
-                <a href="#contact"><img class="logo-email" src="img/icons/email-icon.svg"></a>
-            </div>
-            <div class="button-hs"><a class="a_" href="#contact">Contact me</a></div>
-        </div>
-    </section>
-
-    <section class="about-me" id="about-me">
-        <div class="about-me-card">
-            <div class="h-about-me">Hello! I’m<br>Amin Sharif</div>
-            <div class="profile-des">
-                <p class="p-about-me">
-                    I am a Full-Stack Developer with over five years of professional experience in building
-                    robust and scalable applications using .NET and Angular. Alongside my development journey, I have
-                    gained hands-on experience with React Native Expo, which allowed me to expand my expertise in mobile
-                    application development.</br></br>
-
-
-                    Recently, I have transitioned into the exciting field of Data Science to harness the power of data
-                    and machine learning to drive impactful solutions. To solidify this shift, I completed the iNeuron
-                    Full Stack Data Science BootCamp 2.0, where I honed my skills in Python, data analysis, machine
-                    learning, and deep learning. Additionally, I have delved into Generative AI by completing a
-                    comprehensive course on LangChain and Hugging Face via Udemy, enabling me to work with
-                    state-of-the-art AI models and build innovative AI-driven applications.</br></br>
-
-                    I am particularly passionate about data scraping and web scraping, creating efficient pipelines to
-                    gather and analyze data for actionable insights. My diverse background in software development and
-                    data science enables me to craft end-to-end solutions, from developing intuitive front-end
-                    interfaces to deploying intelligent back-end models.</br></br>
-
-                    In my portfolio, you'll find projects showcasing my expertise in:</br></br>
-
-                    <b>Data Science:</b> Machine learning models, data visualization, and predictive analytics.</br>
-                    <b>Generative AI:</b> Applications built with LangChain and Hugging Face.</br>
-                    <b>Web/Data Scraping:</b> Automated data collection pipelines using tools like scrapy, Selenium and
-                    BeautifulSoup.</br>
-                    <b>Full-Stack Development:</b> Scalable web applications built with .NET, Angular, and React Native
-                    Expo.</br></br>
-
-                    When I’m not coding, I enjoy exploring the latest advancements in AI and contributing to open-source
-                    projects. Feel free to check out my GitHub to explore my work and connect with me!
-                </p>
-            </div>
-        </div>
-
-
-    </section>
-
-    <!-- Particles Script -->
-    <script src="https://cdn.jsdelivr.net/gh/rafasan135/f-datas/js/particles.min.hero.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/rafasan135/f-datas/js/app.js"></script>
-    <!-- End Particles Script -->
-
-    <!-- Portfolio Section -->
-
-    <section class="my-portfolio" id="my-portfolio">
-        <div class="my-portfolio-tittle">
-            <div class="h-my-portfolio">My Portfolio</div>
-            <p class="p-my-portfolio">My complete projects of Data Science</p>
-        </div>
-
-        <div class="portfolio-cards-container">
-
-            <div class="cards1to3">
-                <div class="card-project">
-                    <img class="img-project" src="img/icons/icon_churn.png" />
-                    <h3 class="h-projects">Churn Model</h3>
-                    <p class="p-projects">Experience developing Churn Models to predict customer retention in financial
-                        business structure. Considering diverse features and using ensemble models.</p>
-
-                    <div class="btn_github">
-                        <a class="a_btn" href="#" target="_blank">
-                            <div class="visit-project">Visit Project <img class="img-github-proj"
-                                    src="img/icons/github-icon.svg" />
-                            </div>
-                        </a>
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="hero-greeting">Hello, I'm</span>
+                        <span class="hero-name">Amin Sharif</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        AI Engineer | LangChain & LangGraph Developer
+                    </p>
+                    <p class="hero-description">
+                        Building AI systems trained on domain data with Knowledge Base AI, agentic AI, RAG pipelines, chatbot architectures, and GPT/Ollama model integrations for reliable production workflows.
+                    </p>
+                    <div class="hero-highlights">
+                        <span class="highlight-chip">Knowledge Base AI</span>
+                        <span class="highlight-chip">LangGraph Agents</span>
+                        <span class="highlight-chip">RAG Chatbots</span>
+                        <span class="highlight-chip">GPT + Ollama</span>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="https://github.com/aminsharif" class="btn btn-secondary" target="_blank">GitHub</a>
                     </div>
                 </div>
-
-
-                <div class="card-project">
-                    <img class="img-project" src="img/icons/icon_recommendation_project.png" />
-                    <h3 class="h-projects">Recommender System</h3>
-                    <p class="p-projects">A recommender system for customers, based in their behavior with implicit
-                        data. Modern algoritms such SCD++ from scikit-surprise library.</p>
-
-                    <div class="btn_github">
-                        <a class="a_btn" href="#" target="_blank">
-                            <div class="visit-project">
-                                <div class="visit-p">Visit Project</div> <img class="img-github-proj"
-                                    src="img/icons/github-icon.svg" />
-                            </div>
-
-                    </div>
-                    </a>
-                </div>
-
-                <div class="card-project">
-                    <img class="img-project" src="img/icons/icon_clustering_recommendation.png" />
-                    <h3 class="h-projects">Clustering for customer segmentation</h3>
-                    <p class="p-projects">Customer segmentation using K-means from Scikit-learn library, comparing
-                        general population data and customer population data.</p>
-                    <div class="btn_github">
-                        <a class="a_btn" href="#" target="_blank">
-                            <div class="visit-project">
-                                <div class="visit-p">Visit Project</div> <img class="img-github-proj"
-                                    src="img/icons/github-icon.svg" />
-                            </div>
-                        </a>
+                <div class="hero-visual">
+                    <div class="hero-image-placeholder">
+                        <img class="hero-avatar-img" src="images/amin.jpg" alt="Amin Sharif profile photo">
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="cards4to5">
-                <div class="card-project">
-                    <img class="img-project" src="img/icons/icon_reporting.png" />
-                    <h3 class="h-projects">Reporting / DashBoards</h3>
-                    <p class="p-projects">Reporting and dashboard making using PowerBI, for a wide range of data type:
-                        such data from customers, human resources and revenues.</p>
-                    <div class="btn_github">
-                        <a class="a_btn" href="#portfolio">
-                            <div class="visit-project-nologo">
-                                <div class="visit-p">Visit Project</div>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-intro">
+                            I build AI-first applications focused on knowledge-based intelligence, agentic AI systems, and production-ready chatbot experiences.
+                        </p>
+                        <p>
+                            My current focus is training and orchestrating AI on domain data using RAG pipelines, LangChain, and LangGraph to create reliable multi-step reasoning workflows.
+                        </p>
+                        <p>
+                            I design end-to-end Knowledge Base AI platforms with GPT and Ollama powered models, tool-calling agents, contextual retrieval, and scalable backend services for real-world business use cases.
+                        </p>
+                        <div class="about-resume">
+                            <a href="amin-sharif-cv.html" class="btn btn-outline" target="_blank" download="Amin_Sharif_CV.html">Download CV</a>
+                        </div>
+                    </div>
+                    <div class="about-skills">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>LangChain & LangGraph</h4>
+                                <ul>
+                                    <li>LangChain</li>
+                                    <li>LangGraph</li>
+                                    <li>Agentic Workflows</li>
+                                    <li>Tool Calling</li>
+                                    <li>RAG Pipelines</li>
+                                </ul>
                             </div>
-                        </a>
+                            <div class="skill-category">
+                                <h4>Data Science & AI</h4>
+                                <ul>
+                                    <li>Python</li>
+                                    <li>Machine Learning</li>
+                                    <li>Deep Learning</li>
+                                    <li>Generative AI</li>
+                                    <li>Prompt Engineering</li>       
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Backend Development</h4>
+                                <ul>
+                                    <li>C#.NET</li>
+                                    <li>ASP.NET Core</li>
+                                    <li>Web API & REST</li>
+                                    <li>Entity Framework</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Frontend Development</h4>
+                                <ul>
+                                    <li>Angular 7-16</li>
+                                    <li>React JS</li>
+                                    <li>Next.js</li>
+                                    <li>React Native Expo</li>
+
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="card-project">
-                    <img class="img-project" src="img/icons/icon_neural.png" />
-                    <h3 class="h-projects">Image Recognition</h3>
-                    <p class="p-projects">Neural network prototype for recognition of flower images, using TensorFlow.
-                    </p>
-                    <div class="btn_github">
-                        <a class="a_btn" href="#" target="_blank">
-                            <div class="visit-project">
-                                <div class="visit-p">Visit Project</div> <img class="img-github-proj"
-                                    src="img/icons/github-icon.svg" />
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <!-- KnowledgeAI-FastAPI -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img class="project-cover" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Knowledge AI platform">
+                            <div class="project-placeholder">Knowledge AI</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">KnowledgeAI-FastAPI</h3>
+                            <p class="project-description">
+                                Production-ready FastAPI platform with JWT access and refresh tokens, email verification, password reset, role-based access control, file and website ingestion, and clean architecture with logging and migrations.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">JWT</span>
+                                <span class="tech-tag">SQLAlchemy</span>
+                                <span class="tech-tag">Docker</span>
                             </div>
-                        </a>
+                            <div class="project-links">
+                                <a href="http://144.91.123.138/" class="project-link" target="_blank">Live URL</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- RAG PDF Project -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img class="project-cover" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="RAG PDF ingestion project">
+                            <div class="project-placeholder">RAG</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">RAG-pdf-ingest</h3>
+                            <p class="project-description">
+                                RAG operation for PDF ingestion with graph-based retrieval flow for accurate question answering from uploaded documents.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Jupyter Notebook</span>
+                                <span class="tech-tag">RAG</span>
+                                <span class="tech-tag">Graph</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Aminsharif/RAG-pdf-ingest" class="project-link" target="_blank">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- RAG Chatbot with Tools -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img class="project-cover" src="https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1200&q=80" alt="RAG chatbot with tools project">
+                            <div class="project-placeholder">RAG</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">RAG-chatbot-withtool</h3>
+                            <p class="project-description">
+                                Question and answer chatbot built with retrieval-augmented generation and tool support for grounded responses.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">RAG</span>
+                                <span class="tech-tag">Tools</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Aminsharif/RAG-chatbot-withtool" class="project-link" target="_blank">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- LlamaIndex Q&A -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img class="project-cover" src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=1200&q=80" alt="Documentation question answering project">
+                            <div class="project-placeholder">Docs QA</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">RAG-chatbot-for-llamaindex</h3>
+                            <p class="project-description">
+                                TypeScript chatbot for LlamaIndex documentation question answering, focused on developer-friendly documentation search.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">RAG</span>
+                                <span class="tech-tag">MIT License</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Aminsharif/RAG-chatbot-for-llamaindex" class="project-link" target="_blank">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- LangChain Chatbot -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img class="project-cover" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" alt="LangChain chatbot project">
+                            <div class="project-placeholder">LangChain</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">chatbot_with_langchain</h3>
+                            <p class="project-description">
+                                Documentation question answering chatbot built with LangChain and LangSmith focused workflow.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">LangChain</span>
+                                <span class="tech-tag">LangSmith</span>
+                                <span class="tech-tag">MIT License</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Aminsharif/chatbot_with_langchain" class="project-link" target="_blank">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Additional Repositories -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img class="project-cover" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="eCommerce and dataset projects">
+                            <div class="project-placeholder">C# + Data</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">eCommerce and DL-Dataset</h3>
+                            <p class="project-description">
+                                Additional repositories include a C# eCommerce solution and deep learning dataset resources.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">Apache 2.0</span>
+                                <span class="tech-tag">Dataset</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Aminsharif/eCommerce" class="project-link" target="_blank">eCommerce</a>
+                                <a href="https://github.com/Aminsharif/DL-Dataset" class="project-link" target="_blank">DL-Dataset</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="projects-cta">
+                    <a href="https://github.com/Aminsharif?tab=repositories" class="btn btn-outline" target="_blank">View All Projects on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="blog">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2026-01-01">Current</time>
+                            <span class="blog-category">AI Engineering</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="#">Full-Stack Developer and AI Engineer</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Designing and delivering AI-enabled products with FastAPI, secure auth flows, role-based access, and scalable data and LLM workflows.
+                        </p>
+                        <a href="http://144.91.123.138/" target="_blank" class="blog-link">Knowledge AI Live URL</a>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2025-01-01">5+ Years</time>
+                            <span class="blog-category">Software Engineering</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="#">Senior Software Engineer (.NET & Angular)</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Built enterprise-grade APIs and business applications using C#.NET, ASP.NET Core, Angular, SQL, and clean architecture principles.
+                        </p>
+                        <a href="https://github.com/Aminsharif?tab=repositories" target="_blank" class="blog-link">View Repositories</a>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2024-01-01">Recent Focus</time>
+                            <span class="blog-category">Data Science</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="#">RAG and Generative AI Development</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Delivered practical RAG chatbots, PDF ingestion pipelines, and tool-enabled AI workflows for production-style use cases.
+                        </p>
+                        <a href="https://github.com/Aminsharif/RAG-chatbot-withtool" target="_blank" class="blog-link">Project Example</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="blog">
+            <div class="container">
+                <h2 class="section-title">Professional Courses</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2025-12-18">2025</time>
+                            <span class="blog-category">LangChain Academy</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="https://academy.langchain.com/certificates/879njewsge" target="_blank">Project: Ambient Agents with LangGraph</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Certificate ID: 879njewsge. Issued on 2025-12-18.
+                        </p>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2025-11-19">2025</time>
+                            <span class="blog-category">LangChain Academy</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="https://academy.langchain.com/certificates/z9q4erwnkn" target="_blank">Foundation: Introduction to LangGraph</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Certificate ID: z9q4erwnkn. Issued on 2025-11-19.
+                        </p>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2025-11-07">2025</time>
+                            <span class="blog-category">LangChain Academy</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="https://academy.langchain.com/certificates/tzfjt0uumw" target="_blank">Quickstart: LangChain Essentials - Python</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Certificate ID: tzfjt0uumw. Issued on 2025-11-07.
+                        </p>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2024-01-01">2024</time>
+                            <span class="blog-category">Udemy</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="https://www.udemy.com/" target="_blank">Complete Generative AI Course with LangChain and Hugging Face</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Practical training in LLM workflows, prompt engineering, chaining, and AI application building.
+                        </p>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2022-01-01">2022</time>
+                            <span class="blog-category">iNeuron</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="https://ineuron.ai/" target="_blank">Full Stack Data Science BootCamp 2.0</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            End-to-end coursework across Python, machine learning, deep learning, and production data workflows.
+                        </p>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2017-01-01">2017</time>
+                            <span class="blog-category">IDB-BISEW</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="#">Diploma in Enterprise System Analysis and Design with C# .NET</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Scholarship program focused on enterprise architecture and practical software engineering.
+                        </p>
+                    </article>
+                </div>
+                <h2 class="section-title">Academic Education</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2016-01-01">2016</time>
+                            <span class="blog-category">MBSTU</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="#">Post Graduate Diploma in ICT</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Mawlana Bhashani Science and Technology University.
+                        </p>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2015-01-01">2015</time>
+                            <span class="blog-category">MBSTU</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="#">MS in Mathematics</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Mawlana Bhashani Science and Technology University.
+                        </p>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <time datetime="2014-01-01">2014</time>
+                            <span class="blog-category">MBSTU</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="#">B.Sc. (Hon's) in Mathematics</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Mawlana Bhashani Science and Technology University.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>
+                            I'm always interested in discussing new opportunities, collaborations in data science, 
+                            AI projects, or sharing insights about software development and machine learning.
+                        </p>
+                        <div class="contact-links">
+                            <a href="mailto:sharifmia236@gmail.com" class="contact-link">
+                                <span class="contact-icon">📧</span>
+                                sharifmia236@gmail.com
+                            </a>
+                            <a href="tel:+8801670043742" class="contact-link">
+                                <span class="contact-icon">📱</span>
+                                +880 1670 043742
+                            </a>
+                            <a href="https://github.com/Aminsharif?tab=repositories" class="contact-link" target="_blank">
+                                <span class="contact-icon">🐙</span>
+                                GitHub Profile
+                            </a>
+                            <a href="http://144.91.123.138/" class="contact-link" target="_blank">
+                                <span class="contact-icon">🌐</span>
+                                Knowledge AI Live URL
+                            </a>
+                        </div>
                     </div>
+                    <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/sharifmia236@gmail.com" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <input type="hidden" name="_subject" value="Portfolio Contact Message">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Amin Sharif. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Education Section -->
-
-    <section class="education-section" id="education">
-        <div class="h-section">My professional Courses</div>
-
-        <div class="container-education">
-
-            <div class="card-container card_container_1 animation">
-                <img class="edu-img" src='img/icons/udemy.png' />
-                <div class="education-card">
-                    <h3 class="h3-edu">Complete Generative AI Course With Langchain and Huggingface</h3>
-                    <h4>Year: 2024</h4>
-                    <p class="edu-par">
-                        <a class="edu-par" href="https://www.udemy.com/">Udemy(Online)</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="card-container  card_container_2 animation">
-                <img class="edu-img" src='img/icons/ineuron.jpg' />
-                <div class="education-card">
-                    <h3 class="h3-edu">Full Stack Data Science BootCamp 2.0</h3>
-                    <h4>Year: 2022 </h4>
-                    <p class="edu-par">
-                        <a class="edu-par" href="https://ineuron.ai/">iNeuron(Online)</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="card-container  card_container_3 animation">
-                <img class="edu-img" src='img/icons/idb.jpg' />
-                <div class="education-card">
-                    <h3 class="h3-edu">Diploma in Enterprise System Analysis & Design with C# .Net</h3>
-                    <h4>Year: 2017 </h4>
-                    <p class="edu-par">
-                        IDB-BISEW IT Scholarship Project
-                    </p>
-
-                </div>
-            </div>
-        </div>
-        <div class="h-section">My Academic Courses</div>
-
-        <div class="container-education">
-
-            <div class="card-container card_container_1 animation">
-                <img class="edu-img" src='img/icons/mbstu.jpg' />
-                <div class="education-card">
-                    <h3 class="h3-edu">Post Graduate Diploma in ICT(Information and communication technology)</h3>
-                    <h4>Year: 2016</h4>
-                    <p class="edu-par">
-                        Mawlana Bhashani Science and Technology University.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card-container  card_container_2 animation">
-                <img class="edu-img" src='img/icons/mbstu.jpg' />
-                <div class="education-card">
-                    <h3 class="h3-edu">MS in Mathematics</h3>
-                    <h4>Year: 2015 </h4>
-                    <p class="edu-par">Mawlana Bhashani Science and Technology University.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card-container  card_container_3 animation">
-                <img class="edu-img" src='img/icons/mbstu.jpg' />
-                <div class="education-card">
-                    <h3 class="h3-edu">B.Sc. (Hon’s) In Mathematics</h3>
-                    <h4>Year: 2014 </h4>
-                    <p class="edu-par">Mawlana Bhashani Science and Technology University.</p>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div id="particles-js" class="particles-js"></div>
-
-        <div class="contact__container-tittle">
-            <div class="contact_tittle">
-                <div class="h-contact">Get in touch</div>
-                <div class="sub-h-contact"><a class="a_contact" target="_blank" href="#">GitHub </a> | <a
-                        class="a_contact" target="_blank" href="#">LinkedIn</a>| <a class="a_contact" target="_blank"
-                        href="#">Email</a></div>
-            </div>
-
-            <div class="contact-container">
-                <form class="contact-form" action="https://formsubmit.co/sharifmia236@gmail.com" method="POST">
-                    <p>Your e-mail</p>
-                    <input type="email" name="email" class="email-field" placeholder="Write your email here.." required>
-                    <p>Your message</p>
-                    <textarea name="message" class="textarea-field" placeholder="Write your message here.." required></textarea>
-                    <div><input type="submit" class="submit-btn" value="Submit"></div>
-                </form>                
-            </div>
-        </div>
-        <footer class="footer">Copyright © 2025 Amin Sharif</footer>
-
-    </section>
-    <!-- Particles Script -->
-    <script src="https://cdn.jsdelivr.net/gh/rafasan135/f-datas/js/particles.min.contact.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/rafasan135/f-datas/js/app.js"></script>
-
-    <!-- Scroll Sctip -->
-    <script src="https://cdn.jsdelivr.net/gh/rafasan135/f-datas/js/showScroll.js"></script>
-
-
+    <script src="js/main.js"></script>
 </body>
-
 </html>

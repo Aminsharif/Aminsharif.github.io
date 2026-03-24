@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amin Sharif - CV</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+    <style>
+        :root {
+            --text: #1e293b;
+            --muted: #475569;
+            --accent: #2563eb;
+            --line: #e2e8f0;
+            --bg: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f8fafc;
+            color: var(--text);
+            line-height: 1.45;
+        }
+        .page {
+            max-width: 980px;
+            margin: 2rem auto;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 16px 28px rgba(15, 23, 42, 0.08);
+        }
+        .header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #f8fafc);
+            border-bottom: 1px solid var(--line);
+        }
+        .cv-actions {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.9rem 1rem 0;
+        }
+        .print-btn {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--text);
+            border-radius: 999px;
+            padding: 0.45rem 0.9rem;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .print-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 0.9rem;
+        }
+        .profile-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+            flex-shrink: 0;
+        }
+        .name {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 0.4rem;
+            letter-spacing: 0.02em;
+        }
+        .role {
+            margin: 0 0 1rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+        .contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.45rem 1rem;
+            font-size: 0.95rem;
+        }
+        .contacts a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .content {
+            padding: 1.4rem 2rem 2rem;
+        }
+        h2 {
+            margin: 1.2rem 0 0.7rem;
+            font-size: 1.06rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+        }
+        .summary {
+            margin: 0;
+            color: var(--muted);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.7rem 1rem;
+        }
+        .skill-group {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 0.8rem;
+        }
+        .skill-group h3 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        .skill-group ul {
+            margin: 0;
+            padding-left: 1rem;
+            color: var(--muted);
+        }
+        .item {
+            border-top: 1px solid var(--line);
+            padding-top: 0.9rem;
+            margin-top: 0.9rem;
+        }
+        .item:first-of-type {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.35rem;
+        }
+        .item-title {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .item-date {
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .item-sub {
+            margin: 0 0 0.5rem;
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+        ul.points {
+            margin: 0.3rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--muted);
+        }
+        ul.points li {
+            margin: 0.25rem 0;
+        }
+        .meta-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.7rem 1rem;
+        }
+        .meta-card {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 0.75rem;
+        }
+        .meta-card h3 {
+            margin: 0 0 0.3rem;
+            font-size: 0.95rem;
+        }
+        .meta-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+        .projects-list {
+            margin: 0;
+            padding-left: 1.1rem;
+            color: var(--muted);
+        }
+        .projects-list a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        @media print {
+            body {
+                background: #fff;
+            }
+            .cv-actions {
+                display: none;
+            }
+            .page {
+                margin: 0;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+        @media (max-width: 620px) {
+            .header-top {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+            }
+            .profile-photo {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="cv-actions">
+            <button class="print-btn" type="button" onclick="window.print()">Print CV</button>
+        </div>
+        <header class="header">
+            <div class="header-top">
+                <div>
+                    <h1 class="name">Amin Sharif</h1>
+                    <p class="role">AI Engineer | Full-Stack Software Engineer | LangChain & LangGraph Developer</p>
+                </div>
+                <img class="profile-photo" src="images/amin.jpg" alt="Amin Sharif">
+            </div>
+            <div class="contacts">
+                <div>Address: House No-61-62, Road No-06, Monsurabad Housing, Mohammadpur, Dhaka, Bangladesh</div>
+                <div>Mobile: +8801670043742</div>
+                <div>Email: <a href="mailto:sharifmia236@gmail.com">sharifmia236@gmail.com</a></div>
+                <div>GitHub: <a href="https://github.com/Aminsharif?tab=repositories" target="_blank">github.com/Aminsharif</a></div>
+                <div>Live Project: <a href="http://144.91.123.138/" target="_blank">Knowledge AI</a></div>
+            </div>
+        </header>
+
+        <section class="content">
+            <h2>Professional Summary</h2>
+            <p class="summary">Software engineer with more than five years of professional experience in C#.NET and Angular, now focused on AI-first systems including Knowledge Base AI, RAG pipelines, LangChain, LangGraph, agentic workflows, chatbot development, and GPT/Ollama integrations. Proven background in building and scaling enterprise-grade applications, APIs, ERP modules, and cross-platform products.</p>
+
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3>AI & Agentic Systems</h3>
+                    <ul>
+                        <li>LangChain, LangGraph</li>
+                        <li>RAG Pipelines, Tool Calling, Agentic Workflows</li>
+                        <li>Knowledge Base AI, Chatbot Architectures</li>
+                        <li>GPT and Ollama Integration</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>C#.NET, ASP.NET Core</li>
+                        <li>Web API, REST</li>
+                        <li>SQLAlchemy concepts, Clean Architecture</li>
+                        <li>MS SQL Server</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Databases</h3>
+                    <ul>
+                        <li>PostgreSQL, MS SQL, MySQL, MongoDB</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Vector Databases</h3>
+                    <ul>
+                        <li>PGVector, FAISS, ChromaDB</li>
+                        <li>Weaviate, Pinecone, Elasticsearch</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Frontend & Mobile</h3>
+                    <ul>
+                        <li>Angular 7-16, Angular Material</li>
+                        <li>React JS, Next.js, React Native Expo</li>
+                        <li>Bootstrap, JavaScript, TypeScript</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Cloud & Tools</h3>
+                    <ul>
+                        <li>Azure, Git, GitLab, TFS</li>
+                        <li>Visual Studio</li>
+                        <li>Automated testing practices</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Professional Experience</h2>
+            <article class="item">
+                <div class="item-header">
+                    <h3 class="item-title">Software Engineer — Wilka, Velbert, Germany</h3>
+                    <div class="item-date">Feb 2021 - Present</div>
+                </div>
+                <p class="item-sub"><a href="https://www.wilka.de" target="_blank">www.wilka.de</a></p>
+                <ul class="points">
+                    <li>Developed and implemented a comprehensive in-house ERP for order management, delivery tracking, and data processing.</li>
+                    <li>Designed order processing modules covering order details, delivery dates, and customer information.</li>
+                    <li>Built Excel template import/export flows to improve data accuracy and efficiency.</li>
+                    <li>Integrated Azure services for performance, scalability, and security.</li>
+                    <li>Migrated and merged legacy database records into the new ERP with minimal operational disruption.</li>
+                    <li>Collaborated with stakeholders and cross-functional teams to align the system with business requirements.</li>
+                    <li>Conducted user training and delivered ongoing operational support.</li>
+                    <li>Implemented automated testing practices for reliability and robustness.</li>
+                </ul>
+                <p class="item-sub">Tools: C#.NET, ASP.NET Core, Web API, REST, Angular 12-16, Angular Material, Visual Studio, TFS, Git, Azure, GitLab</p>
+            </article>
+
+            <article class="item">
+                <div class="item-header">
+                    <h3 class="item-title">Software Engineer — Trillionbits Ltd.</h3>
+                    <div class="item-date">May 2019 - Jan 2021</div>
+                </div>
+                <p class="item-sub"><a href="https://www.trillionbits.com" target="_blank">www.trillionbits.com</a></p>
+                <ul class="points">
+                    <li>BDHOTDEALS E-Commerce: content management, promotions, discounts, checkout, user engagement, reviews, third-party signup, sharing, and multiple payment support.</li>
+                    <li>ACS Web Application: digest authentication for third-party APIs, Excel upload workflow, multi-role user mapping, and wizard-based migration flows.</li>
+                    <li>EMS Web + App: employee management, geofencing, map tracking, attendance, leave lifecycle, QR modules, and fingerprint-based app login.</li>
+                    <li>C5V Web + App: environment survey solution with blockchain features for Australian client requirements.</li>
+                    <li>Security Guard Tracker Web + App: fingerprint attendance, multilingual interface, geofencing, map and reporting modules.</li>
+                    <li>Smart Team Malaysia: team management web solution for Malaysian client.</li>
+                </ul>
+                <p class="item-sub">Stack: C#, ASP.NET Core Web APIs, Angular, AngularJS, Node.js, React Native, Bootstrap, Visual Studio, MS SQL</p>
+            </article>
+
+            <article class="item">
+                <div class="item-header">
+                    <h3 class="item-title">Jr. Software Engineer — Databiz Software Limited</h3>
+                    <div class="item-date">Aug 2018 - Apr 2019</div>
+                </div>
+                <ul class="points">
+                    <li>Bizness Roots (Web ERP): developed Help Center module using ASP.NET MVC.</li>
+                    <li>BIZNESS ARCADE (Web ERP): developed land acquisition module for township workflow.</li>
+                </ul>
+                <p class="item-sub">Stack: C#, ASP.NET MVC 4, ASP.NET Web Forms, JavaScript, jQuery, MS SQL</p>
+            </article>
+
+            <article class="item">
+                <div class="item-header">
+                    <h3 class="item-title">Intern — Medilife Solution Limited</h3>
+                    <div class="item-date">Feb 2018 - Jul 2018</div>
+                </div>
+                <ul class="points">
+                    <li>Prescription App: doctor appointment booking, reports access, and nearest doctor/hospital/blood bank map support.</li>
+                    <li>Doctor App: chamber schedule management, appointment tracking, and patient visit information handling.</li>
+                </ul>
+                <p class="item-sub">Stack: C#, React Native, ASP.NET Web APIs, MS SQL</p>
+            </article>
+
+            <h2>Featured Projects</h2>
+            <ul class="projects-list">
+                <li><strong>KnowledgeAI-FastAPI</strong> — production-ready FastAPI platform with auth flows, ingestion, and scalable AI workflow architecture.</li>
+                <li><a href="https://github.com/Aminsharif/RAG-pdf-ingest" target="_blank">RAG-pdf-ingest</a> — RAG operation for PDF ingestion with graph-based retrieval.</li>
+                <li><a href="https://github.com/Aminsharif/RAG-chatbot-withtool" target="_blank">RAG-chatbot-withtool</a> — Q&A chatbot with RAG and tools.</li>
+                <li><a href="https://github.com/Aminsharif/RAG-chatbot-for-llamaindex" target="_blank">RAG-chatbot-for-llamaindex</a> — TypeScript chatbot for LlamaIndex documentation Q&A.</li>
+                <li><a href="https://github.com/Aminsharif/chatbot_with_langchain" target="_blank">chatbot_with_langchain</a> — documentation-focused chatbot with LangChain/LangSmith.</li>
+                <li><a href="https://github.com/Aminsharif/eCommerce" target="_blank">eCommerce</a> and <a href="https://github.com/Aminsharif/DL-Dataset" target="_blank">DL-Dataset</a> — additional product engineering and dataset repositories.</li>
+            </ul>
+
+            <h2>Education</h2>
+            <ul class="points">
+                <li>Post Graduate Diploma in ICT — Mawlana Bhashani Science and Technology University (2016)</li>
+                <li>MS in Mathematics — Mawlana Bhashani Science and Technology University (2015)</li>
+                <li>B.Sc. (Hon’s) in Mathematics — Mawlana Bhashani Science and Technology University (2014)</li>
+            </ul>
+
+            <h2>Professional Courses & Certifications</h2>
+            <ul class="points">
+                <li><a href="https://academy.langchain.com/certificates/879njewsge" target="_blank">Project: Ambient Agents with LangGraph</a> — LangChain Academy (Issued: 2025-12-18)</li>
+                <li><a href="https://academy.langchain.com/certificates/z9q4erwnkn" target="_blank">Foundation: Introduction to LangGraph</a> — LangChain Academy (Issued: 2025-11-19)</li>
+                <li><a href="https://academy.langchain.com/certificates/tzfjt0uumw" target="_blank">Quickstart: LangChain Essentials - Python</a> — LangChain Academy (Issued: 2025-11-07)</li>
+                <li>Complete Generative AI Course with LangChain and Hugging Face — Udemy (2024)</li>
+                <li>Full Stack Data Science BootCamp 2.0 — iNeuron (2022)</li>
+                <li>Diploma in Enterprise System Analysis & Design with C# .NET — IDB-BISEW (2017)</li>
+                <li>Programming in HTML5 with JavaScript and CSS3 — Microsoft Certification</li>
+                <li>Developing ASP.NET MVC Web Applications (70-486) — Microsoft Certification</li>
+                <li>Microsoft ASP.NET Core MVC with SQL Server 2016 — PeopleNTech Institute of Information Technology</li>
+            </ul>
+
+            <h2>Languages & Interests</h2>
+            <div class="meta-row">
+                <div class="meta-card">
+                    <h3>Languages</h3>
+                    <p>Mother Tongue: Bengali</p>
+                    <p>English: Fluent</p>
+                </div>
+                <div class="meta-card">
+                    <h3>Interests</h3>
+                    <p>Learning new technologies, surfing internet, travelling, and playing cricket.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
