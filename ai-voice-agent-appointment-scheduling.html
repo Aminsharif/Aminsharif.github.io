@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How AI Voice Agents Handle Appointment Scheduling | Amin Sharif</title>
+  <meta name="description" content="How AI voice agents answer calls, check real calendar availability, book appointments and log everything to your CRM — plus what to get right before deploying one.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/ai-voice-agent-appointment-scheduling.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/ai-voice-agent-appointment-scheduling.html">
+  <meta property="og:title" content="How AI Voice Agents Handle Appointment Scheduling | Amin Sharif">
+  <meta property="og:description" content="How AI voice agents answer calls, check real calendar availability, book appointments and log everything to your CRM — plus what to get right before deploying one.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta property="og:image:alt" content="An AI voice agent scheduling appointments">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How AI Voice Agents Handle Appointment Scheduling | Amin Sharif">
+  <meta name="twitter:description" content="How AI voice agents answer calls, check real calendar availability, book appointments and log everything to your CRM — plus what to get right before deploying one.">
+  <meta name="twitter:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/insights.css">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://aminsharif.com/#founder",
+        "name": "Amin Sharif",
+        "url": "https://aminsharif.com/about.html",
+        "jobTitle": "AI Automation Developer"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://aminsharif.com/#organization",
+        "name": "Amin Sharif",
+        "url": "https://aminsharif.com/",
+        "sameAs": ["https://github.com/Aminsharif"]
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": "https://aminsharif.com/ai-voice-agent-appointment-scheduling.html#article",
+        "headline": "How AI Voice Agents Handle Appointment Scheduling",
+        "description": "How AI voice agents answer calls, check real calendar availability, book appointments and log everything to your CRM — plus what to get right before deploying one.",
+        "datePublished": "2026-10-15",
+        "dateModified": "2026-10-15",
+        "author": { "@id": "https://aminsharif.com/#founder" },
+        "publisher": { "@id": "https://aminsharif.com/#organization" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aminsharif.com/ai-voice-agent-appointment-scheduling.html" },
+        "inLanguage": "en",
+        "articleSection": "AI Voice"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aminsharif.com/ai-voice-agent-appointment-scheduling.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aminsharif.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://aminsharif.com/insights.html" },
+          { "@type": "ListItem", "position": 3, "name": "How AI Voice Agents Handle Appointment Scheduling", "item": "https://aminsharif.com/ai-voice-agent-appointment-scheduling.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Amin Sharif, AI automation agency, home">
+        <span class="brand__mark" aria-hidden="true">AS</span>
+        <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="services.html">Services</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="Show Services submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-services">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-workflow-automation.html"><span class="mega__title">n8n Workflow Automation</span><span class="mega__desc">Connect your tools so data moves on its own</span></a></li>
+                      <li><a class="mega__item" href="crm-automation.html"><span class="mega__title">CRM Automation &amp; Integrations</span><span class="mega__desc">Capture, qualify and follow up automatically</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agents.html"><span class="mega__title">AI Voice Agents</span><span class="mega__desc">Answer calls and book appointments</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ai-customer-support.html"><span class="mega__title">AI Customer Support</span><span class="mega__desc">Answer from your own documentation</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG &amp; Knowledge Base AI</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Not sure which service fits?</p>
+                    <p class="mega__cta-text">Most projects combine two or three. Tell me the workflow that is slowing you down.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Describe your project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="case-studies.html">Case Studies</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-work" aria-label="Show Case Studies submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-work">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="lead-generation.html"><span class="mega__title">Lead Capture to CRM</span><span class="mega__desc">Automated lead discovery, scoring and follow-up</span></a></li>
+                      <li><a class="mega__item" href="ai-booking-platform.html"><span class="mega__title">AI Booking Platform</span><span class="mega__desc">Natural-language scheduling with calendar sync</span></a></li>
+                      <li><a class="mega__item" href="support-ai.html"><span class="mega__title">AI Support Agent</span><span class="mega__desc">Answers from your docs, opens tickets when needed</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ecommerce-chatbot.html"><span class="mega__title">E-commerce Chatbot</span><span class="mega__desc">Order lookups, escalations and PII masking</span></a></li>
+                      <li><a class="mega__item" href="contextmesh-ai.html"><span class="mega__title">Multi-Tenant AI Platform</span><span class="mega__desc">Hybrid retrieval with reranking and ingestion</span></a></li>
+                      <li><a class="mega__item" href="invoice-process.html"><span class="mega__title">Invoice &amp; Document Processing</span><span class="mega__desc">Extract, summarise and query documents</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG Knowledge Base</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Want the full breakdown?</p>
+                    <p class="mega__cta-text">Every project starts from a business problem. See how each one was solved.</p>
+                    <a class="mega__cta-link" href="case-studies.html">Browse all case studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="insights.html">Insights</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-insights" aria-label="Show Insights submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-insights">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-vs-zapier-vs-make.html"><span class="mega__title">n8n vs Zapier vs Make</span><span class="mega__desc">Choosing the right automation platform</span></a></li>
+                      <li><a class="mega__item" href="connect-n8n-with-hubspot.html"><span class="mega__title">Connect n8n with HubSpot</span><span class="mega__desc">A practical CRM integration walkthrough</span></a></li>
+                      <li><a class="mega__item" href="n8n-error-handling-monitoring.html"><span class="mega__title">Error Handling &amp; Monitoring</span><span class="mega__desc">Keeping workflows reliable in production</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="automate-lead-management-with-n8n.html"><span class="mega__title">Automate Lead Management</span><span class="mega__desc">An end-to-end lead pipeline in n8n</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agent-appointment-scheduling.html" aria-current="page"><span class="mega__title">Voice Agents &amp; Scheduling</span><span class="mega__desc">Appointment booking over the phone</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Prefer a hands-on answer?</p>
+                    <p class="mega__cta-text">Skip the reading and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="about.html">About</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-about" aria-label="Show About submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-about">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="about.html"><span class="mega__title">About Amin</span><span class="mega__desc">Background, skills and how I work</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="amin-sharif-cv.html"><span class="mega__title">CV / Resume</span><span class="mega__desc">Experience, projects and certifications</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Work with me</p>
+                    <p class="mega__cta-text">Book a short call and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html" data-booking>Book a Discovery Call</a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__cta" href="contact.html" data-booking>
+          <span class="header__cta-mark" aria-hidden="true">AS</span>Book a Discovery Call
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content" class="kf">
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li aria-current="page">AI Voice Agents and Appointment Scheduling</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="kf-article-hero">
+      <div class="kf-container">
+        <div class="kf-article-hero__inner">
+          <a class="kf-cat-link" href="insights.html?category=ai-voice"><p class="kf-eyebrow kf-eyebrow-light">AI Voice</p></a>
+          <h1 class="kf-article-title">How AI Voice Agents Handle Appointment Scheduling</h1>
+          <div class="kf-article-meta">
+            <span class="kf-avatar">AS</span>
+            <a href="about.html">Amin Sharif</a>
+            <span class="kf-meta__dot">&middot;</span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="kf-sec-lg kf-line-b">
+      <div class="kf-container">
+        <div class="kf-article-layout">
+          <div class="kf-prose">
+            <div class="kf-article-body">
+          <h2 id="how">How an AI voice agent answers a call</h2>
+          <p>An AI voice agent is a phone number backed by software. When a customer calls, the agent answers, transcribes what they say, works out what they are asking, and replies in natural speech. The conversation is shaped by a script and a set of rules you define — not by a person improvising on the spot.</p>
+          <p>The difference between a novelty demo and something worth deploying is everything that happens around the conversation. A useful scheduling agent does not just talk; it checks genuine availability, books a real appointment, and writes the result to a real calendar and CRM. Conversation without those connections is theatre.</p>
+          <p>It helps to picture the call as a loop: the customer speaks, the agent understands, the agent consults your systems, and the agent responds. The intelligence of the design lives in that third step.</p>
+          <p>Good agents are also brief. They greet, get to the point, and avoid filling silence with unnecessary detail. The best measure of a voice agent is not how clever it sounds, but how quickly and accurately it lets the caller get what they came for.</p>
+
+          <h2 id="availability">Checking real calendar availability</h2>
+          <p>The agent should never offer a slot it cannot honour. Before it suggests anything, it queries your calendar for genuine free time. In practice the call flows through an automation layer — often n8n — that fetches open slots, filters them against the rules you set, and returns a short list to the agent. This is a close relative of what I described in <a href="n8n-workflow-automation.html">n8n workflow automation</a>.</p>
+          <p>Rules matter here. You might want appointments only on weekdays, at least two hours ahead, in the customer's time zone, and never overlapping an existing booking. Encoding those rules in the automation keeps the agent honest and keeps your calendar usable for the people who actually deliver the service.</p>
+          <p>It is also worth limiting how many options you offer. Two or three concrete choices keep the call moving and reduce the chance of confusion.</p>
+          <p>Time zones deserve special care. If you serve customers in more than one region, the agent should convert times correctly and say the zone out loud, because a booking that is an hour out is worse than no booking at all.</p>
+
+          <h2 id="booking">Booking and confirming</h2>
+          <p>Once the customer picks a slot, the agent reads the details back — date, time, location or link — and the automation writes the appointment to the calendar. Confirmation is not optional: it catches misheard names and mistaken times before they become a no-show.</p>
+          <p>After booking, the workflow can send a confirmation by email or SMS, add a calendar invite, and schedule a reminder closer to the date. If you already run a booking platform, this is where the two meet; the patterns are similar to those in <a href="ai-booking-platform.html">AI booking platforms</a>.</p>
+          <p>Confirmation is also a chance to set expectations: where to go, who they will speak to, and what to bring. A short, accurate message cuts down on calls that exist only because someone was unsure.</p>
+          <p>One design decision worth making early is what happens if two customers want the same slot at the same moment. A short lock or a re-check immediately before the write prevents double-bookings, and it is far easier to build in from the start than to patch later.</p>
+
+          <h2 id="crm">Logging everything to your CRM</h2>
+          <p>Every call should leave a trace. The agent's transcript, the outcome, the reason for the call and the booked slot all belong in the CRM against the right contact. That is what turns a phone call into something your team can act on a week later.</p>
+          <p>The same duplicate-handling discipline applies as anywhere else: find the contact by phone number or email first, update if they exist, and create only if they do not. A booking that arrives without a matching contact record is a booking nobody can follow up.</p>
+          <p>Store the call recording or transcript only where policy allows, and be clear with callers that the call may be recorded. Capturing data is useful; capturing it carelessly is a liability.</p>
+
+          <h2 id="handoffs">Handling reschedules and edge cases</h2>
+          <p>Real calls are messy. People ask to reschedule, call about something unrelated, or ask a question the agent cannot answer. A good design plans for all three.</p>
+          <ul>
+            <li>Rescheduling should look up the existing appointment and move it, not create a second one alongside it.</li>
+            <li>Unrecognised requests should be captured and passed to a human rather than guessed at.</li>
+            <li>Urgent or sensitive calls should be able to reach a person quickly.</li>
+          </ul>
+          <p>The test of a voice agent is not how well it handles the happy path — it is what it does when the conversation goes sideways. A graceful handover to a human is a feature, not a failure.</p>
+          <p>It helps to rehearse those edge cases before launch. Listen to a handful of real calls, note every moment the agent hesitated or guessed, and tighten the flow around it. A few rounds of that is worth more than any amount of scripting in advance.</p>
+
+          <h2 id="before">What to get right before you deploy</h2>
+          <p>Three things decide whether a voice agent helps or annoys. First, clear scope: define what it handles and what it hands off. Second, honest availability, so it never promises what the calendar cannot deliver. Third, data capture, so no call disappears into the void. Get those right and the technology quietly does its job.</p>
+          <p>If you are considering one, <a href="ai-voice-agents.html">AI voice agents</a> sets out how I approach the build, from call flow to CRM hand-off.</p>
+            </div>
+            <div class="kf-tags"><a class="kf-tag" href="insights.html?category=ai-voice">AI Voice</a></div>
+            <div class="kf-author-box"><span class="kf-author-box__avatar">AS</span><div>
+              <p class="kf-author-box__name">Written by Amin Sharif</p>
+              <p class="kf-author-box__text">Founder-led AI automation agency. I design and ship n8n workflows, CRM integrations and AI agents that remove repetitive work. <a href="about.html">More about me &rarr;</a></p>
+            </div></div>
+          </div>
+          <aside class="kf-aside">
+            <div class="kf-audit">
+              <span class="kf-audit__label">Free automation audit</span>
+              <p class="kf-audit__title">Not sure where to start?</p>
+              <p class="kf-audit__text">Tell me the process that is slowing you down and I will map the fastest automation win.</p>
+              <a class="kf-btn kf-btn-white kf-btn-sm" href="contact.html" data-booking>Book a call</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-sec-lg kf-bg-soft kf-line-b">
+      <div class="kf-container">
+        <p class="kf-eyebrow">More articles</p>
+        <div class="kf-card-grid">
+          <a class="kf-card" href="automate-lead-management-with-n8n.html"><article>
+            <span class="kf-eyebrow kf-card__cat">n8n</span>
+            <h3 class="kf-card__title">How to automate lead management with n8n</h3>
+            <p class="kf-card__excerpt">A practical walkthrough of capturing, enriching, routing and following up with leads.</p>
+            <div class="kf-meta"><span>6 min read</span></div>
+          </article></a>
+          <a class="kf-card" href="connect-n8n-with-hubspot.html"><article>
+            <span class="kf-eyebrow kf-card__cat">HubSpot</span>
+            <h3 class="kf-card__title">How to connect n8n with HubSpot</h3>
+            <p class="kf-card__excerpt">Sync contacts, create and update deals, and trigger follow-ups — with reliability tips.</p>
+            <div class="kf-meta"><span>6 min read</span></div>
+          </article></a>
+          <a class="kf-card" href="n8n-error-handling-monitoring.html"><article>
+            <span class="kf-eyebrow kf-card__cat">Reliability</span>
+            <h3 class="kf-card__title">Error handling and monitoring in n8n</h3>
+            <p class="kf-card__excerpt">Retries, idempotency and alerting — the patterns that keep production automations trustworthy.</p>
+            <div class="kf-meta"><span>8 min read</span></div>
+          </article></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-cta">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l">Let's find your next automation opportunity.</h2>
+          <p class="kf-body-lead">Tell me how your team handles calls and bookings today. We'll look at where a voice agent could help without getting in the way.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+            <a class="kf-btn kf-btn-lg" href="contact.html#inquiry-form">Describe Your Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="index.html" aria-label="Amin Sharif home">
+            <span class="brand__mark" aria-hidden="true">AS</span>
+            <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+          </a>
+          <p>Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.</p>
+          <div class="footer__social">
+            <a href="https://github.com/Aminsharif" data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="#" data-linkedin aria-label="LinkedIn profile" aria-disabled="true"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:sharifmia236@gmail.com" data-email aria-label="Email Amin Sharif"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <nav class="footer__col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="n8n-workflow-automation.html">n8n Workflow Automation</a></li>
+            <li><a href="crm-automation.html">CRM Automation &amp; Integrations</a></li>
+            <li><a href="ai-voice-agents.html">AI Voice Agents</a></li>
+            <li><a href="ai-customer-support.html">AI Customer Support</a></li>
+            <li><a href="rag-knowledge-base.html">RAG &amp; Knowledge Base AI</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:sharifmia236@gmail.com" data-email>sharifmia236@gmail.com</a></li>
+            <li><a href="contact.html" data-booking>Book a discovery call</a></li>
+            <li><a href="tel:+8801670043742">+880 1670 043742</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Amin Sharif. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>n8n vs Zapier vs Make: Which Automation Tool Fits? | Amin Sharif</title>
+  <meta name="description" content="An honest comparison of n8n, Zapier and Make for business automation — flexibility, pricing models, hosting, and which platform suits which type of business.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/n8n-vs-zapier-vs-make.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/n8n-vs-zapier-vs-make.html">
+  <meta property="og:title" content="n8n vs Zapier vs Make: Which Automation Tool Fits? | Amin Sharif">
+  <meta property="og:description" content="An honest comparison of n8n, Zapier and Make for business automation — flexibility, pricing models, hosting, and which platform suits which type of business.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta property="og:image:alt" content="Comparing n8n, Zapier and Make for business automation">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="n8n vs Zapier vs Make: Which Automation Tool Fits? | Amin Sharif">
+  <meta name="twitter:description" content="An honest comparison of n8n, Zapier and Make for business automation — flexibility, pricing models, hosting, and which platform suits which type of business.">
+  <meta name="twitter:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/insights.css">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://aminsharif.com/#founder",
+        "name": "Amin Sharif",
+        "url": "https://aminsharif.com/about.html",
+        "jobTitle": "AI Automation Developer"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://aminsharif.com/#organization",
+        "name": "Amin Sharif",
+        "url": "https://aminsharif.com/",
+        "sameAs": ["https://github.com/Aminsharif"]
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": "https://aminsharif.com/n8n-vs-zapier-vs-make.html#article",
+        "headline": "n8n vs Zapier vs Make: Which Automation Tool Fits?",
+        "description": "An honest comparison of n8n, Zapier and Make for business automation — flexibility, pricing models, hosting, and which platform suits which type of business.",
+        "datePublished": "2026-10-15",
+        "dateModified": "2026-10-15",
+        "author": { "@id": "https://aminsharif.com/#founder" },
+        "publisher": { "@id": "https://aminsharif.com/#organization" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aminsharif.com/n8n-vs-zapier-vs-make.html" },
+        "inLanguage": "en",
+        "articleSection": "Comparison"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aminsharif.com/n8n-vs-zapier-vs-make.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aminsharif.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://aminsharif.com/insights.html" },
+          { "@type": "ListItem", "position": 3, "name": "n8n vs Zapier vs Make", "item": "https://aminsharif.com/n8n-vs-zapier-vs-make.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Amin Sharif, AI automation agency, home">
+        <span class="brand__mark" aria-hidden="true">AS</span>
+        <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="services.html">Services</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="Show Services submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-services">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-workflow-automation.html"><span class="mega__title">n8n Workflow Automation</span><span class="mega__desc">Connect your tools so data moves on its own</span></a></li>
+                      <li><a class="mega__item" href="crm-automation.html"><span class="mega__title">CRM Automation &amp; Integrations</span><span class="mega__desc">Capture, qualify and follow up automatically</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agents.html"><span class="mega__title">AI Voice Agents</span><span class="mega__desc">Answer calls and book appointments</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ai-customer-support.html"><span class="mega__title">AI Customer Support</span><span class="mega__desc">Answer from your own documentation</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG &amp; Knowledge Base AI</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Not sure which service fits?</p>
+                    <p class="mega__cta-text">Most projects combine two or three. Tell me the workflow that is slowing you down.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Describe your project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="case-studies.html">Case Studies</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-work" aria-label="Show Case Studies submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-work">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="lead-generation.html"><span class="mega__title">Lead Capture to CRM</span><span class="mega__desc">Automated lead discovery, scoring and follow-up</span></a></li>
+                      <li><a class="mega__item" href="ai-booking-platform.html"><span class="mega__title">AI Booking Platform</span><span class="mega__desc">Natural-language scheduling with calendar sync</span></a></li>
+                      <li><a class="mega__item" href="support-ai.html"><span class="mega__title">AI Support Agent</span><span class="mega__desc">Answers from your docs, opens tickets when needed</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ecommerce-chatbot.html"><span class="mega__title">E-commerce Chatbot</span><span class="mega__desc">Order lookups, escalations and PII masking</span></a></li>
+                      <li><a class="mega__item" href="contextmesh-ai.html"><span class="mega__title">Multi-Tenant AI Platform</span><span class="mega__desc">Hybrid retrieval with reranking and ingestion</span></a></li>
+                      <li><a class="mega__item" href="invoice-process.html"><span class="mega__title">Invoice &amp; Document Processing</span><span class="mega__desc">Extract, summarise and query documents</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG Knowledge Base</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Want the full breakdown?</p>
+                    <p class="mega__cta-text">Every project starts from a business problem. See how each one was solved.</p>
+                    <a class="mega__cta-link" href="case-studies.html">Browse all case studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="insights.html">Insights</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-insights" aria-label="Show Insights submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-insights">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-vs-zapier-vs-make.html" aria-current="page"><span class="mega__title">n8n vs Zapier vs Make</span><span class="mega__desc">Choosing the right automation platform</span></a></li>
+                      <li><a class="mega__item" href="connect-n8n-with-hubspot.html"><span class="mega__title">Connect n8n with HubSpot</span><span class="mega__desc">A practical CRM integration walkthrough</span></a></li>
+                      <li><a class="mega__item" href="n8n-error-handling-monitoring.html"><span class="mega__title">Error Handling &amp; Monitoring</span><span class="mega__desc">Keeping workflows reliable in production</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="automate-lead-management-with-n8n.html"><span class="mega__title">Automate Lead Management</span><span class="mega__desc">An end-to-end lead pipeline in n8n</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agent-appointment-scheduling.html"><span class="mega__title">Voice Agents &amp; Scheduling</span><span class="mega__desc">Appointment booking over the phone</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Prefer a hands-on answer?</p>
+                    <p class="mega__cta-text">Skip the reading and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="about.html">About</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-about" aria-label="Show About submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-about">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="about.html"><span class="mega__title">About Amin</span><span class="mega__desc">Background, skills and how I work</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="amin-sharif-cv.html"><span class="mega__title">CV / Resume</span><span class="mega__desc">Experience, projects and certifications</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Work with me</p>
+                    <p class="mega__cta-text">Book a short call and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html" data-booking>Book a Discovery Call</a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__cta" href="contact.html" data-booking>
+          <span class="header__cta-mark" aria-hidden="true">AS</span>Book a Discovery Call
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content" class="kf">
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li aria-current="page">n8n vs Zapier vs Make</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="kf-article-hero">
+      <div class="kf-container">
+        <div class="kf-article-hero__inner">
+          <a class="kf-cat-link" href="insights.html?category=comparison"><p class="kf-eyebrow kf-eyebrow-light">Comparison</p></a>
+          <h1 class="kf-article-title">n8n vs Zapier vs Make: Which Automation Tool Fits?</h1>
+          <div class="kf-article-meta">
+            <span class="kf-avatar">AS</span>
+            <a href="about.html">Amin Sharif</a>
+            <span class="kf-meta__dot">&middot;</span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="kf-sec-lg kf-line-b">
+      <div class="kf-container">
+        <div class="kf-article-layout">
+          <div class="kf-prose">
+            <div class="kf-article-body">
+          <h2 id="quick-answer">The quick answer</h2>
+          <p>If you want the short version: Zapier is the easiest place to start, Make rewards people who like building visually, and n8n gives you the most control and the most predictable long-term cost. None of them is universally better. The right choice depends on how unusual your processes are, how much data you move, and how much control you need over where that data lives.</p>
+          <p>This comparison comes from building automations for businesses rather than from a feature checklist, so it focuses on what tends to matter after the initial enthusiasm wears off: maintenance, cost at volume and control.</p>
+          <p>It is also worth saying plainly that the cost of choosing the wrong tool is rarely the subscription. It is the rebuild later, when a process outgrows the platform and has to be recreated somewhere else. That is why the question is less "which is cheapest this month" and more "which will still fit in a year".</p>
+
+          <h2 id="flexibility">Flexibility and control</h2>
+          <p>Zapier is built around triggers and actions. For the common case — "when this happens, do that" — it is fast and genuinely pleasant to use. Where it becomes harder is when a process needs heavy branching, looping, or a transformation the built-in steps do not cover.</p>
+          <p>Make models a scenario as a visual canvas, which makes complex flows easier to read. It supports branching, iteration and data manipulation out of the box, and it is a real step up in power without asking you to write code.</p>
+          <p>n8n is the most developer-friendly of the three. It has a similar canvas, but it also lets you write JavaScript or Python in a Code node, call any REST API with an HTTP Request node, and self-host the whole platform. When a service has an awkward API or a process refuses to fit a template, n8n is usually the least painful place to be. You can see what that looks like in <a href="n8n-workflow-automation.html">n8n workflow automation</a>.</p>
+          <p>The practical test is this: think of the strangest step in your process — the one that needs data from two systems combined, or a rule that changes depending on the customer. That step is where the platforms separate, and it is usually the one that decides the choice.</p>
+
+          <h2 id="pricing">How the pricing models differ</h2>
+          <p>The three tools count work differently, and this is where budgets surprise people.</p>
+          <ul>
+            <li><strong>Zapier</strong> charges per task — each successful action in a run counts. Workflows that loop over many records can consume tasks quickly.</li>
+            <li><strong>Make</strong> charges per operation, with a free tier and lower per-operation pricing as you scale.</li>
+            <li><strong>n8n</strong> does not charge per step. Self-hosted and cloud plans are priced around execution capacity, so a workflow with fifty nodes costs the same as one with five.</li>
+          </ul>
+          <p>That last difference matters more than it first appears. If you are processing a lot of records per run — syncing a database, enriching a list, updating many deals — a task-based model can become expensive, while n8n's node count is irrelevant to the bill. If you run a handful of simple automations a month, the per-task cost may never bother you at all.</p>
+
+          <h2 id="hosting">Hosting and data ownership</h2>
+          <p>Zapier and Make are hosted services. That is convenient: someone else handles uptime, scaling and updates, and your data flows through their infrastructure. For many businesses that is a perfectly reasonable trade.</p>
+          <p>n8n can be self-hosted, which means the workflows and the data they touch stay on infrastructure you control. For teams with strict data rules, regulated industries, or a preference for keeping customer information in-house, that single fact can settle the question. It comes with responsibility, though: backups, updates and monitoring become yours, or your developer's.</p>
+          <p>Neither model is inherently safer. A hosted platform handles security patches for you but keeps your data off-site; a self-hosted instance keeps data close but only as secure as the way it is run. The honest answer is that data ownership is a business decision, not purely a technical one.</p>
+
+          <h2 id="ecosystem">Integrations and ecosystem</h2>
+          <p>Zapier has the widest catalogue of ready-made app connections, and that breadth is a real advantage — the odds are high that any small tool you use already has a connector. Make has strong coverage too, particularly for marketing and e-commerce platforms.</p>
+          <p>n8n has solid native nodes and, unlike the others, treats "nothing is impossible, it just needs an HTTP call" as a design principle. Fewer click-and-connect options, but far more ways to solve the problem when the connector you want does not exist.</p>
+
+          <h2 id="which">Which platform fits which business</h2>
+          <p>A rough rule of thumb:</p>
+          <ul>
+            <li><strong>Choose Zapier</strong> if you want the fastest possible start, your processes are simple, and you value a huge integration library over deep control.</li>
+            <li><strong>Choose Make</strong> if you like building visually and your workflows have genuine branching, but you would still rather not manage a server.</li>
+            <li><strong>Choose n8n</strong> if you need custom logic, want to keep data on your own infrastructure, process larger volumes, or expect automation to grow into your core operations.</li>
+          </ul>
+          <p>It is also entirely reasonable to use more than one. Plenty of teams keep a couple of quick Zapier zaps for convenience while running their serious processes in n8n.</p>
+
+          <h2 id="deciding">How to decide</h2>
+          <p>Rather than picking a tool in the abstract, describe two or three of your real processes and sketch how each would be built. Count the steps, note where custom logic is needed, and estimate how often the workflow will run. That comparison usually makes the answer obvious without any vendor comparison table.</p>
+          <p>Two questions tend to settle it quickly. Will the workflow ever need logic the builder does not offer out of the box? And how many records will each run touch? If the answer to the first is yes and the second is "a lot", the argument for n8n becomes hard to ignore.</p>
+          <p>If you would like a second opinion, I am happy to talk through the options. Start with <a href="services.html">the services overview</a>, or read a worked example in <a href="automate-lead-management-with-n8n.html">automating lead management with n8n</a>.</p>
+            </div>
+            <div class="kf-tags"><a class="kf-tag" href="insights.html?category=comparison">Comparison</a></div>
+            <div class="kf-author-box"><span class="kf-author-box__avatar">AS</span><div>
+              <p class="kf-author-box__name">Written by Amin Sharif</p>
+              <p class="kf-author-box__text">Founder-led AI automation agency. I design and ship n8n workflows, CRM integrations and AI agents that remove repetitive work. <a href="about.html">More about me &rarr;</a></p>
+            </div></div>
+          </div>
+          <aside class="kf-aside">
+            <div class="kf-audit">
+              <span class="kf-audit__label">Free automation audit</span>
+              <p class="kf-audit__title">Not sure where to start?</p>
+              <p class="kf-audit__text">Tell me the process that is slowing you down and I will map the fastest automation win.</p>
+              <a class="kf-btn kf-btn-white kf-btn-sm" href="contact.html" data-booking>Book a call</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-sec-lg kf-bg-soft kf-line-b">
+      <div class="kf-container">
+        <p class="kf-eyebrow">More articles</p>
+        <div class="kf-card-grid">
+          <a class="kf-card" href="automate-lead-management-with-n8n.html"><article>
+            <span class="kf-eyebrow kf-card__cat">n8n</span>
+            <h3 class="kf-card__title">How to automate lead management with n8n</h3>
+            <p class="kf-card__excerpt">A practical walkthrough of capturing, enriching, routing and following up with leads.</p>
+            <div class="kf-meta"><span>6 min read</span></div>
+          </article></a>
+          <a class="kf-card" href="connect-n8n-with-hubspot.html"><article>
+            <span class="kf-eyebrow kf-card__cat">HubSpot</span>
+            <h3 class="kf-card__title">How to connect n8n with HubSpot</h3>
+            <p class="kf-card__excerpt">Sync contacts, create and update deals, and trigger follow-ups — with reliability tips.</p>
+            <div class="kf-meta"><span>6 min read</span></div>
+          </article></a>
+          <a class="kf-card" href="n8n-error-handling-monitoring.html"><article>
+            <span class="kf-eyebrow kf-card__cat">Reliability</span>
+            <h3 class="kf-card__title">Error handling and monitoring in n8n</h3>
+            <p class="kf-card__excerpt">Retries, idempotency and alerting — the patterns that keep production automations trustworthy.</p>
+            <div class="kf-meta"><span>8 min read</span></div>
+          </article></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-cta">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l">Let's find your next automation opportunity.</h2>
+          <p class="kf-body-lead">Tell me which tasks your team repeats every week. We'll look at your current workflow and identify where automation could help.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+            <a class="kf-btn kf-btn-lg" href="contact.html#inquiry-form">Describe Your Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="index.html" aria-label="Amin Sharif home">
+            <span class="brand__mark" aria-hidden="true">AS</span>
+            <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+          </a>
+          <p>Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.</p>
+          <div class="footer__social">
+            <a href="https://github.com/Aminsharif" data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="#" data-linkedin aria-label="LinkedIn profile" aria-disabled="true"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:sharifmia236@gmail.com" data-email aria-label="Email Amin Sharif"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <nav class="footer__col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="n8n-workflow-automation.html">n8n Workflow Automation</a></li>
+            <li><a href="crm-automation.html">CRM Automation &amp; Integrations</a></li>
+            <li><a href="ai-voice-agents.html">AI Voice Agents</a></li>
+            <li><a href="ai-customer-support.html">AI Customer Support</a></li>
+            <li><a href="rag-knowledge-base.html">RAG &amp; Knowledge Base AI</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:sharifmia236@gmail.com" data-email>sharifmia236@gmail.com</a></li>
+            <li><a href="contact.html" data-booking>Book a discovery call</a></li>
+            <li><a href="tel:+8801670043742">+880 1670 043742</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Amin Sharif. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

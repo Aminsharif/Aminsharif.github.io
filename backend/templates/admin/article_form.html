@@ -1,0 +1,132 @@
+{% extends "admin/base.html" %}
+{% set editing = article is not none %}
+{% block title %}{{ 'Edit article' if editing else 'New article' }}{% endblock %}
+{% block heading %}{{ 'Edit article' if editing else 'New article' }}{% endblock %}
+{% block subheading %}
+  <p class="topbar__sub">
+    {% if editing %}
+      Editing “{{ article.title }}”.
+    {% else %}
+      Write a new insight. It appears on the public insights page once published.
+    {% endif %}
+  </p>
+{% endblock %}
+
+{% block actions %}
+  <a class="btn btn--ghost" href="{{ url_for('admin.articles') }}">← Back to list</a>
+{% endblock %}
+
+{% block content %}
+  <form method="post" class="form-grid">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+
+    <div class="form-main">
+      <section class="panel">
+        <label class="field">
+          <span class="field__label">Title <em>*</em></span>
+          <input class="field__input" type="text" name="title" required
+                 value="{{ article.title if editing else '' }}"
+                 placeholder="How to automate lead management with n8n">
+        </label>
+
+        <label class="field">
+          <span class="field__label">Slug</span>
+          <input class="field__input" type="text" name="slug"
+                 value="{{ article.slug if editing else '' }}"
+                 placeholder="auto-generated from the title">
+          <span class="field__hint">Leave blank to generate from the title. Public URL: <code>/article.html?slug=…</code></span>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Excerpt / summary</span>
+          <textarea class="field__input" name="excerpt" rows="3"
+                    placeholder="One or two sentences shown on the insights card.">{{ article.excerpt if editing else '' }}</textarea>
+          <span class="field__hint">Optional — generated from the content if left blank.</span>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Content</span>
+          <textarea class="field__input field__input--code" name="content" rows="20"
+                    placeholder="<p>Write the article body here. HTML is supported.</p>">{{ article.content if editing else '' }}</textarea>
+          <span class="field__hint">HTML is allowed (headings, paragraphs, lists, links, code blocks).</span>
+        </label>
+      </section>
+    </div>
+
+    <aside class="form-side">
+      <section class="panel">
+        <h2 class="panel__title">Publishing</h2>
+        <label class="field">
+          <span class="field__label">Status</span>
+          <select class="field__input" name="status">
+            {% set current_status = article.status if editing else 'published' %}
+            <option value="published" {{ 'selected' if current_status == 'published' }}>Published</option>
+            <option value="draft" {{ 'selected' if current_status == 'draft' }}>Draft</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">Category</span>
+          <select class="field__input" name="category_id">
+            <option value="">— Uncategorised —</option>
+            {% for category in categories %}
+              <option value="{{ category.id }}"
+                {{ 'selected' if editing and article.category_id == category.id }}>
+                {{ category.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">…or add a new category</span>
+          <input class="field__input" type="text" name="new_category" placeholder="e.g. Voice AI">
+        </label>
+        <label class="field">
+          <span class="field__label">Publish date</span>
+          <input class="field__input" type="datetime-local" name="published_at"
+                 value="{{ article.published_at.strftime('%Y-%m-%dT%H:%M') if editing and article.published_at else now.strftime('%Y-%m-%dT%H:%M') }}">
+        </label>
+        <label class="field">
+          <span class="field__label">Read time (minutes)</span>
+          <input class="field__input" type="number" name="read_time" min="1" max="120"
+                 value="{{ article.read_time if editing else 5 }}">
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel__title">Media &amp; links</h2>
+        <label class="field">
+          <span class="field__label">Cover image URL</span>
+          <input class="field__input" type="url" name="cover_image"
+                 value="{{ article.cover_image if editing and article.cover_image else '' }}"
+                 placeholder="https://…/cover.jpg">
+        </label>
+        <label class="field">
+          <span class="field__label">External URL</span>
+          <input class="field__input" type="text" name="external_url"
+                 value="{{ article.external_url if editing and article.external_url else '' }}"
+                 placeholder="leave blank for a built-in article page">
+          <span class="field__hint">Set this to link to an existing .html page instead of a generated article.</span>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel__title">SEO</h2>
+        <label class="field">
+          <span class="field__label">Meta title</span>
+          <input class="field__input" type="text" name="meta_title"
+                 value="{{ article.meta_title if editing and article.meta_title else '' }}">
+        </label>
+        <label class="field">
+          <span class="field__label">Meta description</span>
+          <textarea class="field__input" name="meta_description" rows="3">{{ article.meta_description if editing and article.meta_description else '' }}</textarea>
+        </label>
+      </section>
+
+      <div class="form-actions">
+        <button class="btn btn--primary btn--block" type="submit">
+          {{ 'Save changes' if editing else 'Create article' }}
+        </button>
+      </div>
+    </aside>
+  </form>
+{% endblock %}

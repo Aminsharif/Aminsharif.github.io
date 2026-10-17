@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG &amp; Knowledge Base AI Services | Amin Sharif</title>
+  <meta name="description" content="Retrieval-augmented generation (RAG) and knowledge base AI — assistants that answer from your own documents with cited sources, hybrid search and reranking.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/rag-knowledge-base.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/rag-knowledge-base.html">
+  <meta property="og:title" content="RAG &amp; Knowledge Base AI Services | Amin Sharif">
+  <meta property="og:description" content="Knowledge base AI built on retrieval-augmented generation — answers grounded in your own documents, with cited sources.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta property="og:image:alt" content="Retrieval-augmented generation knowledge base systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RAG &amp; Knowledge Base AI Services | Amin Sharif">
+  <meta name="twitter:description" content="Knowledge base AI built on retrieval-augmented generation — answers grounded in your own documents, with cited sources.">
+  <meta name="twitter:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/insights.css">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aminsharif.com/rag-knowledge-base.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aminsharif.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://aminsharif.com/services.html" },
+          { "@type": "ListItem", "position": 3, "name": "RAG & Knowledge Base AI", "item": "https://aminsharif.com/rag-knowledge-base.html" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://aminsharif.com/rag-knowledge-base.html#service",
+        "name": "RAG & Knowledge Base AI",
+        "serviceType": "Retrieval-augmented generation and knowledge base AI",
+        "description": "Knowledge base AI built on retrieval-augmented generation — assistants that answer from your own documents with cited sources, hybrid search and reranking.",
+        "provider": { "@id": "https://aminsharif.com/#organization" },
+        "areaServed": "Worldwide",
+        "url": "https://aminsharif.com/rag-knowledge-base.html"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://aminsharif.com/rag-knowledge-base.html#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "How is this different from a chatbot that just talks?", "acceptedAnswer": { "@type": "Answer", "text": "A plain chatbot answers from what the model already learned. A retrieval-augmented system first searches your own documents and answers from the passages it finds, so the response is tied to your real, current content and can cite where it came from." } },
+          { "@type": "Question", "name": "Will it make things up?", "acceptedAnswer": { "@type": "Answer", "text": "The system is designed to answer only from retrieved content. When a good match cannot be found it says so instead of guessing, and confidence thresholds can route the question to a person." } },
+          { "@type": "Question", "name": "What kinds of documents can it read?", "acceptedAnswer": { "@type": "Answer", "text": "Help centres, PDFs, policies, product documentation, internal wikis, support tickets and database records are all common sources. What can be ingested depends on the formats and systems you already use." } },
+          { "@type": "Question", "name": "Do we have to re-upload everything when documents change?", "acceptedAnswer": { "@type": "Answer", "text": "No. An ingestion pipeline can update only what has changed, so new and edited documents are reflected without rebuilding the whole knowledge base each time." } },
+          { "@type": "Question", "name": "Can it live inside our own product?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The retrieval layer can be exposed as an API so your own application, support desk or internal tools query it directly, rather than running as a standalone chat window." } },
+          { "@type": "Question", "name": "Which models and database does it use?", "acceptedAnswer": { "@type": "Answer", "text": "The design is model-agnostic. It commonly runs with an OpenAI-compatible model and PostgreSQL with pgvector, but a managed vector store or a different model can be used depending on your constraints." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Amin Sharif, AI automation agency, home">
+        <span class="brand__mark" aria-hidden="true">AS</span>
+        <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="services.html">Services</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="Show Services submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-services">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-workflow-automation.html"><span class="mega__title">n8n Workflow Automation</span><span class="mega__desc">Connect your tools so data moves on its own</span></a></li>
+                      <li><a class="mega__item" href="crm-automation.html"><span class="mega__title">CRM Automation &amp; Integrations</span><span class="mega__desc">Capture, qualify and follow up automatically</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agents.html"><span class="mega__title">AI Voice Agents</span><span class="mega__desc">Answer calls and book appointments</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ai-customer-support.html"><span class="mega__title">AI Customer Support</span><span class="mega__desc">Answer from your own documentation</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html" aria-current="page"><span class="mega__title">RAG &amp; Knowledge Base AI</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Not sure which service fits?</p>
+                    <p class="mega__cta-text">Most projects combine two or three. Tell me the workflow that is slowing you down.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Describe your project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="case-studies.html">Case Studies</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-work" aria-label="Show Case Studies submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-work">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="lead-generation.html"><span class="mega__title">Lead Capture to CRM</span><span class="mega__desc">Automated lead discovery, scoring and follow-up</span></a></li>
+                      <li><a class="mega__item" href="ai-booking-platform.html"><span class="mega__title">AI Booking Platform</span><span class="mega__desc">Natural-language scheduling with calendar sync</span></a></li>
+                      <li><a class="mega__item" href="support-ai.html"><span class="mega__title">AI Support Agent</span><span class="mega__desc">Answers from your docs, opens tickets when needed</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ecommerce-chatbot.html"><span class="mega__title">E-commerce Chatbot</span><span class="mega__desc">Order lookups, escalations and PII masking</span></a></li>
+                      <li><a class="mega__item" href="contextmesh-ai.html"><span class="mega__title">Multi-Tenant AI Platform</span><span class="mega__desc">Hybrid retrieval with reranking and ingestion</span></a></li>
+                      <li><a class="mega__item" href="invoice-process.html"><span class="mega__title">Invoice &amp; Document Processing</span><span class="mega__desc">Extract, summarise and query documents</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG Knowledge Base</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Want the full breakdown?</p>
+                    <p class="mega__cta-text">Every project starts from a business problem. See how each one was solved.</p>
+                    <a class="mega__cta-link" href="case-studies.html">Browse all case studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="insights.html">Insights</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-insights" aria-label="Show Insights submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-insights">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-vs-zapier-vs-make.html"><span class="mega__title">n8n vs Zapier vs Make</span><span class="mega__desc">Choosing the right automation platform</span></a></li>
+                      <li><a class="mega__item" href="connect-n8n-with-hubspot.html"><span class="mega__title">Connect n8n with HubSpot</span><span class="mega__desc">A practical CRM integration walkthrough</span></a></li>
+                      <li><a class="mega__item" href="n8n-error-handling-monitoring.html"><span class="mega__title">Error Handling &amp; Monitoring</span><span class="mega__desc">Keeping workflows reliable in production</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="automate-lead-management-with-n8n.html"><span class="mega__title">Automate Lead Management</span><span class="mega__desc">An end-to-end lead pipeline in n8n</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agent-appointment-scheduling.html"><span class="mega__title">Voice Agents &amp; Scheduling</span><span class="mega__desc">Appointment booking over the phone</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Prefer a hands-on answer?</p>
+                    <p class="mega__cta-text">Skip the reading and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="about.html">About</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-about" aria-label="Show About submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-about">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="about.html"><span class="mega__title">About Amin</span><span class="mega__desc">Background, skills and how I work</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="amin-sharif-cv.html"><span class="mega__title">CV / Resume</span><span class="mega__desc">Experience, projects and certifications</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Work with me</p>
+                    <p class="mega__cta-text">Book a short call and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html" data-booking>Book a Discovery Call</a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__cta" href="contact.html" data-booking>
+          <span class="header__cta-mark" aria-hidden="true">AS</span>Book a Discovery Call
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content" class="kf">
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li aria-current="page">RAG &amp; Knowledge Base AI</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="kf-article-hero">
+      <div class="kf-container">
+        <div class="kf-article-hero__inner">
+          <a class="kf-cat-link" href="services.html">
+            <p class="kf-eyebrow kf-eyebrow-light">Service</p>
+          </a>
+          <h1 class="kf-article-title">RAG &amp; Knowledge Base AI</h1>
+          <p class="kf-hero-summary">AI that answers from your own documents instead of guessing — built on retrieval-augmented generation, with hybrid search, reranking and cited sources so every answer can be traced back to real content.</p>
+          <ul class="kf-hero-tags">
+            <li><i class="fas fa-quote-right" aria-hidden="true"></i> Answers with citations</li>
+            <li><i class="fas fa-magnifying-glass" aria-hidden="true"></i> Hybrid search</li>
+            <li><i class="fas fa-layer-group" aria-hidden="true"></i> Reranked results</li>
+            <li><i class="fas fa-file-import" aria-hidden="true"></i> Document ingestion</li>
+            <li><i class="fas fa-plug" aria-hidden="true"></i> API for your tools</li>
+          </ul>
+          <div class="kf-article-meta">
+            <span class="kf-avatar">AS</span>
+            <a href="about.html">Amin Sharif</a>
+            <span class="kf-meta__dot">&middot;</span>
+            <span>Retrieval &amp; Knowledge Base</span>
+          </div>
+          <div class="kf-btn-group">
+
+          <a href="contact.html" class="kf-btn kf-btn-white" data-booking>Book a Discovery Call</a>
+          <a href="contextmesh-ai.html" class="kf-btn kf-btn-ghost">See the retrieval platform</a>
+                  </div>
+        </div>
+      </div>
+    </header>
+    <section class="kf-sec-lg kf-line-b">
+      <div class="kf-container">
+        <div class="kf-article-layout">
+          <div class="kf-cs-main">
+    <section class="section" aria-labelledby="ps-title">
+      <div class="container">
+        <h2 class="section__title" id="ps-title">The problem and how I solve it</h2>
+        <div class="split-grid">
+          <div class="split-card split-card--problem">
+            <div class="split-card__head"><i class="fas fa-circle-exclamation" aria-hidden="true"></i><h3>What goes wrong</h3></div>
+            <ul class="check-list check-list--problem">
+              <li><i class="fas fa-xmark" aria-hidden="true"></i> A general chatbot gives confident answers that do not match your real policies</li>
+              <li><i class="fas fa-xmark" aria-hidden="true"></i> Knowledge is scattered across PDFs, wikis, tickets and drives</li>
+              <li><i class="fas fa-xmark" aria-hidden="true"></i> Keyword search misses the question when the wording differs</li>
+              <li><i class="fas fa-xmark" aria-hidden="true"></i> Nobody can tell where an answer came from, so it cannot be trusted</li>
+            </ul>
+          </div>
+          <div class="split-card">
+            <div class="split-card__head"><i class="fas fa-circle-check" aria-hidden="true"></i><h3>What retrieval changes</h3></div>
+            <ul class="check-list">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Answers are composed only from passages found in your own content</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Sources are listed, so any answer can be verified in seconds</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Keyword and semantic search run together to catch both exact terms and meaning</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> When nothing relevant is found, the system says so rather than inventing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="flow-title">
+      <div class="container">
+        <h2 class="section__title" id="flow-title">How a knowledge base is built</h2>
+        <div class="split-grid">
+          <div class="">
+            <div class="flow">
+              <div class="flow__step"><i class="fas fa-folder-open" aria-hidden="true"></i> Your documents, pages and records are collected as the knowledge source</div>
+              <div class="flow__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="flow__step"><i class="fas fa-scissors" aria-hidden="true"></i> Content is cleaned, split into passages and turned into embeddings</div>
+              <div class="flow__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="flow__step"><i class="fas fa-magnifying-glass-chart" aria-hidden="true"></i> A question is searched with hybrid retrieval — keywords plus meaning</div>
+              <div class="flow__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="flow__step"><i class="fas fa-layer-group" aria-hidden="true"></i> The best passages are reranked so only the most relevant are kept</div>
+              <div class="flow__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="flow__step"><i class="fas fa-quote-right" aria-hidden="true"></i> An answer is written from those passages and cites its sources</div>
+            </div>
+          </div>
+          <div class="">
+            <h3 class="card__title" style="margin-bottom:var(--space-4);">What is included</h3>
+            <ul class="deliverable-list">
+              <li><i class="fas fa-check" aria-hidden="true"></i> A knowledge source built from the documents you already have</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> A repeatable ingestion pipeline that keeps the index current</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Hybrid retrieval combining keyword and semantic search</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Reranking so the strongest passages reach the model first</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Answers that cite the document they came from</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> An API or widget that drops into the tools you already use</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Testing against real questions before launch</li>
+            </ul>
+            <div class="notice" style="margin-top:var(--space-6);">
+              <i class="fas fa-circle-info" aria-hidden="true"></i>
+              <p><strong>Related work:</strong> this is the same retrieval layer used by the <a href="contextmesh-ai.html">multi-tenant knowledge platform</a> and the <a href="invoice-process.html">document Q&amp;A pipeline</a> case studies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 class="section__title" id="faq-title">Frequently asked questions</h2>
+        <div class="faq">
+          <details class="faq__item"><summary class="faq__q">How is this different from a chatbot that just talks?</summary><div class="faq__a">A plain chatbot answers from what the model already learned. A retrieval-augmented system first searches your own documents and answers from the passages it finds, so the response is tied to your real, current content and can cite where it came from.</div></details>
+          <details class="faq__item"><summary class="faq__q">Will it make things up?</summary><div class="faq__a">The system is designed to answer only from retrieved content. When a good match cannot be found it says so instead of guessing, and confidence thresholds can route the question to a person.</div></details>
+          <details class="faq__item"><summary class="faq__q">What kinds of documents can it read?</summary><div class="faq__a">Help centres, PDFs, policies, product documentation, internal wikis, support tickets and database records are all common sources. What can be ingested depends on the formats and systems you already use.</div></details>
+          <details class="faq__item"><summary class="faq__q">Do we have to re-upload everything when documents change?</summary><div class="faq__a">No. An ingestion pipeline can update only what has changed, so new and edited documents are reflected without rebuilding the whole knowledge base each time.</div></details>
+          <details class="faq__item"><summary class="faq__q">Can it live inside our own product?</summary><div class="faq__a">Yes. The retrieval layer can be exposed as an API so your own application, support desk or internal tools query it directly, rather than running as a standalone chat window.</div></details>
+          <details class="faq__item"><summary class="faq__q">Which models and database does it use?</summary><div class="faq__a">The design is model-agnostic. It commonly runs with an OpenAI-compatible model and PostgreSQL with pgvector, but a managed vector store or a different model can be used depending on your constraints.</div></details>
+        </div>
+      </div>
+    </section>
+          </div>
+          <aside class="kf-aside">
+            <div>
+              <p class="kf-eyebrow">On this page</p>
+              <div class="kf-topics">
+                <a href="#ps-title"><span>The problem and how I solve it</span></a>
+                <a href="#flow-title"><span>How a knowledge base is built</span></a>
+                <a href="#faq-title"><span>Frequently asked questions</span></a>
+              </div>
+            </div>
+            <div class="kf-audit">
+              <span class="kf-audit__label">Free automation audit</span>
+              <p class="kf-audit__title">Want this in your business?</p>
+              <p class="kf-audit__text">Tell me the process that slows you down and I&rsquo;ll map the fastest automation win.</p>
+              <a class="kf-btn kf-btn-white" href="contact.html" data-booking>Book a call</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section class="kf-sec-lg kf-bg-soft kf-line-b kf-more-cs">
+      <div class="kf-container">
+        <p class="kf-eyebrow">More case studies</p>
+        <div class="kf-card-grid">
+            <a class="kf-card" href="lead-generation.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI-Powered Lead Generation &amp; Outreach Automation</h3>
+              <p class="kf-card__excerpt">End-to-end AI automation for lead discovery, enrichment, qualification, scoring, and personalized outreach.</p>
+            </article></a>
+            <a class="kf-card" href="ai-booking-platform.html"><article>
+              <span class="kf-eyebrow kf-card__cat">AI Booking &amp; Scheduling Platform</span>
+              <h3 class="kf-card__title">AI Booking Platform — AI Appointment Scheduling &amp; Calendar Automation</h3>
+              <p class="kf-card__excerpt">An AI booking assistant that talks to customers in natural language — by web, chat, and inbound phone call — checks real Google Calendar availability, books, reschedules and cancels appointments, stores everything in PostgreSQL, and sends confirmations and reminders. It runs on one n8n engine with a Vapi + Twilio voice line, exposed via a FastAPI backend with a Next.js dashboard.</p>
+            </article></a>
+            <a class="kf-card" href="contextmesh-ai.html"><article>
+              <span class="kf-eyebrow kf-card__cat">LangGraph RAG Platform</span>
+              <h3 class="kf-card__title">ContextMesh AI — Multi-Tenant RAG &amp; LangGraph Platform</h3>
+              <p class="kf-card__excerpt">A multi-tenant RAG service with a LangGraph agent, hybrid pgvector + BM25 retrieval with reranking, an 8-stage idempotent ingestion pipeline, and enterprise-grade auth, auditing, and observability.</p>
+            </article></a>
+            <a class="kf-card" href="invoice-process.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI Document Processing &amp; RAG Q&amp;A</h3>
+              <p class="kf-card__excerpt">End-to-end AI pipeline that ingests invoices and documents, extracts text, generates summaries, builds embeddings, and answers questions with cited hybrid search (BM25 + vector).</p>
+            </article></a>
+            <a class="kf-card" href="support-ai.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI Customer Support Agent — RAG + Auto-Ticketing</h3>
+              <p class="kf-card__excerpt">A multi-channel AI support agent that answers customer questions from your own docs, FAQs, and past tickets — and automatically opens a support ticket whenever it can't answer confidently.</p>
+            </article></a>
+            <a class="kf-card" href="ecommerce-chatbot.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI E-commerce Support Chatbot</h3>
+              <p class="kf-card__excerpt">A production-grade AI support chatbot for e-commerce — intent routing, RAG answers from your knowledge base, live order and product data, human escalation, and full observability behind a secure gateway.</p>
+            </article></a>
+        </div>
+      </div>
+    </section>
+    <section class="kf-cta">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l">Let's put your knowledge to work.</h2>
+          <p class="kf-body-lead">If your team or customers keep asking questions the answers already exist for, a knowledge base AI is usually the fastest win. Tell me what you need it to answer.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="index.html" aria-label="Amin Sharif home">
+            <span class="brand__mark" aria-hidden="true">AS</span>
+            <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+          </a>
+          <p>Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.</p>
+          <div class="footer__social">
+            <a href="https://github.com/Aminsharif" data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="#" data-linkedin aria-label="LinkedIn profile" aria-disabled="true"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:sharifmia236@gmail.com" data-email aria-label="Email Amin Sharif"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <nav class="footer__col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="n8n-workflow-automation.html">n8n Workflow Automation</a></li>
+            <li><a href="crm-automation.html">CRM Automation &amp; Integrations</a></li>
+            <li><a href="ai-voice-agents.html">AI Voice Agents</a></li>
+            <li><a href="ai-customer-support.html">AI Customer Support</a></li>
+            <li><a href="rag-knowledge-base.html">RAG &amp; Knowledge Base AI</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:sharifmia236@gmail.com" data-email>sharifmia236@gmail.com</a></li>
+            <li><a href="contact.html" data-booking>Book a discovery call</a></li>
+            <li><a href="tel:+8801670043742">+880 1670 043742</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Amin Sharif. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

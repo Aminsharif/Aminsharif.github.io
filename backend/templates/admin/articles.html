@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+{% block title %}Insights{% endblock %}
+{% block heading %}Insights{% endblock %}
+{% block subheading %}<p class="topbar__sub">Articles shown on the public insights page. Add, edit or remove them here.</p>{% endblock %}
+
+{% block actions %}
+  <a class="btn btn--primary" href="{{ url_for('admin.article_new') }}">+ New article</a>
+{% endblock %}
+
+{% block content %}
+  <section class="panel">
+    {% if articles %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Read</th>
+            <th>Published</th>
+            <th class="table__actions-col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for article in articles %}
+            <tr>
+              <td>
+                <a class="table__title" href="{{ url_for('admin.article_edit', article_id=article.id) }}">{{ article.title }}</a>
+                <span class="table__slug">
+                  {{ article.external_url if article.external_url else '/article.html?slug=' ~ article.slug }}
+                </span>
+              </td>
+              <td>{{ article.category_name or '—' }}</td>
+              <td><span class="badge badge--{{ article.status }}">{{ article.status }}</span></td>
+              <td>{{ article.read_time }} min</td>
+              <td>{{ article.published_at.strftime('%d %b %Y') }}</td>
+              <td class="table__actions">
+                <a class="btn btn--ghost btn--sm" href="{{ url_for('admin.article_edit', article_id=article.id) }}">Edit</a>
+                <form method="post" action="{{ url_for('admin.article_delete', article_id=article.id) }}"
+                      onsubmit="return confirm('Delete “{{ article.title }}”? This cannot be undone.');">
+                  <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+                  <button class="btn btn--danger btn--sm" type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="empty">No articles yet. <a href="{{ url_for('admin.article_new') }}">Create the first one</a>.</p>
+    {% endif %}
+  </section>
+{% endblock %}

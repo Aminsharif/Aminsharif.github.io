@@ -1,413 +1,922 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amin Sharif - CV</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
-    <style>
-        :root {
-            --text: #1e293b;
-            --muted: #475569;
-            --accent: #2563eb;
-            --line: #e2e8f0;
-            --bg: #ffffff;
-        }
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-            background: #f8fafc;
-            color: var(--text);
-            line-height: 1.45;
-        }
-        .page {
-            max-width: 980px;
-            margin: 2rem auto;
-            background: var(--bg);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 16px 28px rgba(15, 23, 42, 0.08);
-        }
-        .header {
-            padding: 2rem;
-            background: linear-gradient(135deg, #eff6ff, #f8fafc);
-            border-bottom: 1px solid var(--line);
-        }
-        .cv-actions {
-            display: flex;
-            justify-content: flex-end;
-            padding: 0.9rem 1rem 0;
-        }
-        .print-btn {
-            border: 1px solid var(--line);
-            background: #fff;
-            color: var(--text);
-            border-radius: 999px;
-            padding: 0.45rem 0.9rem;
-            font-size: 0.86rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .print-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.25rem;
-            margin-bottom: 0.9rem;
-        }
-        .profile-photo {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #fff;
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
-            flex-shrink: 0;
-        }
-        .name {
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 0 0 0.4rem;
-            letter-spacing: 0.02em;
-        }
-        .role {
-            margin: 0 0 1rem;
-            color: var(--muted);
-            font-weight: 600;
-        }
-        .contacts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 0.45rem 1rem;
-            font-size: 0.95rem;
-        }
-        .contacts a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        .content {
-            padding: 1.4rem 2rem 2rem;
-        }
-        h2 {
-            margin: 1.2rem 0 0.7rem;
-            font-size: 1.06rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-        }
-        .summary {
-            margin: 0;
-            color: var(--muted);
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 0.7rem 1rem;
-        }
-        .skill-group {
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            padding: 0.8rem;
-        }
-        .skill-group h3 {
-            margin: 0 0 0.5rem;
-            font-size: 0.95rem;
-        }
-        .skill-group ul {
-            margin: 0;
-            padding-left: 1rem;
-            color: var(--muted);
-        }
-        .item {
-            border-top: 1px solid var(--line);
-            padding-top: 0.9rem;
-            margin-top: 0.9rem;
-        }
-        .item:first-of-type {
-            border-top: none;
-            margin-top: 0;
-            padding-top: 0;
-        }
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 0.35rem;
-        }
-        .item-title {
-            margin: 0;
-            font-size: 1rem;
-            font-weight: 700;
-        }
-        .item-date {
-            color: var(--muted);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .item-sub {
-            margin: 0 0 0.5rem;
-            color: var(--muted);
-            font-size: 0.93rem;
-        }
-        ul.points {
-            margin: 0.3rem 0 0;
-            padding-left: 1.1rem;
-            color: var(--muted);
-        }
-        ul.points li {
-            margin: 0.25rem 0;
-        }
-        .meta-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 0.7rem 1rem;
-        }
-        .meta-card {
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            padding: 0.75rem;
-        }
-        .meta-card h3 {
-            margin: 0 0 0.3rem;
-            font-size: 0.95rem;
-        }
-        .meta-card p {
-            margin: 0;
-            color: var(--muted);
-        }
-        .projects-list {
-            margin: 0;
-            padding-left: 1.1rem;
-            color: var(--muted);
-        }
-        .projects-list a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        @media print {
-            body {
-                background: #fff;
-            }
-            .cv-actions {
-                display: none;
-            }
-            .page {
-                margin: 0;
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-                max-width: 100%;
-            }
-            a {
-                color: inherit;
-                text-decoration: none;
-            }
-        }
-        @media (max-width: 620px) {
-            .header-top {
-                flex-direction: column-reverse;
-                align-items: flex-start;
-            }
-            .profile-photo {
-                width: 90px;
-                height: 90px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amin Sharif — CV / Resume</title>
+  <meta name="description" content="Professional CV of Amin Sharif, AI Engineer specializing in multi-tenant RAG platforms, LangGraph agents, and n8n AI automation — built on FastAPI, pgvector, and Redis.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/amin-sharif-cv.html">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/amin-sharif-cv.html">
+  <meta property="og:title" content="Amin Sharif — CV / Resume">
+  <meta property="og:description" content="Professional CV of Amin Sharif, AI Engineer specializing in multi-tenant RAG platforms, LangGraph agents, and n8n AI automation.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <style>
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-bg: #ffffff;
+      --color-surface: #ffffff;
+      --color-border: #e2e7f0;
+      --color-text: #1e3a6e;
+      --color-text-secondary: #5b7cb8;
+      --color-text-muted: #8fa4c8;
+      --color-accent: #1e3a6e;
+      --color-accent-light: rgba(30, 58, 110, 0.07);
+      --color-divider: #e2e7f0;
+      --font-body: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-display: 'Anton', 'Arial Narrow', sans-serif;
+      --max-width: 900px;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========================================
+       CONTROLS BAR
+       ======================================== */
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: 12px 0;
+    }
+
+    .controls__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .controls__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: all 200ms ease;
+    }
+
+    .controls__back:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .controls__actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      background: var(--color-accent);
+      padding: 8px 20px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background 200ms ease;
+      font-family: inherit;
+    }
+
+    .btn-print:hover {
+      background: #0e1f4a;
+    }
+
+    .btn-print i {
+      font-size: 14px;
+    }
+
+    /* ========================================
+       CV CONTENT — Professional Resume Layout
+       ======================================== */
+    .cv {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      margin: 32px auto 48px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    /* ----- HEADER SECTION ----- */
+    .cv-header {
+      padding: 48px 48px 40px;
+      background: linear-gradient(135deg, #0e1f4a 0%, #14264f 100%);
+      color: #fff;
+    }
+
+    .cv-header__grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .cv-header__info h1 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .cv-header__title {
+      font-size: 17px;
+      font-weight: 400;
+      color: #a9bddd;
+      margin-bottom: 20px;
+    }
+
+    .cv-header__contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+    }
+
+    .cv-header__contact a,
+    .cv-header__contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #c7d5ee;
+      transition: color 200ms ease;
+    }
+
+    .cv-header__contact a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .cv-header__contact i {
+      width: 16px;
+      color: #e9b85c;
+      font-size: 14px;
+    }
+
+    .cv-header__photo {
+      flex-shrink: 0;
+    }
+
+    .cv-header__photo-img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cv-header__photo-placeholder {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.4);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      font-family: var(--font-display);
+    }
+
+    /* ----- BODY LAYOUT ----- */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0;
+    }
+
+    .cv-main {
+      padding: 40px 40px 40px 48px;
+    }
+
+    .cv-sidebar {
+      padding: 40px 32px 40px 28px;
+      background: #f2f5fa;
+      border-left: 1px solid var(--color-border);
+    }
+
+    /* ----- SECTION HEADINGS ----- */
+    .cv-section {
+      margin-bottom: 32px;
+    }
+
+    .cv-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-section__title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-accent);
+    }
+
+    /* ----- SUMMARY ----- */
+    .cv-summary {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+    }
+
+    /* ----- EXPERIENCE ----- */
+    .cv-experience-item {
+      margin-bottom: 28px;
+    }
+
+    .cv-experience-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+
+    .cv-experience-role {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.3;
+    }
+
+    .cv-experience-company {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-accent);
+      margin-bottom: 2px;
+    }
+
+    .cv-experience-date {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      padding: 2px 10px;
+      background: var(--color-accent-light);
+      border-radius: 20px;
+    }
+
+    .cv-experience-desc {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
+    .cv-experience-list {
+      margin-top: 6px;
+      padding-left: 0;
+    }
+
+    .cv-experience-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      margin-bottom: 4px;
+    }
+
+    .cv-experience-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-text-muted);
+    }
+
+    .cv-experience-tools {
+      font-size: 12.5px;
+      color: var(--color-text-muted);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ----- PROJECTS (compact) ----- */
+    .cv-project-item {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .cv-project-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .cv-project-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .cv-project-desc {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-top: 2px;
+    }
+
+    /* ----- SKILLS (sidebar) ----- */
+    .cv-skill-group {
+      margin-bottom: 24px;
+    }
+
+    .cv-skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-skill-group__title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-muted);
+      margin-bottom: 10px;
+    }
+
+    .cv-skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .cv-skill-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 3px 10px;
+      border-radius: 4px;
+      line-height: 1.4;
+    }
+
+    /* ----- EDUCATION (sidebar) ----- */
+    .cv-edu-item {
+      margin-bottom: 16px;
+    }
+
+    .cv-edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-edu-degree {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .cv-edu-school {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    .cv-edu-year {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    /* ----- CERTIFICATIONS (sidebar) ----- */
+    .cv-cert-item {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .cv-cert-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .cv-cert-title {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .cv-cert-issuer {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+
+    /* ----- LANGUAGES (sidebar) ----- */
+    .cv-lang-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 4px 0;
+    }
+
+    .cv-lang-name {
+      font-weight: 500;
+    }
+
+    .cv-lang-level {
+      color: var(--color-text-muted);
+    }
+
+    /* ========================================
+       PRINT STYLES — Preserve the exact screen design
+       ======================================== */
+    @media print {
+      /* Enable color printing across all elements */
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body {
+        background: #ffffff;
+        color: #1e3a6e;
+        font-size: 15px;
+      }
+
+      /* Hide controls bar only */
+      .controls {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Keep CV card exactly as designed */
+      .cv {
+        border: 1px solid #e2e7f0;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        margin: 0 auto;
+        max-width: var(--max-width);
+        page-break-after: avoid;
+        overflow: hidden;
+      }
+
+      /* Keep header colors */
+      .cv-header {
+        background: linear-gradient(135deg, #0e1f4a 0%, #14264f 100%) !important;
+        padding: 48px 48px 40px;
+      }
+
+      .cv-header__info h1 { font-size: 40px; }
+      .cv-header__title { font-size: 17px; }
+      .cv-header__contact a,
+      .cv-header__contact span { font-size: 13px; }
+
+      /* Keep two-column layout — use flexbox for print (grid breaks in print engines) */
+      .cv-body {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+      }
+
+      .cv-main {
+        flex: 1;
+        min-width: 0;
+        padding: 40px 40px 40px 48px;
+      }
+      .cv-sidebar {
+        width: 280px;
+        flex-shrink: 0;
+        padding: 40px 32px 40px 28px;
+        background: #f2f5fa;
+        border-left: 1px solid #e2e7f0;
+      }
+
+      /* Keep all font sizes */
+      .cv-section__title { font-size: 13px; }
+      .cv-summary { font-size: 14.5px; }
+      .cv-experience-role { font-size: 16px; }
+      .cv-experience-desc { font-size: 14px; }
+      .cv-experience-list li { font-size: 13.5px; }
+      .cv-experience-tools { font-size: 12.5px; }
+      .cv-experience-date { font-size: 13px; }
+      .cv-project-title { font-size: 14px; }
+      .cv-project-desc { font-size: 13px; }
+      .cv-skill-tag { font-size: 12px; padding: 3px 10px; }
+      .cv-edu-degree { font-size: 14px; }
+      .cv-cert-title { font-size: 13px; }
+
+      /* Keep spacing */
+      .cv-experience-item { margin-bottom: 28px; }
+      .cv-section { margin-bottom: 32px; }
+
+      /* Keep photo size */
+      .cv-header__photo-img,
+      .cv-header__photo-placeholder {
+        width: 110px;
+        height: 110px;
+        font-size: 40px;
+      }
+
+      /* Keep links blue and clickable on paper, show full URL */
+      a {
+        color: #1e3a6e;
+        text-decoration: none;
+      }
+
+      /* Keep borders and dividers */
+      .cv-divider,
+      .cv-section__title { border-bottom-color: #1e3a6e; }
+      .cv-project-item { border-bottom-color: #e2e7f0; }
+
+      .btn-print { display: none; }
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 768px) {
+      .cv-header { padding: 32px 24px; }
+      .cv-header__grid { flex-direction: column-reverse; align-items: center; text-align: center; }
+      .cv-header__contact { justify-content: center; }
+      .cv-body { grid-template-columns: 1fr; }
+      .cv-main { padding: 28px 24px; }
+      .cv-sidebar { padding: 28px 24px; border-left: none; border-top: 1px solid var(--color-border); }
+      .cv-experience-header { flex-direction: column; gap: 4px; }
+      .cv-experience-date { align-self: flex-start; }
+      .controls__inner { flex-direction: column; gap: 8px; }
+    }
+
+    @media (max-width: 480px) {
+      .cv-header { padding: 24px 16px; }
+      .cv-header__info h1 { font-size: 26px; }
+      .cv-main { padding: 20px 16px; }
+      .cv-sidebar { padding: 20px 16px; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition-duration: 0.01ms !important; }
+    }
+  </style>
 </head>
 <body>
-    <main class="page">
-        <div class="cv-actions">
-            <button class="print-btn" type="button" onclick="window.print()">Print CV</button>
+
+  <!-- ====== CONTROLS BAR ====== -->
+  <div class="controls">
+    <div class="container controls__inner">
+      <a href="index.html" class="controls__back">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
+      </a>
+      <div class="controls__actions">
+        <button class="btn-print" onclick="window.print()">
+          <i class="fas fa-print" aria-hidden="true"></i> Print / Save PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== CV CONTENT ====== -->
+  <div class="container">
+    <div class="cv">
+
+      <!-- HEADER -->
+      <header class="cv-header">
+        <div class="cv-header__grid">
+          <div class="cv-header__info">
+            <h1>Amin Sharif</h1>
+            <p class="cv-header__title">AI Engineer | Multi-Tenant RAG · LangGraph Agents · AI Automation</p>
+            <div class="cv-header__contact">
+              <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Dhaka, Bangladesh</span>
+              <a href="tel:+8801670043742"><i class="fas fa-phone" aria-hidden="true"></i> +880 1670 043742</a>
+              <a href="mailto:sharifmia236@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> sharifmia236@gmail.com</a>
+              <a href="https://github.com/Aminsharif" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> github.com/Aminsharif</a>
+            </div>
+          </div>
+          <div class="cv-header__photo">
+            <img
+              src="assets/images/amin.jpg"
+              alt="Amin Sharif"
+              class="cv-header__photo-img"
+              width="110"
+              height="110"
+              loading="lazy"
+              onerror="this.outerHTML='<div class=\'cv-header__photo-placeholder\'>AS</div>'"
+            >
+          </div>
         </div>
-        <header class="header">
-            <div class="header-top">
+      </header>
+
+      <!-- BODY -->
+      <div class="cv-body">
+
+        <!-- MAIN COLUMN -->
+        <div class="cv-main">
+
+          <!-- Professional Summary -->
+          <section class="cv-section">
+            <h2 class="cv-section__title">Professional Summary</h2>
+            <p class="cv-summary">
+              AI engineer with 5+ years of professional experience spanning full-stack development (.NET &amp; Angular) and production AI systems. Specializes in multi-tenant RAG platforms — hybrid pgvector + BM25 retrieval with reranking, idempotent document ingestion, and LangGraph agent orchestration — plus end-to-end n8n automations for lead generation, document processing, customer support, and e-commerce. Builds with clean architecture and security in mind: FastAPI services with JWT auth and role-based access, SQLAlchemy + Alembic migrations, Redis-backed workers, and observability.
+            </p>
+          </section>
+
+          <!-- Experience -->
+          <section class="cv-section">
+            <h2 class="cv-section__title">Experience</h2>
+
+            <div class="cv-experience-item">
+              <div class="cv-experience-header">
                 <div>
-                    <h1 class="name">Amin Sharif</h1>
-                    <p class="role">AI Engineer | Full-Stack Software Engineer | LangChain & LangGraph Developer</p>
+                  <div class="cv-experience-role">Software Engineer (AI &amp; Full-Stack)</div>
+                  <div class="cv-experience-company">Wilka — Velbert, Germany</div>
                 </div>
-                <img class="profile-photo" src="images/amin.jpg" alt="Amin Sharif">
-            </div>
-            <div class="contacts">
-                <div>Address: House No-61-62, Road No-06, Monsurabad Housing, Mohammadpur, Dhaka, Bangladesh</div>
-                <div>Mobile: +8801670043742</div>
-                <div>Email: <a href="mailto:sharifmia236@gmail.com">sharifmia236@gmail.com</a></div>
-                <div>GitHub: <a href="https://github.com/Aminsharif?tab=repositories" target="_blank">github.com/Aminsharif</a></div>
-                <div>Live Project: <a href="http://144.91.123.138/" target="_blank">Knowledge AI</a></div>
-            </div>
-        </header>
-
-        <section class="content">
-            <h2>Professional Summary</h2>
-            <p class="summary">Software engineer with more than five years of professional experience in C#.NET and Angular, now focused on AI-first systems including Knowledge Base AI, RAG pipelines, LangChain, LangGraph, agentic workflows, chatbot development, and GPT/Ollama integrations. Proven background in building and scaling enterprise-grade applications, APIs, ERP modules, and cross-platform products.</p>
-
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h3>AI & Agentic Systems</h3>
-                    <ul>
-                        <li>LangChain, LangGraph</li>
-                        <li>RAG Pipelines, Tool Calling, Agentic Workflows</li>
-                        <li>Knowledge Base AI, Chatbot Architectures</li>
-                        <li>GPT and Ollama Integration</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>Backend</h3>
-                    <ul>
-                        <li>C#.NET, ASP.NET Core</li>
-                        <li>Web API, REST</li>
-                        <li>SQLAlchemy concepts, Clean Architecture</li>
-                        <li>MS SQL Server</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>Databases</h3>
-                    <ul>
-                        <li>PostgreSQL, MS SQL, MySQL, MongoDB</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>Vector Databases</h3>
-                    <ul>
-                        <li>PGVector, FAISS, ChromaDB</li>
-                        <li>Weaviate, Pinecone, Elasticsearch</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>Frontend & Mobile</h3>
-                    <ul>
-                        <li>Angular 7-16, Angular Material</li>
-                        <li>React JS, Next.js, React Native Expo</li>
-                        <li>Bootstrap, JavaScript, TypeScript</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h3>Cloud & Tools</h3>
-                    <ul>
-                        <li>Azure, Git, GitLab, TFS</li>
-                        <li>Visual Studio</li>
-                        <li>Automated testing practices</li>
-                    </ul>
-                </div>
+                <span class="cv-experience-date">Feb 2021 – Present</span>
+              </div>
+              <p class="cv-experience-desc">
+                Designing and delivering AI-enabled products with FastAPI, secure auth flows, role-based access, and scalable data and LLM workflows. Built comprehensive in-house ERP for order management, delivery tracking, and data processing. Developed order processing modules, Excel template import/export flows, and integrated Azure services.
+              </p>
+              <ul class="cv-experience-list">
+                <li>Engineered a multi-tenant RAG platform (ContextMesh AI) with LangGraph orchestration, hybrid pgvector + BM25 retrieval, cross-encoder reranking, and an idempotent 8-stage ingestion pipeline</li>
+                <li>Designed and deployed production RAG pipelines and Knowledge Base AI platforms using FastAPI, LangChain, and LangGraph</li>
+                <li>Built end-to-end n8n automations for AI lead generation, document processing, customer support, and e-commerce chatbots</li>
+                <li>Architected secure authentication flows (JWT access/refresh tokens, email verification, RBAC) for AI applications</li>
+                <li>Built and maintained enterprise ERP modules — order management, delivery tracking, customer data processing, and reporting</li>
+                <li>Migrated legacy database records into modern systems with minimal disruption</li>
+                <li>Implemented automated testing, conducted user training, and provided ongoing operational support</li>
+              </ul>
+              <div class="cv-experience-tools">Tools: FastAPI, LangChain, LangGraph, PostgreSQL + pgvector, Redis, SQLAlchemy, Alembic, n8n, C#.NET, ASP.NET Core, Angular, Azure, Git</div>
             </div>
 
-            <h2>Professional Experience</h2>
-            <article class="item">
-                <div class="item-header">
-                    <h3 class="item-title">Software Engineer — Wilka, Velbert, Germany</h3>
-                    <div class="item-date">Feb 2021 - Present</div>
+            <div class="cv-experience-item">
+              <div class="cv-experience-header">
+                <div>
+                  <div class="cv-experience-role">Software Engineer</div>
+                  <div class="cv-experience-company">Trillionbits Ltd.</div>
                 </div>
-                <p class="item-sub"><a href="https://www.wilka.de" target="_blank">www.wilka.de</a></p>
-                <ul class="points">
-                    <li>Developed and implemented a comprehensive in-house ERP for order management, delivery tracking, and data processing.</li>
-                    <li>Designed order processing modules covering order details, delivery dates, and customer information.</li>
-                    <li>Built Excel template import/export flows to improve data accuracy and efficiency.</li>
-                    <li>Integrated Azure services for performance, scalability, and security.</li>
-                    <li>Migrated and merged legacy database records into the new ERP with minimal operational disruption.</li>
-                    <li>Collaborated with stakeholders and cross-functional teams to align the system with business requirements.</li>
-                    <li>Conducted user training and delivered ongoing operational support.</li>
-                    <li>Implemented automated testing practices for reliability and robustness.</li>
-                </ul>
-                <p class="item-sub">Tools: C#.NET, ASP.NET Core, Web API, REST, Angular 12-16, Angular Material, Visual Studio, TFS, Git, Azure, GitLab</p>
-            </article>
-
-            <article class="item">
-                <div class="item-header">
-                    <h3 class="item-title">Software Engineer — Trillionbits Ltd.</h3>
-                    <div class="item-date">May 2019 - Jan 2021</div>
-                </div>
-                <p class="item-sub"><a href="https://www.trillionbits.com" target="_blank">www.trillionbits.com</a></p>
-                <ul class="points">
-                    <li>BDHOTDEALS E-Commerce: content management, promotions, discounts, checkout, user engagement, reviews, third-party signup, sharing, and multiple payment support.</li>
-                    <li>ACS Web Application: digest authentication for third-party APIs, Excel upload workflow, multi-role user mapping, and wizard-based migration flows.</li>
-                    <li>EMS Web + App: employee management, geofencing, map tracking, attendance, leave lifecycle, QR modules, and fingerprint-based app login.</li>
-                    <li>C5V Web + App: environment survey solution with blockchain features for Australian client requirements.</li>
-                    <li>Security Guard Tracker Web + App: fingerprint attendance, multilingual interface, geofencing, map and reporting modules.</li>
-                    <li>Smart Team Malaysia: team management web solution for Malaysian client.</li>
-                </ul>
-                <p class="item-sub">Stack: C#, ASP.NET Core Web APIs, Angular, AngularJS, Node.js, React Native, Bootstrap, Visual Studio, MS SQL</p>
-            </article>
-
-            <article class="item">
-                <div class="item-header">
-                    <h3 class="item-title">Jr. Software Engineer — Databiz Software Limited</h3>
-                    <div class="item-date">Aug 2018 - Apr 2019</div>
-                </div>
-                <ul class="points">
-                    <li>Bizness Roots (Web ERP): developed Help Center module using ASP.NET MVC.</li>
-                    <li>BIZNESS ARCADE (Web ERP): developed land acquisition module for township workflow.</li>
-                </ul>
-                <p class="item-sub">Stack: C#, ASP.NET MVC 4, ASP.NET Web Forms, JavaScript, jQuery, MS SQL</p>
-            </article>
-
-            <article class="item">
-                <div class="item-header">
-                    <h3 class="item-title">Intern — Medilife Solution Limited</h3>
-                    <div class="item-date">Feb 2018 - Jul 2018</div>
-                </div>
-                <ul class="points">
-                    <li>Prescription App: doctor appointment booking, reports access, and nearest doctor/hospital/blood bank map support.</li>
-                    <li>Doctor App: chamber schedule management, appointment tracking, and patient visit information handling.</li>
-                </ul>
-                <p class="item-sub">Stack: C#, React Native, ASP.NET Web APIs, MS SQL</p>
-            </article>
-
-            <h2>Featured Projects</h2>
-            <ul class="projects-list">
-                <li><strong>KnowledgeAI-FastAPI</strong> — production-ready FastAPI platform with auth flows, ingestion, and scalable AI workflow architecture.</li>
-                <li><a href="https://github.com/Aminsharif/RAG-pdf-ingest" target="_blank">RAG-pdf-ingest</a> — RAG operation for PDF ingestion with graph-based retrieval.</li>
-                <li><a href="https://github.com/Aminsharif/RAG-chatbot-withtool" target="_blank">RAG-chatbot-withtool</a> — Q&A chatbot with RAG and tools.</li>
-                <li><a href="https://github.com/Aminsharif/RAG-chatbot-for-llamaindex" target="_blank">RAG-chatbot-for-llamaindex</a> — TypeScript chatbot for LlamaIndex documentation Q&A.</li>
-                <li><a href="https://github.com/Aminsharif/chatbot_with_langchain" target="_blank">chatbot_with_langchain</a> — documentation-focused chatbot with LangChain/LangSmith.</li>
-                <li><a href="https://github.com/Aminsharif/eCommerce" target="_blank">eCommerce</a> and <a href="https://github.com/Aminsharif/DL-Dataset" target="_blank">DL-Dataset</a> — additional product engineering and dataset repositories.</li>
-            </ul>
-
-            <h2>Education</h2>
-            <ul class="points">
-                <li>Post Graduate Diploma in ICT — Mawlana Bhashani Science and Technology University (2016)</li>
-                <li>MS in Mathematics — Mawlana Bhashani Science and Technology University (2015)</li>
-                <li>B.Sc. (Hon’s) in Mathematics — Mawlana Bhashani Science and Technology University (2014)</li>
-            </ul>
-
-            <h2>Professional Courses & Certifications</h2>
-            <ul class="points">
-                <li><a href="https://academy.langchain.com/certificates/879njewsge" target="_blank">Project: Ambient Agents with LangGraph</a> — LangChain Academy (Issued: 2025-12-18)</li>
-                <li><a href="https://academy.langchain.com/certificates/z9q4erwnkn" target="_blank">Foundation: Introduction to LangGraph</a> — LangChain Academy (Issued: 2025-11-19)</li>
-                <li><a href="https://academy.langchain.com/certificates/tzfjt0uumw" target="_blank">Quickstart: LangChain Essentials - Python</a> — LangChain Academy (Issued: 2025-11-07)</li>
-                <li>Complete Generative AI Course with LangChain and Hugging Face — Udemy (2024)</li>
-                <li>Full Stack Data Science BootCamp 2.0 — iNeuron (2022)</li>
-                <li>Diploma in Enterprise System Analysis & Design with C# .NET — IDB-BISEW (2017)</li>
-                <li>Programming in HTML5 with JavaScript and CSS3 — Microsoft Certification</li>
-                <li>Developing ASP.NET MVC Web Applications (70-486) — Microsoft Certification</li>
-                <li>Microsoft ASP.NET Core MVC with SQL Server 2016 — PeopleNTech Institute of Information Technology</li>
-            </ul>
-
-            <h2>Languages & Interests</h2>
-            <div class="meta-row">
-                <div class="meta-card">
-                    <h3>Languages</h3>
-                    <p>Mother Tongue: Bengali</p>
-                    <p>English: Fluent</p>
-                </div>
-                <div class="meta-card">
-                    <h3>Interests</h3>
-                    <p>Learning new technologies, surfing internet, travelling, and playing cricket.</p>
-                </div>
+                <span class="cv-experience-date">May 2019 – Jan 2021</span>
+              </div>
+              <ul class="cv-experience-list">
+                <li>BDHOTDEALS E-Commerce: built content management, promotions, discounts, checkout, user engagement, reviews, third-party signup, and multiple payment support</li>
+                <li>ACS Web Application: digest authentication for third-party APIs, Excel upload workflows, multi-role user mapping, and wizard-based migration flows</li>
+                <li>EMS (Web + App): employee management, geofencing, map tracking, attendance, leave lifecycle, QR modules, and fingerprint-based login</li>
+                <li>C5V (Web + App): environment survey solution with blockchain features for Australian client</li>
+                <li>Security Guard Tracker (Web + App): fingerprint attendance, multilingual interface, geofencing, map and reporting modules</li>
+              </ul>
+              <div class="cv-experience-tools">Tools: C#, ASP.NET Core Web APIs, Angular, AngularJS, Node.js, React Native, Bootstrap, MS SQL</div>
             </div>
-        </section>
-    </main>
+
+            <div class="cv-experience-item">
+              <div class="cv-experience-header">
+                <div>
+                  <div class="cv-experience-role">Jr. Software Engineer</div>
+                  <div class="cv-experience-company">Databiz Software Limited</div>
+                </div>
+                <span class="cv-experience-date">Aug 2018 – Apr 2019</span>
+              </div>
+              <ul class="cv-experience-list">
+                <li>Bizness Roots (Web ERP): developed Help Center module using ASP.NET MVC</li>
+                <li>Bizness Arcade (Web ERP): developed land acquisition module for township workflow</li>
+              </ul>
+              <div class="cv-experience-tools">Tools: C#, ASP.NET MVC 4, ASP.NET Web Forms, JavaScript, jQuery, MS SQL</div>
+            </div>
+
+            <div class="cv-experience-item">
+              <div class="cv-experience-header">
+                <div>
+                  <div class="cv-experience-role">Intern</div>
+                  <div class="cv-experience-company">Medilife Solution Limited</div>
+                </div>
+                <span class="cv-experience-date">Feb 2018 – Jul 2018</span>
+              </div>
+              <ul class="cv-experience-list">
+                <li>Prescription App: doctor appointment booking, reports access, and nearest doctor/hospital/blood bank map support</li>
+                <li>Doctor App: chamber schedule management, appointment tracking, and patient visit information handling</li>
+              </ul>
+              <div class="cv-experience-tools">Tools: C#, React Native, ASP.NET Web APIs, MS SQL</div>
+            </div>
+          </section>
+
+          <!-- Featured Projects -->
+          <section class="cv-section">
+            <h2 class="cv-section__title">Featured Projects</h2>
+
+            <div class="cv-project-item">
+              <div class="cv-project-title">ContextMesh AI — Multi-Tenant RAG &amp; LangGraph Platform</div>
+              <p class="cv-project-desc">
+                Multi-tenant RAG service with a LangGraph agent, hybrid retrieval (pgvector + BM25 + RRF), cross-encoder reranking, an idempotent 8-stage ingestion pipeline, tenant partitioning, JWT auth, and a Next.js admin console.
+              </p>
+            </div>
+
+            <div class="cv-project-item">
+              <div class="cv-project-title">
+                KnowledgeAI-FastAPI
+              </div>
+              <p class="cv-project-desc">
+                Production-ready FastAPI platform with JWT access/refresh tokens, email verification, password reset, role-based access control, file and website ingestion, and clean architecture with logging and migrations.
+              </p>
+            </div>
+
+            <div class="cv-project-item">
+              <div class="cv-project-title">AI-Powered Lead Generation &amp; Outreach Automation</div>
+              <p class="cv-project-desc">End-to-end n8n automation for lead discovery, enrichment, AI scoring, qualification, and personalized email outreach with reply tracking and scheduled follow-ups.</p>
+            </div>
+
+            <div class="cv-project-item">
+              <div class="cv-project-title">AI Document Processing &amp; RAG Q&amp;A</div>
+              <p class="cv-project-desc">n8n pipeline that ingests invoices and documents, extracts text, generates AI summaries, builds embeddings, and answers questions with cited hybrid search (BM25 + vector).</p>
+            </div>
+
+            <div class="cv-project-item">
+              <div class="cv-project-title">AI Customer Support Agent — RAG + Auto-Ticketing</div>
+              <p class="cv-project-desc">Multi-channel AI support agent that answers from your own docs with RAG and automatically opens a ticket when it can't — across website widget, Slack, and WhatsApp.</p>
+            </div>
+
+            <div class="cv-project-item">
+              <div class="cv-project-title">AI E-commerce Support Chatbot</div>
+              <p class="cv-project-desc">Production-grade AI support chatbot with intent routing, RAG answers, live Shopify order/product data, human escalation, PII masking, and a secure gateway proxy.</p>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="cv-sidebar">
+
+          <!-- Skills -->
+          <div class="cv-skill-group">
+            <h3 class="cv-skill-group__title">AI &amp; Agentic Systems</h3>
+            <div class="cv-skill-tags">
+              <span class="cv-skill-tag">LangChain</span>
+              <span class="cv-skill-tag">LangGraph</span>
+              <span class="cv-skill-tag">RAG Pipelines</span>
+              <span class="cv-skill-tag">Agentic Workflows</span>
+              <span class="cv-skill-tag">Tool Calling</span>
+              <span class="cv-skill-tag">Multi-Tenant RAG</span>
+              <span class="cv-skill-tag">n8n</span>
+              <span class="cv-skill-tag">Prompt Engineering</span>
+            </div>
+          </div>
+
+          <div class="cv-skill-group">
+            <h3 class="cv-skill-group__title">Backend</h3>
+            <div class="cv-skill-tags">
+              <span class="cv-skill-tag">C#.NET</span>
+              <span class="cv-skill-tag">ASP.NET Core</span>
+              <span class="cv-skill-tag">Web API &amp; REST</span>
+              <span class="cv-skill-tag">FastAPI</span>
+              <span class="cv-skill-tag">SQLAlchemy</span>
+              <span class="cv-skill-tag">Alembic</span>
+              <span class="cv-skill-tag">Redis</span>
+              <span class="cv-skill-tag">JWT Auth</span>
+              <span class="cv-skill-tag">Clean Architecture</span>
+            </div>
+          </div>
+
+          <div class="cv-skill-group">
+            <h3 class="cv-skill-group__title">Databases &amp; Vector Stores</h3>
+            <div class="cv-skill-tags">
+              <span class="cv-skill-tag">PostgreSQL</span>
+              <span class="cv-skill-tag">PGVector</span>
+              <span class="cv-skill-tag">Hybrid Retrieval (BM25 + Vector)</span>
+              <span class="cv-skill-tag">Reranking</span>
+              <span class="cv-skill-tag">MS SQL</span>
+              <span class="cv-skill-tag">MySQL</span>
+              <span class="cv-skill-tag">MongoDB</span>
+              <span class="cv-skill-tag">FAISS</span>
+              <span class="cv-skill-tag">ChromaDB</span>
+            </div>
+          </div>
+
+          <div class="cv-skill-group">
+            <h3 class="cv-skill-group__title">Frontend &amp; Mobile</h3>
+            <div class="cv-skill-tags">
+              <span class="cv-skill-tag">Angular</span>
+              <span class="cv-skill-tag">Angular Material</span>
+              <span class="cv-skill-tag">React JS</span>
+              <span class="cv-skill-tag">Next.js</span>
+              <span class="cv-skill-tag">React Native Expo</span>
+              <span class="cv-skill-tag">JavaScript / TypeScript</span>
+            </div>
+          </div>
+
+          <div class="cv-skill-group">
+            <h3 class="cv-skill-group__title">Cloud &amp; Tools</h3>
+            <div class="cv-skill-tags">
+              <span class="cv-skill-tag">Azure</span>
+              <span class="cv-skill-tag">Git / GitLab</span>
+              <span class="cv-skill-tag">Docker</span>
+              <span class="cv-skill-tag">Visual Studio</span>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="cv-skill-group" style="margin-top:32px;">
+            <h3 class="cv-skill-group__title">Education</h3>
+
+            <div class="cv-edu-item">
+              <div class="cv-edu-degree">Post Graduate Diploma in ICT</div>
+              <div class="cv-edu-school">MBSTU</div>
+              <div class="cv-edu-year">2016</div>
+            </div>
+
+            <div class="cv-edu-item">
+              <div class="cv-edu-degree">MS in Mathematics</div>
+              <div class="cv-edu-school">MBSTU</div>
+              <div class="cv-edu-year">2015</div>
+            </div>
+
+            <div class="cv-edu-item">
+              <div class="cv-edu-degree">B.Sc. (Hon's) in Mathematics</div>
+              <div class="cv-edu-school">MBSTU</div>
+              <div class="cv-edu-year">2014</div>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="cv-skill-group" style="margin-top:32px;">
+            <h3 class="cv-skill-group__title">Languages</h3>
+            <div class="cv-lang-item">
+              <span class="cv-lang-name">Bengali</span>
+              <span class="cv-lang-level">Native</span>
+            </div>
+            <div class="cv-lang-item">
+              <span class="cv-lang-name">English</span>
+              <span class="cv-lang-level">Fluent</span>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

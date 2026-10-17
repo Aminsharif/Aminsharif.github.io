@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# JSON endpoints and the admin panel share this origin; neither belongs in search.
+Disallow: /admin
+Disallow: /api/
+
+Sitemap: https://aminsharif.com/sitemap.xml

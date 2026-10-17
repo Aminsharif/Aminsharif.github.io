@@ -1,0 +1,49 @@
+{% extends "admin/base.html" %}
+{% block title %}Categories{% endblock %}
+{% block heading %}Categories{% endblock %}
+{% block subheading %}<p class="topbar__sub">Group insights by topic. Categories power the filters on the public insights page.</p>{% endblock %}
+
+{% block content %}
+  <div class="grid-2">
+    <section class="panel">
+      <h2 class="panel__title">All categories</h2>
+      {% if categories %}
+        <table class="table">
+          <thead>
+            <tr><th>Name</th><th>Slug</th><th>Articles</th><th class="table__actions-col">Actions</th></tr>
+          </thead>
+          <tbody>
+            {% for category in categories %}
+              <tr>
+                <td><strong>{{ category.name }}</strong></td>
+                <td><code>{{ category.slug }}</code></td>
+                <td>{{ category.article_count }}</td>
+                <td class="table__actions">
+                  <form method="post" action="{{ url_for('admin.category_delete', category_id=category.id) }}"
+                        onsubmit="return confirm('Delete the “{{ category.name }}” category? Articles will be kept.');">
+                    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+                    <button class="btn btn--danger btn--sm" type="submit">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p class="empty">No categories yet.</p>
+      {% endif %}
+    </section>
+
+    <section class="panel">
+      <h2 class="panel__title">Add a category</h2>
+      <form method="post" class="stack">
+        <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <label class="field">
+          <span class="field__label">Name</span>
+          <input class="field__input" type="text" name="name" required placeholder="e.g. Automation Strategy">
+        </label>
+        <button class="btn btn--primary" type="submit">Add category</button>
+      </form>
+    </section>
+  </div>
+{% endblock %}

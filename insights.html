@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insights on n8n, CRM Automation &amp; AI Agents | Amin Sharif</title>
+  <meta name="description" content="Practical guides and build notes on n8n workflow automation, CRM integrations, AI voice agents and keeping AI systems reliable in production.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/insights.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/insights.html">
+  <meta property="og:title" content="Insights on n8n, CRM Automation &amp; AI Agents | Amin Sharif">
+  <meta property="og:description" content="Practical guides on n8n, CRM integrations, AI voice agents and reliability in production automation.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta property="og:image:alt" content="Amin Sharif — insights on AI automation">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Insights on n8n, CRM Automation &amp; AI Agents | Amin Sharif">
+  <meta name="twitter:description" content="Practical guides on n8n, CRM integrations, AI voice agents and reliability in production automation.">
+  <meta name="twitter:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/insights.css">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aminsharif.com/insights.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aminsharif.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://aminsharif.com/insights.html" }
+        ]
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://aminsharif.com/insights.html#blog",
+        "url": "https://aminsharif.com/insights.html",
+        "name": "Amin Sharif — Insights",
+        "description": "Practical guides on n8n, CRM automation, AI voice agents and production reliability.",
+        "publisher": { "@id": "https://aminsharif.com/#organization" },
+        "inLanguage": "en",
+        "blogPost": [
+          { "@type": "BlogPosting", "headline": "How to Cut Manual Data Entry with n8n and AI", "url": "https://aminsharif.com/cut-manual-data-entry-with-n8n-and-ai.html" },
+          { "@type": "BlogPosting", "headline": "Error handling and monitoring for n8n workflows", "url": "https://aminsharif.com/n8n-error-handling-monitoring.html" },
+          { "@type": "BlogPosting", "headline": "How AI voice agents handle appointment scheduling", "url": "https://aminsharif.com/ai-voice-agent-appointment-scheduling.html" },
+          { "@type": "BlogPosting", "headline": "How to connect n8n with HubSpot", "url": "https://aminsharif.com/connect-n8n-with-hubspot.html" },
+          { "@type": "BlogPosting", "headline": "n8n vs Zapier vs Make for business automation", "url": "https://aminsharif.com/n8n-vs-zapier-vs-make.html" },
+          { "@type": "BlogPosting", "headline": "How to automate lead management with n8n", "url": "https://aminsharif.com/automate-lead-management-with-n8n.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Amin Sharif, AI automation agency, home">
+        <span class="brand__mark" aria-hidden="true">AS</span>
+        <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="services.html">Services</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="Show Services submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-services">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-workflow-automation.html"><span class="mega__title">n8n Workflow Automation</span><span class="mega__desc">Connect your tools so data moves on its own</span></a></li>
+                      <li><a class="mega__item" href="crm-automation.html"><span class="mega__title">CRM Automation &amp; Integrations</span><span class="mega__desc">Capture, qualify and follow up automatically</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agents.html"><span class="mega__title">AI Voice Agents</span><span class="mega__desc">Answer calls and book appointments</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ai-customer-support.html"><span class="mega__title">AI Customer Support</span><span class="mega__desc">Answer from your own documentation</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG &amp; Knowledge Base AI</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Not sure which service fits?</p>
+                    <p class="mega__cta-text">Most projects combine two or three. Tell me the workflow that is slowing you down.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Describe your project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="case-studies.html">Case Studies</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-work" aria-label="Show Case Studies submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-work">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="lead-generation.html"><span class="mega__title">Lead Capture to CRM</span><span class="mega__desc">Automated lead discovery, scoring and follow-up</span></a></li>
+                      <li><a class="mega__item" href="ai-booking-platform.html"><span class="mega__title">AI Booking Platform</span><span class="mega__desc">Natural-language scheduling with calendar sync</span></a></li>
+                      <li><a class="mega__item" href="support-ai.html"><span class="mega__title">AI Support Agent</span><span class="mega__desc">Answers from your docs, opens tickets when needed</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ecommerce-chatbot.html"><span class="mega__title">E-commerce Chatbot</span><span class="mega__desc">Order lookups, escalations and PII masking</span></a></li>
+                      <li><a class="mega__item" href="contextmesh-ai.html"><span class="mega__title">Multi-Tenant AI Platform</span><span class="mega__desc">Hybrid retrieval with reranking and ingestion</span></a></li>
+                      <li><a class="mega__item" href="invoice-process.html"><span class="mega__title">Invoice &amp; Document Processing</span><span class="mega__desc">Extract, summarise and query documents</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG Knowledge Base</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Want the full breakdown?</p>
+                    <p class="mega__cta-text">Every project starts from a business problem. See how each one was solved.</p>
+                    <a class="mega__cta-link" href="case-studies.html">Browse all case studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="insights.html" aria-current="page">Insights</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-insights" aria-label="Show Insights submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-insights">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-vs-zapier-vs-make.html"><span class="mega__title">n8n vs Zapier vs Make</span><span class="mega__desc">Choosing the right automation platform</span></a></li>
+                      <li><a class="mega__item" href="connect-n8n-with-hubspot.html"><span class="mega__title">Connect n8n with HubSpot</span><span class="mega__desc">A practical CRM integration walkthrough</span></a></li>
+                      <li><a class="mega__item" href="n8n-error-handling-monitoring.html"><span class="mega__title">Error Handling &amp; Monitoring</span><span class="mega__desc">Keeping workflows reliable in production</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="automate-lead-management-with-n8n.html"><span class="mega__title">Automate Lead Management</span><span class="mega__desc">An end-to-end lead pipeline in n8n</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agent-appointment-scheduling.html"><span class="mega__title">Voice Agents &amp; Scheduling</span><span class="mega__desc">Appointment booking over the phone</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Prefer a hands-on answer?</p>
+                    <p class="mega__cta-text">Skip the reading and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="about.html">About</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-about" aria-label="Show About submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-about">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="about.html"><span class="mega__title">About Amin</span><span class="mega__desc">Background, skills and how I work</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="amin-sharif-cv.html"><span class="mega__title">CV / Resume</span><span class="mega__desc">Experience, projects and certifications</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Work with me</p>
+                    <p class="mega__cta-text">Book a short call and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html" data-booking>Book a Discovery Call</a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__cta" href="contact.html" data-booking>
+          <span class="header__cta-mark" aria-hidden="true">AS</span>Book a Discovery Call
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content" class="kf">
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Insights</li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="kf-hero">
+      <div class="kf-container">
+        <div class="kf-hero__inner">
+          <p class="kf-eyebrow">Insights</p>
+          <h1 class="kf-display-l">Notes on building automation that lasts</h1>
+          <p class="kf-body-lead">Practical writing on n8n, CRM automation, AI agents and keeping workflows reliable after launch. No padding, no keyword filler — just the things worth knowing before you build.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-sec-sm kf-line-b" aria-label="Search and filter insights">
+      <div class="kf-container">
+        <div class="kf-bar">
+          <nav class="kf-pills" id="insights-filters" aria-label="Filter insights by category" hidden></nav>
+          <form class="kf-search" id="insights-search" role="search">
+            <label class="visually-hidden" for="insights-search-input">Search insights</label>
+            <input class="kf-search__input" id="insights-search-input" type="search" name="q" placeholder="Search insights&hellip;" autocomplete="off">
+            <button class="kf-search__btn" type="submit" aria-label="Search insights">
+              <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-sec-lg kf-line-b" id="insights-featured-section" hidden>
+      <div class="kf-container">
+        <p class="kf-eyebrow">Featured</p>
+        <div class="kf-featured-grid" id="insights-featured"></div>
+      </div>
+    </section>
+
+    <section class="kf-sec-lg kf-line-b" aria-label="All articles">
+      <div class="kf-container">
+        <div class="kf-posts-layout">
+          <div>
+            <p class="kf-eyebrow">All articles</p>
+            <div class="kf-status" id="insights-status" role="status" aria-live="polite"></div>
+            <div id="insights-grid"></div>
+
+            <div class="kf-more" id="insights-more" hidden>
+              <button class="kf-btn kf-btn-outline" id="insights-more-btn" type="button">Load more insights</button>
+            </div>
+
+            <noscript>
+              <!-- build:noscript:start -->
+              <a class="kf-card" href="cut-manual-data-entry-with-n8n-and-ai.html"><article>
+                <span class="kf-eyebrow kf-card__cat">Automation Strategy</span>
+                <h3 class="kf-card__title">How to Cut Manual Data Entry with n8n and AI</h3>
+                <p class="kf-card__excerpt">Manual data entry is the quiet tax on every operations team. Here is a practical n8n pattern that captures, cleans and files data automatically.</p>
+                <div class="kf-meta"><span>6 min read</span></div>
+              </article></a>
+              <a class="kf-card" href="n8n-error-handling-monitoring.html"><article>
+                <span class="kf-eyebrow kf-card__cat">Reliability</span>
+                <h3 class="kf-card__title">Error handling and monitoring for n8n workflows</h3>
+                <p class="kf-card__excerpt">The retries, idempotency and alerting patterns that keep production automations trustworthy.</p>
+                <div class="kf-meta"><span>8 min read</span></div>
+              </article></a>
+              <a class="kf-card" href="ai-voice-agent-appointment-scheduling.html"><article>
+                <span class="kf-eyebrow kf-card__cat">AI Voice</span>
+                <h3 class="kf-card__title">How AI voice agents handle appointment scheduling</h3>
+                <p class="kf-card__excerpt">What to get right before deploying a voice agent that books against real calendar availability.</p>
+                <div class="kf-meta"><span>7 min read</span></div>
+              </article></a>
+              <a class="kf-card" href="connect-n8n-with-hubspot.html"><article>
+                <span class="kf-eyebrow kf-card__cat">HubSpot</span>
+                <h3 class="kf-card__title">How to connect n8n with HubSpot</h3>
+                <p class="kf-card__excerpt">Syncing contacts and deals, triggering follow-ups, and handling duplicates reliably between the two systems.</p>
+                <div class="kf-meta"><span>6 min read</span></div>
+              </article></a>
+              <a class="kf-card" href="n8n-vs-zapier-vs-make.html"><article>
+                <span class="kf-eyebrow kf-card__cat">Comparison</span>
+                <h3 class="kf-card__title">n8n vs Zapier vs Make for business automation</h3>
+                <p class="kf-card__excerpt">An honest comparison of the three platforms — flexibility, hosting and pricing models — and where each one fits.</p>
+                <div class="kf-meta"><span>7 min read</span></div>
+              </article></a>
+              <a class="kf-card" href="automate-lead-management-with-n8n.html"><article>
+                <span class="kf-eyebrow kf-card__cat">n8n</span>
+                <h3 class="kf-card__title">How to automate lead management with n8n</h3>
+                <p class="kf-card__excerpt">A practical walkthrough of capturing, enriching, scoring and routing leads, then triggering follow-ups without manual entry.</p>
+                <div class="kf-meta"><span>6 min read</span></div>
+              </article></a>
+              <!-- build:noscript:end -->
+              <p class="kf-status" style="margin-top:24px;">Enable JavaScript to browse all insights, or <a href="contact.html">get in touch</a> directly.</p>
+            </noscript>
+          </div>
+
+          <aside class="kf-sidebar" id="insights-sidebar">
+            <div>
+              <p class="kf-eyebrow">Topics</p>
+              <div class="kf-topics" id="insights-topics">
+                <a href="insights.html"><span>All insights</span></a>
+              </div>
+            </div>
+            <div class="kf-author-dark">
+              <span class="kf-author-dark__label">About the author</span>
+              <p class="kf-author-dark__name">Amin Sharif</p>
+              <p class="kf-author-dark__text">Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work.</p>
+              <a class="kf-link-gold" href="about.html">Read more &rarr;</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-cta" aria-labelledby="cta-title">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l" id="cta-title">Let's find your next automation opportunity.</h2>
+          <p class="kf-body-lead">Reading is useful; building is better. If a process in your business is slowing things down, let's look at it together.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+            <a class="kf-btn kf-btn-lg" href="services.html">Explore services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="index.html" aria-label="Amin Sharif home">
+            <span class="brand__mark" aria-hidden="true">AS</span>
+            <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+          </a>
+          <p>Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.</p>
+          <div class="footer__social">
+            <a href="https://github.com/Aminsharif" data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="#" data-linkedin aria-label="LinkedIn profile" aria-disabled="true"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:sharifmia236@gmail.com" data-email aria-label="Email Amin Sharif"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <nav class="footer__col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="n8n-workflow-automation.html">n8n Workflow Automation</a></li>
+            <li><a href="crm-automation.html">CRM Automation &amp; Integrations</a></li>
+            <li><a href="ai-voice-agents.html">AI Voice Agents</a></li>
+            <li><a href="ai-customer-support.html">AI Customer Support</a></li>
+            <li><a href="rag-knowledge-base.html">RAG &amp; Knowledge Base AI</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:sharifmia236@gmail.com" data-email>sharifmia236@gmail.com</a></li>
+            <li><a href="contact.html" data-booking>Book a discovery call</a></li>
+            <li><a href="tel:+8801670043742">+880 1670 043742</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Amin Sharif. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/insights.js" defer></script>
+</body>
+</html>

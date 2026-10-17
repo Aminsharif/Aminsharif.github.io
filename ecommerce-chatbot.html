@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI E-commerce Support Chatbot — Amin Sharif</title>
+  <meta name="description" content="Production-grade AI e-commerce support chatbot — intent routing, RAG answers, live order and product data, human escalation, PII masking, and observability behind a secure gateway.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/ecommerce-chatbot.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/ecommerce-chatbot.html">
+  <meta property="og:title" content="AI E-commerce Support Chatbot — Amin Sharif">
+  <meta property="og:description" content="Production-grade AI e-commerce support chatbot — intent routing, RAG answers, live order and product data, human escalation, PII masking, and observability behind a secure gateway.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta property="og:image:alt" content="AI E-commerce Support Chatbot">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI E-commerce Support Chatbot — Amin Sharif">
+  <meta name="twitter:description" content="Production-grade AI e-commerce support chatbot — intent routing, RAG answers, live order and product data, human escalation, PII masking, and observability behind a secure gateway.">
+  <meta name="twitter:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/insights.css">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aminsharif.com/ecommerce-chatbot.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aminsharif.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://aminsharif.com/case-studies.html" },
+          { "@type": "ListItem", "position": 3, "name": "AI E-commerce Support Chatbot", "item": "https://aminsharif.com/ecommerce-chatbot.html" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://aminsharif.com/ecommerce-chatbot.html#webpage",
+        "url": "https://aminsharif.com/ecommerce-chatbot.html",
+        "name": "AI E-commerce Support Chatbot",
+        "description": "Production-grade AI e-commerce support chatbot — intent routing, RAG answers, live order and product data, human escalation, PII masking, and observability behind a secure gateway.",
+        "isPartOf": { "@id": "https://aminsharif.com/#website" },
+        "breadcrumb": { "@id": "https://aminsharif.com/ecommerce-chatbot.html#breadcrumb" },
+        "about": { "@id": "https://aminsharif.com/ecommerce-chatbot.html#project" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://aminsharif.com/ecommerce-chatbot.html#project",
+        "name": "AI E-commerce Support Chatbot",
+        "description": "Production-grade AI e-commerce support chatbot — intent routing, RAG answers, live order and product data, human escalation, PII masking, and observability behind a secure gateway.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://aminsharif.com/ecommerce-chatbot.html",
+        "image": "https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png",
+        "author": { "@id": "https://aminsharif.com/#founder" },
+        "publisher": { "@id": "https://aminsharif.com/#organization" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Amin Sharif, AI automation agency, home">
+        <span class="brand__mark" aria-hidden="true">AS</span>
+        <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="services.html">Services</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="Show Services submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-services">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-workflow-automation.html"><span class="mega__title">n8n Workflow Automation</span><span class="mega__desc">Connect your tools so data moves on its own</span></a></li>
+                      <li><a class="mega__item" href="crm-automation.html"><span class="mega__title">CRM Automation &amp; Integrations</span><span class="mega__desc">Capture, qualify and follow up automatically</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agents.html"><span class="mega__title">AI Voice Agents</span><span class="mega__desc">Answer calls and book appointments</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ai-customer-support.html"><span class="mega__title">AI Customer Support</span><span class="mega__desc">Answer from your own documentation</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG &amp; Knowledge Base AI</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Not sure which service fits?</p>
+                    <p class="mega__cta-text">Most projects combine two or three. Tell me the workflow that is slowing you down.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Describe your project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="case-studies.html">Case Studies</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-work" aria-label="Show Case Studies submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-work">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="lead-generation.html"><span class="mega__title">Lead Capture to CRM</span><span class="mega__desc">Automated lead discovery, scoring and follow-up</span></a></li>
+                      <li><a class="mega__item" href="ai-booking-platform.html"><span class="mega__title">AI Booking Platform</span><span class="mega__desc">Natural-language scheduling with calendar sync</span></a></li>
+                      <li><a class="mega__item" href="support-ai.html"><span class="mega__title">AI Support Agent</span><span class="mega__desc">Answers from your docs, opens tickets when needed</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ecommerce-chatbot.html" aria-current="page"><span class="mega__title">E-commerce Chatbot</span><span class="mega__desc">Order lookups, escalations and PII masking</span></a></li>
+                      <li><a class="mega__item" href="contextmesh-ai.html"><span class="mega__title">Multi-Tenant AI Platform</span><span class="mega__desc">Hybrid retrieval with reranking and ingestion</span></a></li>
+                      <li><a class="mega__item" href="invoice-process.html"><span class="mega__title">Invoice &amp; Document Processing</span><span class="mega__desc">Extract, summarise and query documents</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG Knowledge Base</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Want the full breakdown?</p>
+                    <p class="mega__cta-text">Every project starts from a business problem. See how each one was solved.</p>
+                    <a class="mega__cta-link" href="case-studies.html">Browse all case studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="insights.html">Insights</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-insights" aria-label="Show Insights submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-insights">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-vs-zapier-vs-make.html"><span class="mega__title">n8n vs Zapier vs Make</span><span class="mega__desc">Choosing the right automation platform</span></a></li>
+                      <li><a class="mega__item" href="connect-n8n-with-hubspot.html"><span class="mega__title">Connect n8n with HubSpot</span><span class="mega__desc">A practical CRM integration walkthrough</span></a></li>
+                      <li><a class="mega__item" href="n8n-error-handling-monitoring.html"><span class="mega__title">Error Handling &amp; Monitoring</span><span class="mega__desc">Keeping workflows reliable in production</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="automate-lead-management-with-n8n.html"><span class="mega__title">Automate Lead Management</span><span class="mega__desc">An end-to-end lead pipeline in n8n</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agent-appointment-scheduling.html"><span class="mega__title">Voice Agents &amp; Scheduling</span><span class="mega__desc">Appointment booking over the phone</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Prefer a hands-on answer?</p>
+                    <p class="mega__cta-text">Skip the reading and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="about.html">About</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-about" aria-label="Show About submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-about">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="about.html"><span class="mega__title">About Amin</span><span class="mega__desc">Background, skills and how I work</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="amin-sharif-cv.html"><span class="mega__title">CV / Resume</span><span class="mega__desc">Experience, projects and certifications</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Work with me</p>
+                    <p class="mega__cta-text">Book a short call and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html" data-booking>Book a Discovery Call</a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__cta" href="contact.html" data-booking>
+          <span class="header__cta-mark" aria-hidden="true">AS</span>Book a Discovery Call
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content" class="kf">
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li aria-current="page">E-commerce Chatbot</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="kf-article-hero">
+      <div class="kf-container">
+        <div class="kf-article-hero__inner">
+          <a class="kf-cat-link" href="case-studies.html">
+            <p class="kf-eyebrow kf-eyebrow-light">Case Study</p>
+          </a>
+          <h1 class="kf-article-title">AI E-commerce Support Chatbot</h1>
+          <p class="kf-hero-summary">A production-grade AI support chatbot for e-commerce — intent routing, RAG answers from your knowledge base, live order and product data, human escalation, and full observability behind a secure gateway.</p>
+          <ul class="kf-hero-tags">
+            <li>n8n</li>
+            <li>OpenAI GPT-4o-mini</li>
+            <li>PostgreSQL + pgvector</li>
+            <li>Shopify</li>
+            <li>Docker + Caddy</li>
+          </ul>
+          <div class="kf-article-meta">
+            <span class="kf-avatar">AS</span>
+            <a href="about.html">Amin Sharif</a>
+            <span class="kf-meta__dot">&middot;</span>
+            <span>n8n Automation</span>
+          </div>
+          <div class="kf-btn-group">
+
+          <a href="#workflow" class="kf-btn kf-btn-white">
+            <i class="fas fa-code-branch" aria-hidden="true"></i> Explore the Workflow
+          </a>
+          <a href="contact.html" class="kf-btn kf-btn-ghost">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Build Something Similar
+          </a>
+                  </div>
+        </div>
+      </div>
+    </header>
+    <section class="kf-sec-lg kf-line-b">
+      <div class="kf-container">
+        <div class="kf-article-layout">
+          <div class="kf-cs-main">
+    <!-- ====== PROBLEM / SOLUTION ====== -->
+    <section class="section" id="overview" aria-label="Problem and solution">
+      <div class="container">
+        <h2 class="section__title">Problem &amp; Solution</h2>
+        <div class="split-grid">
+          <div class="split-card split-card--danger">
+            <div class="split-card__head">
+              <i class="fas fa-circle-exclamation" aria-hidden="true"></i>
+              <h3>Problem</h3>
+            </div>
+            <ul class="list-check">
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> Repetitive questions — shipping, returns, order status</li>
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> No instant answers outside business hours</li>
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> Agents manually looking up orders and products</li>
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> No safe escalation path; PII and cost risk with naive bots</li>
+            </ul>
+          </div>
+          <div class="split-card">
+            <div class="split-card__head">
+              <i class="fas fa-circle-check" aria-hidden="true"></i>
+              <h3>Solution</h3>
+            </div>
+            <ul class="list-check">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Intent routing — FAQ, product, order, shipping, returns, escalation</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> RAG answers with hybrid search &amp; reranking</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Live order &amp; product data via Shopify sync</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Human escalation — tickets + Slack/Gmail alerts</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> PII masking &amp; guardrailed LLM replies</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Secure gateway — auth, rate limits, CORS, size limits</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Analytics, audit logging &amp; error alerting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ARCHITECTURE ====== -->
+    <section class="section" id="architecture" aria-label="System architecture">
+      <div class="container">
+        <h2 class="section__title">Architecture</h2>
+        <div class="arch-flow">
+          <div class="arch-step">
+            <i class="fas fa-message arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Chat Channels</div>
+            <div class="arch-step__desc">Embeddable widget</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-shield-halved arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Gateway Proxy</div>
+            <div class="arch-step__desc">Auth, limits, CORS</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-diagram-project arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">n8n Orchestration</div>
+            <div class="arch-step__desc">Workflow automation</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-brain arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Intent Router &amp; Agents</div>
+            <div class="arch-step__desc">AI / LLM</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-arrows-rotate arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Data Sync</div>
+            <div class="arch-step__desc">Shopify + docs</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-database arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Database</div>
+            <div class="arch-step__desc">PostgreSQL + pgvector</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-ticket arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Escalation</div>
+            <div class="arch-step__desc">Tickets · Slack · Gmail</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WORKFLOW ====== -->
+    <section class="section" id="workflow" aria-label="n8n workflows">
+      <div class="container">
+        <h2 class="section__title">The n8n Workflows</h2>
+        <p class="contact__intro">
+          Six workflows form the stack: the customer support core with intent routing, a multi-format ingestion pipeline, Shopify customer/order sync, error alerting, and scheduled housekeeping — deployed with Docker and Caddy behind a zero-dependency gateway.
+        </p>
+        <div class="workflows">
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-comments" aria-hidden="true"></i>
+              <h3>Customer Support Core</h3>
+              <span class="pipeline__trigger">Webhook /chat</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-plug" aria-hidden="true"></i> Webhook — Chat Message <span class="pipeline__node-type">POST /webhook/chat</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code" aria-hidden="true"></i> Normalize + Session Lookup <span class="pipeline__node-type">Code + Postgres</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code-branch" aria-hidden="true"></i> Switch — Intent Router <span class="pipeline__node-type">LLM classified</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-filter" aria-hidden="true"></i> FAQ Agent — Hybrid Search + Rerank <span class="pipeline__node-type">RRF Fusion</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-cart-shopping" aria-hidden="true"></i> Product / Order / Recommendation Agents <span class="pipeline__node-type">Live data</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-truck-fast" aria-hidden="true"></i> Shipping / Returns / Escalation Agents <span class="pipeline__node-type">Tickets + alerts</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-brain" aria-hidden="true"></i> OpenAI — Generate Response <span class="pipeline__node-type">guardrailed</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-user-shield" aria-hidden="true"></i> Evaluate Faithfulness → Mask PII → Reply <span class="pipeline__node-type">Postgres + Code</span></div>
+            </div>
+            <p class="pipeline__desc">Every message is routed to the right intent, answered with retrieved or live data, checked for faithfulness, stripped of PII, and replied to — with returns and escalations auto-ticketed and announced on Slack/Gmail.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-file-import" aria-hidden="true"></i>
+              <h3>Data Ingestion Pipeline</h3>
+              <span class="pipeline__trigger">Webhook + Cron</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-plug" aria-hidden="true"></i> Document Ingestion Webhook <span class="pipeline__node-type">POST /ingest/document</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code" aria-hidden="true"></i> Normalize + Route by Source Type <span class="pipeline__node-type">PDF · CSV · TXT · HTML</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-broom" aria-hidden="true"></i> Clean Text <span class="pipeline__node-type">Code</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-hashtag" aria-hidden="true"></i> Compute Checksum → Has Changed? <span class="pipeline__node-type">idempotent skip</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-scissors" aria-hidden="true"></i> Chunk Text → Batch <span class="pipeline__node-type">Code</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-cube" aria-hidden="true"></i> Generate Embeddings (OpenAI) <span class="pipeline__node-type">batched</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-database" aria-hidden="true"></i> Upsert Source + Store Chunks <span class="pipeline__node-type">pgvector</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-arrows-rotate" aria-hidden="true"></i> Shopify Product Sync <span class="pipeline__node-type">hourly + webhook</span></div>
+            </div>
+            <p class="pipeline__desc">Ingests FAQs, policies, and docs in PDF/CSV/TXT/HTML form, cleans and checksum-marks them to skip unchanged content, then chunks, embeds, and stores them — plus an hourly and webhook-driven Shopify product sync with variant upserts.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-users" aria-hidden="true"></i>
+              <h3>Customer Sync</h3>
+              <span class="pipeline__trigger">Hourly + Webhook</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-clock" aria-hidden="true"></i> Cron — Hourly Customer Sync <span class="pipeline__node-type">incremental</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-plug" aria-hidden="true"></i> Webhook — Shopify Customer Update <span class="pipeline__node-type">single mode</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code-merge" aria-hidden="true"></i> Merge Trigger Paths <span class="pipeline__node-type">Code</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code" aria-hidden="true"></i> Normalize Customers List <span class="pipeline__node-type">Code</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-database" aria-hidden="true"></i> Postgres — Upsert Customer <span class="pipeline__node-type">on conflict</span></div>
+            </div>
+            <p class="pipeline__desc">Keeps the customers table in sync with Shopify — hourly incremental pulls plus real-time webhook updates for individual customers.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-cart-shopping" aria-hidden="true"></i>
+              <h3>Order Sync</h3>
+              <span class="pipeline__trigger">Hourly + Webhook</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-clock" aria-hidden="true"></i> Cron — Hourly Order Sync <span class="pipeline__node-type">incremental</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-plug" aria-hidden="true"></i> Webhook — Shopify Order Update <span class="pipeline__node-type">single mode</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code-merge" aria-hidden="true"></i> Merge Trigger Paths <span class="pipeline__node-type">Code</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code" aria-hidden="true"></i> Normalize Orders List <span class="pipeline__node-type">Code</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-database" aria-hidden="true"></i> Upsert Order + Items <span class="pipeline__node-type">delete stale</span></div>
+            </div>
+            <p class="pipeline__desc">Syncs orders and their line items from Shopify, upserting orders and rebuilding order-item rows so the chatbot always answers with current status and tracking.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-bell" aria-hidden="true"></i>
+              <h3>Support Error Alerts</h3>
+              <span class="pipeline__trigger">Error Trigger</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> Workflow Error Trigger <span class="pipeline__node-type">any failure</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code" aria-hidden="true"></i> Format Error Payload <span class="pipeline__node-type">Code</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-slack" aria-hidden="true"></i> Slack — Notify Support Team <span class="pipeline__node-type">channel alert</span></div>
+            </div>
+            <p class="pipeline__desc">Catches silent workflow failures and posts a formatted alert to Slack, so the team knows about breakage before customers do.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-broom" aria-hidden="true"></i>
+              <h3>Housekeeping</h3>
+              <span class="pipeline__trigger">Scheduled</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-clock" aria-hidden="true"></i> Cron — Expire Sessions (hourly) <span class="pipeline__node-type">Postgres</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-star" aria-hidden="true"></i> Cron — Refresh Affinities (daily) <span class="pipeline__node-type">recommendations</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-trash-can" aria-hidden="true"></i> Cron — Retention Cleanup (daily) <span class="pipeline__node-type">purge old analytics</span></div>
+            </div>
+            <p class="pipeline__desc">Scheduled jobs keep the system healthy: expiring stale sessions hourly, rebuilding recommendation affinities daily, and purging old analytics within retention policy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== AI / LLM LAYER ====== -->
+    <section class="section" id="ai" aria-label="AI and LLM layer">
+      <div class="container">
+        <h2 class="section__title">AI / LLM Layer</h2>
+        <p class="contact__intro">
+          GPT-4o-mini drives intent classification, response generation, and reranking; text-embedding-3-small powers hybrid search — with query regeneration and faithfulness evaluation guarding every answer.
+        </p>
+        <div class="feature-grid">
+          <div class="feature-card"><i class="fas fa-code-branch" aria-hidden="true"></i><span class="feature-card__label">Intent Classification</span></div>
+          <div class="feature-card"><i class="fas fa-comments" aria-hidden="true"></i><span class="feature-card__label">RAG Question Answering</span></div>
+          <div class="feature-card"><i class="fas fa-filter" aria-hidden="true"></i><span class="feature-card__label">Hybrid Search + Rerank</span></div>
+          <div class="feature-card"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span class="feature-card__label">Query Regeneration</span></div>
+          <div class="feature-card"><i class="fas fa-scale-balanced" aria-hidden="true"></i><span class="feature-card__label">Faithfulness Evaluation</span></div>
+          <div class="feature-card"><i class="fas fa-user-shield" aria-hidden="true"></i><span class="feature-card__label">PII Masking &amp; Guardrails</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== AUTOMATION FEATURES ====== -->
+    <section class="section" id="features" aria-label="Automation features">
+      <div class="container">
+        <h2 class="section__title">Automation Features</h2>
+        <div class="feature-grid">
+          <div class="feature-card"><i class="fas fa-plug" aria-hidden="true"></i><span class="feature-card__label">API / Webhook Integration</span></div>
+          <div class="feature-card"><i class="fas fa-arrows-rotate" aria-hidden="true"></i><span class="feature-card__label">Shopify Sync</span></div>
+          <div class="feature-card"><i class="fas fa-file-lines" aria-hidden="true"></i><span class="feature-card__label">Multi-Format Ingestion</span></div>
+          <div class="feature-card"><i class="fas fa-hashtag" aria-hidden="true"></i><span class="feature-card__label">Change Detection</span></div>
+          <div class="feature-card"><i class="fas fa-code-branch" aria-hidden="true"></i><span class="feature-card__label">Conditional Logic</span></div>
+          <div class="feature-card"><i class="fas fa-exchange-alt" aria-hidden="true"></i><span class="feature-card__label">Data Transformation</span></div>
+          <div class="feature-card"><i class="fas fa-bell" aria-hidden="true"></i><span class="feature-card__label">Error Alerting</span></div>
+          <div class="feature-card"><i class="fas fa-shield-halved" aria-hidden="true"></i><span class="feature-card__label">Auth &amp; Rate Limiting</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== INTEGRATIONS ====== -->
+    <section class="section" id="integrations" aria-label="Integrations">
+      <div class="container">
+        <h2 class="section__title">Integrations</h2>
+        <div class="chip-cloud">
+          <span class="tech-chip">n8n</span>
+          <span class="tech-chip">OpenAI / LLM</span>
+          <span class="tech-chip">PostgreSQL + pgvector</span>
+          <span class="tech-chip">Shopify</span>
+          <span class="tech-chip">Slack</span>
+          <span class="tech-chip">Gmail</span>
+          <span class="tech-chip">Docker + Caddy</span>
+          <span class="tech-chip">REST APIs</span>
+          <span class="tech-chip">JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ENGINEERING PRACTICES ====== -->
+    <section class="section" id="engineering" aria-label="Engineering practices">
+      <div class="container">
+        <h2 class="section__title">Engineering Practices</h2>
+        <div class="chip-cloud">
+          <span class="tech-chip">Modular Workflows</span>
+          <span class="tech-chip">Secure Credentials</span>
+          <span class="tech-chip">Token Auth Gateway</span>
+          <span class="tech-chip">Input Validation</span>
+          <span class="tech-chip">Structured Outputs</span>
+          <span class="tech-chip">Error Handling</span>
+          <span class="tech-chip">Idempotency (Checksums)</span>
+          <span class="tech-chip">DB Constraints &amp; Triggers</span>
+          <span class="tech-chip">Logging / Monitoring</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== RESULTS ====== -->
+    <section class="section" id="results" aria-label="Results">
+      <div class="container">
+        <h2 class="section__title">Results</h2>
+        <div class="split-card">
+          <div class="split-card__head">
+            <i class="fas fa-bullseye" aria-hidden="true"></i>
+            <h3>What This System Automates</h3>
+          </div>
+          <ul class="list-check">
+            <li><i class="fas fa-check" aria-hidden="true"></i> Routes every customer message to the right intent — FAQ, product, recommendation, order, shipping, returns, or escalation</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Answers FAQs from your knowledge base with reranked hybrid search (RRF fusion)</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Pulls live order status, tracking, and product info from synced Shopify data</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Creates return and escalation tickets and notifies the team via Slack and email</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Masks PII in responses and evaluates answer faithfulness before replying</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Re-embeds only changed documents via checksums to control cost</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Logs every intent and message for analytics and audit</li>
+          </ul>
+          <p class="pipeline__desc">
+            No campaign metrics have been invented here — measurable numbers will be added once live usage produces them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== MY ROLE ====== -->
+    <section class="section" id="role" aria-label="My role">
+      <div class="container">
+        <h2 class="section__title">My Role</h2>
+        <p class="contact__intro">AI Automation Engineer</p>
+        <div class="role-grid">
+          <div class="feature-card"><i class="fas fa-diagram-project" aria-hidden="true"></i><span class="feature-card__label">Workflow Architecture</span></div>
+          <div class="feature-card"><i class="fas fa-cube" aria-hidden="true"></i><span class="feature-card__label">n8n Development</span></div>
+          <div class="feature-card"><i class="fas fa-brain" aria-hidden="true"></i><span class="feature-card__label">AI / LLM Integration</span></div>
+          <div class="feature-card"><i class="fas fa-plug" aria-hidden="true"></i><span class="feature-card__label">API Integration</span></div>
+          <div class="feature-card"><i class="fas fa-database" aria-hidden="true"></i><span class="feature-card__label">Database Integration</span></div>
+          <div class="feature-card"><i class="fas fa-robot" aria-hidden="true"></i><span class="feature-card__label">Automation Logic</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TECH STACK ====== -->
+    <section class="section" id="stack" aria-label="Tech stack">
+      <div class="container">
+        <h2 class="section__title">Tech Stack</h2>
+        <div class="chip-cloud">
+          <span class="tech-chip">n8n</span>
+          <span class="tech-chip">AI / LLM</span>
+          <span class="tech-chip">OpenAI</span>
+          <span class="tech-chip">PostgreSQL + pgvector</span>
+          <span class="tech-chip">Shopify</span>
+          <span class="tech-chip">Docker + Caddy</span>
+          <span class="tech-chip">Node.js Proxy</span>
+          <span class="tech-chip">JavaScript</span>
+          <span class="tech-chip">REST APIs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== DEMO ====== -->
+    <!-- <section class="section" id="demo" aria-label="Demo">
+      <div class="container">
+        <h2 class="section__title">Demo</h2>
+        <div class="workflows">
+          <div class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-file-import" aria-hidden="true"></i>
+              <h3>n8n Workflow Exports</h3>
+            </div>
+            <p class="pipeline__desc">Six importable n8n JSON workflow exports, the full PostgreSQL + pgvector schema, the zero-dependency gateway proxy, embeddable chat widget, and Docker/Caddy deployment files.</p>
+          </div>
+          <div class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-camera" aria-hidden="true"></i>
+              <h3>Workflow Screenshot</h3>
+            </div>
+            <p class="pipeline__desc">The full workflow canvas screenshot and a short demo video will be added here as soon as they are ready.</p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+          </div>
+          <aside class="kf-aside">
+            <div>
+              <p class="kf-eyebrow">On this page</p>
+              <div class="kf-topics">
+                <a href="#overview"><span>Problem &amp; Solution</span></a>
+                <a href="#architecture"><span>Architecture</span></a>
+                <a href="#workflow"><span>The n8n Workflows</span></a>
+                <a href="#ai"><span>AI / LLM Layer</span></a>
+                <a href="#features"><span>Automation Features</span></a>
+                <a href="#integrations"><span>Integrations</span></a>
+                <a href="#engineering"><span>Engineering Practices</span></a>
+                <a href="#results"><span>Results</span></a>
+                <a href="#role"><span>My Role</span></a>
+                <a href="#stack"><span>Tech Stack</span></a>
+              </div>
+            </div>
+            <div class="kf-audit">
+              <span class="kf-audit__label">Free automation audit</span>
+              <p class="kf-audit__title">Want this in your business?</p>
+              <p class="kf-audit__text">Tell me the process that slows you down and I&rsquo;ll map the fastest automation win.</p>
+              <a class="kf-btn kf-btn-white" href="contact.html">Book a call</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section class="kf-sec-lg kf-bg-soft kf-line-b kf-more-cs">
+      <div class="kf-container">
+        <p class="kf-eyebrow">More case studies</p>
+        <div class="kf-card-grid">
+            <a class="kf-card" href="lead-generation.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI-Powered Lead Generation &amp; Outreach Automation</h3>
+              <p class="kf-card__excerpt">End-to-end AI automation for lead discovery, enrichment, qualification, scoring, and personalized outreach.</p>
+            </article></a>
+            <a class="kf-card" href="ai-booking-platform.html"><article>
+              <span class="kf-eyebrow kf-card__cat">AI Booking &amp; Scheduling Platform</span>
+              <h3 class="kf-card__title">AI Booking Platform — AI Appointment Scheduling &amp; Calendar Automation</h3>
+              <p class="kf-card__excerpt">An AI booking assistant that talks to customers in natural language — by web, chat, and inbound phone call — checks real Google Calendar availability, books, reschedules and cancels appointments, stores everything in PostgreSQL, and sends confirmations and reminders. It runs on one n8n engine with a Vapi + Twilio voice line, exposed via a FastAPI backend with a Next.js dashboard.</p>
+            </article></a>
+            <a class="kf-card" href="contextmesh-ai.html"><article>
+              <span class="kf-eyebrow kf-card__cat">LangGraph RAG Platform</span>
+              <h3 class="kf-card__title">ContextMesh AI — Multi-Tenant RAG &amp; LangGraph Platform</h3>
+              <p class="kf-card__excerpt">A multi-tenant RAG service with a LangGraph agent, hybrid pgvector + BM25 retrieval with reranking, an 8-stage idempotent ingestion pipeline, and enterprise-grade auth, auditing, and observability.</p>
+            </article></a>
+            <a class="kf-card" href="invoice-process.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI Document Processing &amp; RAG Q&amp;A</h3>
+              <p class="kf-card__excerpt">End-to-end AI pipeline that ingests invoices and documents, extracts text, generates summaries, builds embeddings, and answers questions with cited hybrid search (BM25 + vector).</p>
+            </article></a>
+            <a class="kf-card" href="support-ai.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI Customer Support Agent — RAG + Auto-Ticketing</h3>
+              <p class="kf-card__excerpt">A multi-channel AI support agent that answers customer questions from your own docs, FAQs, and past tickets — and automatically opens a support ticket whenever it can't answer confidently.</p>
+            </article></a>
+        </div>
+      </div>
+    </section>
+    <section class="kf-cta">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l">Interested in building a similar AI automation system?</h2>
+          <p class="kf-body-lead">Let's talk about automating your store's support — an AI chatbot that answers from your knowledge base and live order data, and escalates only when it truly can't help.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== BACK TO TOP ====== -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ====== FOOTER ====== -->
+    <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="index.html" aria-label="Amin Sharif home">
+            <span class="brand__mark" aria-hidden="true">AS</span>
+            <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+          </a>
+          <p>Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.</p>
+          <div class="footer__social">
+            <a href="https://github.com/Aminsharif" data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="#" data-linkedin aria-label="LinkedIn profile" aria-disabled="true"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:sharifmia236@gmail.com" data-email aria-label="Email Amin Sharif"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer__col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="n8n-workflow-automation.html">n8n Workflow Automation</a></li>
+            <li><a href="crm-automation.html">CRM Automation &amp; Integrations</a></li>
+            <li><a href="ai-voice-agents.html">AI Voice Agents</a></li>
+            <li><a href="ai-customer-support.html">AI Customer Support</a></li>
+            <li><a href="rag-knowledge-base.html">RAG &amp; Knowledge Base AI</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:sharifmia236@gmail.com" data-email>sharifmia236@gmail.com</a></li>
+            <li><a href="contact.html" data-booking>Book a discovery call</a></li>
+            <li><a href="tel:+8801670043742">+880 1670 043742</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Amin Sharif. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/widget.js" data-api-url="https://api.supportagent.aminsharif.com/api/chat" data-brand="Amin Sharif Support" data-accent="#e8552e" defer></script>
+</body>
+</html>

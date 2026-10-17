@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Error Handling and Monitoring for n8n Workflows | Amin Sharif</title>
+  <meta name="description" content="Practical error handling and monitoring patterns for n8n — retries, idempotency, alerting, and the common mistakes that make production automations fail silently.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/n8n-error-handling-monitoring.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/n8n-error-handling-monitoring.html">
+  <meta property="og:title" content="Error Handling and Monitoring for n8n Workflows | Amin Sharif">
+  <meta property="og:description" content="Practical error handling and monitoring patterns for n8n — retries, idempotency, alerting, and the common mistakes that make production automations fail silently.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta property="og:image:alt" content="Error handling and monitoring for n8n workflows">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Error Handling and Monitoring for n8n Workflows | Amin Sharif">
+  <meta name="twitter:description" content="Practical error handling and monitoring patterns for n8n — retries, idempotency, alerting, and the common mistakes that make production automations fail silently.">
+  <meta name="twitter:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/insights.css">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://aminsharif.com/#founder",
+        "name": "Amin Sharif",
+        "url": "https://aminsharif.com/about.html",
+        "jobTitle": "AI Automation Developer"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://aminsharif.com/#organization",
+        "name": "Amin Sharif",
+        "url": "https://aminsharif.com/",
+        "sameAs": ["https://github.com/Aminsharif"]
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": "https://aminsharif.com/n8n-error-handling-monitoring.html#article",
+        "headline": "Error Handling and Monitoring for n8n Workflows",
+        "description": "Practical error handling and monitoring patterns for n8n — retries, idempotency, alerting, and the common mistakes that make production automations fail silently.",
+        "datePublished": "2026-10-15",
+        "dateModified": "2026-10-15",
+        "author": { "@id": "https://aminsharif.com/#founder" },
+        "publisher": { "@id": "https://aminsharif.com/#organization" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aminsharif.com/n8n-error-handling-monitoring.html" },
+        "inLanguage": "en",
+        "articleSection": "Reliability"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aminsharif.com/n8n-error-handling-monitoring.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aminsharif.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://aminsharif.com/insights.html" },
+          { "@type": "ListItem", "position": 3, "name": "Error Handling and Monitoring for n8n Workflows", "item": "https://aminsharif.com/n8n-error-handling-monitoring.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Amin Sharif, AI automation agency, home">
+        <span class="brand__mark" aria-hidden="true">AS</span>
+        <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="services.html">Services</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="Show Services submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-services">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-workflow-automation.html"><span class="mega__title">n8n Workflow Automation</span><span class="mega__desc">Connect your tools so data moves on its own</span></a></li>
+                      <li><a class="mega__item" href="crm-automation.html"><span class="mega__title">CRM Automation &amp; Integrations</span><span class="mega__desc">Capture, qualify and follow up automatically</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agents.html"><span class="mega__title">AI Voice Agents</span><span class="mega__desc">Answer calls and book appointments</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ai-customer-support.html"><span class="mega__title">AI Customer Support</span><span class="mega__desc">Answer from your own documentation</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG &amp; Knowledge Base AI</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Not sure which service fits?</p>
+                    <p class="mega__cta-text">Most projects combine two or three. Tell me the workflow that is slowing you down.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Describe your project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="case-studies.html">Case Studies</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-work" aria-label="Show Case Studies submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-work">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="lead-generation.html"><span class="mega__title">Lead Capture to CRM</span><span class="mega__desc">Automated lead discovery, scoring and follow-up</span></a></li>
+                      <li><a class="mega__item" href="ai-booking-platform.html"><span class="mega__title">AI Booking Platform</span><span class="mega__desc">Natural-language scheduling with calendar sync</span></a></li>
+                      <li><a class="mega__item" href="support-ai.html"><span class="mega__title">AI Support Agent</span><span class="mega__desc">Answers from your docs, opens tickets when needed</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ecommerce-chatbot.html"><span class="mega__title">E-commerce Chatbot</span><span class="mega__desc">Order lookups, escalations and PII masking</span></a></li>
+                      <li><a class="mega__item" href="contextmesh-ai.html"><span class="mega__title">Multi-Tenant AI Platform</span><span class="mega__desc">Hybrid retrieval with reranking and ingestion</span></a></li>
+                      <li><a class="mega__item" href="invoice-process.html"><span class="mega__title">Invoice &amp; Document Processing</span><span class="mega__desc">Extract, summarise and query documents</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG Knowledge Base</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Want the full breakdown?</p>
+                    <p class="mega__cta-text">Every project starts from a business problem. See how each one was solved.</p>
+                    <a class="mega__cta-link" href="case-studies.html">Browse all case studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="insights.html">Insights</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-insights" aria-label="Show Insights submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-insights">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-vs-zapier-vs-make.html"><span class="mega__title">n8n vs Zapier vs Make</span><span class="mega__desc">Choosing the right automation platform</span></a></li>
+                      <li><a class="mega__item" href="connect-n8n-with-hubspot.html"><span class="mega__title">Connect n8n with HubSpot</span><span class="mega__desc">A practical CRM integration walkthrough</span></a></li>
+                      <li><a class="mega__item" href="n8n-error-handling-monitoring.html" aria-current="page"><span class="mega__title">Error Handling &amp; Monitoring</span><span class="mega__desc">Keeping workflows reliable in production</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="automate-lead-management-with-n8n.html"><span class="mega__title">Automate Lead Management</span><span class="mega__desc">An end-to-end lead pipeline in n8n</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agent-appointment-scheduling.html"><span class="mega__title">Voice Agents &amp; Scheduling</span><span class="mega__desc">Appointment booking over the phone</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Prefer a hands-on answer?</p>
+                    <p class="mega__cta-text">Skip the reading and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="about.html">About</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-about" aria-label="Show About submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-about">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="about.html"><span class="mega__title">About Amin</span><span class="mega__desc">Background, skills and how I work</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="amin-sharif-cv.html"><span class="mega__title">CV / Resume</span><span class="mega__desc">Experience, projects and certifications</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Work with me</p>
+                    <p class="mega__cta-text">Book a short call and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html" data-booking>Book a Discovery Call</a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__cta" href="contact.html" data-booking>
+          <span class="header__cta-mark" aria-hidden="true">AS</span>Book a Discovery Call
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content" class="kf">
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li aria-current="page">Error Handling and Monitoring for n8n</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="kf-article-hero">
+      <div class="kf-container">
+        <div class="kf-article-hero__inner">
+          <a class="kf-cat-link" href="insights.html?category=reliability"><p class="kf-eyebrow kf-eyebrow-light">Reliability</p></a>
+          <h1 class="kf-article-title">Error Handling and Monitoring for n8n Workflows</h1>
+          <div class="kf-article-meta">
+            <span class="kf-avatar">AS</span>
+            <a href="about.html">Amin Sharif</a>
+            <span class="kf-meta__dot">&middot;</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="kf-sec-lg kf-line-b">
+      <div class="kf-container">
+        <div class="kf-article-layout">
+          <div class="kf-prose">
+            <div class="kf-article-body">
+          <h2 id="why">Why workflows fail silently</h2>
+          <p>An automation that fails loudly is annoying. An automation that fails quietly is dangerous, because the business keeps acting as though it worked. A lead that was never written to the CRM, an invoice that was never sent, a sync that stopped three weeks ago — these are the failures that cost real money, and they share one trait: nobody was told.</p>
+          <p>The goal of error handling in n8n is to make failure visible, recoverable and repeatable. That is a design habit, not a node you bolt on at the end. It is the difference between a workflow that works in a demo and one that still works six months later, which is the subject of <a href="n8n-workflow-automation.html">n8n workflow automation</a>.</p>
+
+          <h2 id="errors">Catching errors deliberately</h2>
+          <p>By default, when a node throws, the execution stops. Sometimes that is the right behaviour — but only if something downstream notices. n8n gives you a few ways to take control:</p>
+          <ul>
+            <li><strong>Continue On Fail</strong> on a node lets the workflow keep going so a later branch can handle the problem.</li>
+            <li><strong>Error Trigger workflows</strong> catch any execution that fails and let you send an alert, log the detail, or retry.</li>
+            <li><strong>IF and Switch nodes</strong> let you check for an empty or unexpected result before it turns into an error.</li>
+          </ul>
+          <p>The important shift is from hoping nothing fails to assuming something will, and deciding in advance what should happen when it does. Every external call deserves a plan for the day it does not answer.</p>
+          <p>It also helps to distinguish error types. A validation failure caused by bad input is different from a network timeout, and they should not be treated the same way. Bad input should be kept aside for review; a timeout should be retried. Collapsing everything into a single "failed" bucket makes the alerting useless.</p>
+
+          <h2 id="retries">Retries and backoff</h2>
+          <p>Many failures are temporary. An API is briefly down, a rate limit is hit, a network call times out. Retrying after a short delay resolves most of them. n8n's Retry On Fail setting handles the simple case; for anything involving a shared rate limit, add an explicit wait and a retry counter so you do not hammer a service that is already struggling.</p>
+          <p>Backoff — waiting a little longer between each attempt — is kinder to the service and more likely to succeed than retrying instantly. Retries are only safe, though, if the operation can be repeated without side effects, which is the next point.</p>
+
+          <h2 id="idempotency">Idempotency and duplicate protection</h2>
+          <p>Idempotency means running the same step twice has the same effect as running it once. It is the property that makes retries safe. Without it, a retried "create contact" produces two contacts, and a retried "send invoice" sends two invoices.</p>
+          <p>The pattern is always the same: look before you leap.</p>
+          <pre><code>Search for an existing record by a stable key (email, order ID)
+IF found → update it
+ELSE     → create it</code></pre>
+          <p>Any step that writes to an external system should be built this way. It is the single most effective reliability habit in production automation, and it pairs naturally with the duplicate handling you would use in a CRM.</p>
+          <p>A useful side effect is that idempotent workflows are safe to re-run. When something does go wrong, the instinct is often to trigger the workflow again — and with this pattern in place, that is a sensible thing to do rather than a gamble.</p>
+
+          <h2 id="alerting">Alerting that people notice</h2>
+          <p>An alert nobody reads is not an alert. Decide where failures should surface — a chat channel, an inbox, a task list — and make the message useful. Include the workflow name, the failing node, the error message and a link to the execution. A message that says only "workflow failed" forces someone to go hunting; a good one answers the question before it is asked.</p>
+          <p>Resist the temptation to alert on everything. If every warning is urgent, none of them are. Reserve real alerts for genuine failures and let routine noise stay quiet, so the important ones still carry weight.</p>
+
+          <h2 id="logging">Monitoring and logging</h2>
+          <p>Alerting tells you when something breaks. Monitoring tells you whether the system is healthy overall. At a minimum, keep an eye on failure rates, execution times and whether scheduled workflows are running at all. A workflow that silently stops triggering produces no errors to alert on — you only find out when someone asks why nothing has happened.</p>
+          <p>A simple heartbeat is worth its weight: a scheduled workflow that writes a timestamp somewhere, checked by another job that alerts if the timestamp goes stale. It catches the failures that never throw, which are exactly the ones that hurt most.</p>
+          <p>For anything important, keep a short runbook. When a workflow does fail, the person on the other end should not have to reverse-engineer it at an awkward hour. A few lines describing what it does, what it depends on and how to re-run it saves far more time than it takes to write.</p>
+
+          <h2 id="mistakes">Common mistakes</h2>
+          <ul>
+            <li>No error handling at all, so the first unexpected response stops everything.</li>
+            <li>Retries without idempotency, which quietly create duplicates.</li>
+            <li>Alerts with no context, which get ignored within a week.</li>
+            <li>Credentials and secrets hard-coded through nodes instead of stored properly.</li>
+            <li>No monitoring, so silent failures are discovered weeks after they started.</li>
+          </ul>
+          <p>None of these is exotic, and all of them are avoidable with a little discipline up front. If you are weighing platforms and wondering how their reliability tooling compares, <a href="n8n-vs-zapier-vs-make.html">n8n vs Zapier vs Make</a> covers that. And if you would rather have workflows built to stay dependable after launch, <a href="services.html">the services overview</a> explains how I work.</p>
+            </div>
+            <div class="kf-tags"><a class="kf-tag" href="insights.html?category=reliability">Reliability</a></div>
+            <div class="kf-author-box"><span class="kf-author-box__avatar">AS</span><div>
+              <p class="kf-author-box__name">Written by Amin Sharif</p>
+              <p class="kf-author-box__text">Founder-led AI automation agency. I design and ship n8n workflows, CRM integrations and AI agents that remove repetitive work. <a href="about.html">More about me &rarr;</a></p>
+            </div></div>
+          </div>
+          <aside class="kf-aside">
+            <div class="kf-audit">
+              <span class="kf-audit__label">Free automation audit</span>
+              <p class="kf-audit__title">Not sure where to start?</p>
+              <p class="kf-audit__text">Tell me the process that is slowing you down and I will map the fastest automation win.</p>
+              <a class="kf-btn kf-btn-white kf-btn-sm" href="contact.html" data-booking>Book a call</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-sec-lg kf-bg-soft kf-line-b">
+      <div class="kf-container">
+        <p class="kf-eyebrow">More articles</p>
+        <div class="kf-card-grid">
+          <a class="kf-card" href="automate-lead-management-with-n8n.html"><article>
+            <span class="kf-eyebrow kf-card__cat">n8n</span>
+            <h3 class="kf-card__title">How to automate lead management with n8n</h3>
+            <p class="kf-card__excerpt">A practical walkthrough of capturing, enriching, routing and following up with leads.</p>
+            <div class="kf-meta"><span>6 min read</span></div>
+          </article></a>
+          <a class="kf-card" href="n8n-vs-zapier-vs-make.html"><article>
+            <span class="kf-eyebrow kf-card__cat">Comparison</span>
+            <h3 class="kf-card__title">n8n vs Zapier vs Make: which fits?</h3>
+            <p class="kf-card__excerpt">An honest comparison of flexibility, pricing models and hosting for business automation.</p>
+            <div class="kf-meta"><span>7 min read</span></div>
+          </article></a>
+          <a class="kf-card" href="connect-n8n-with-hubspot.html"><article>
+            <span class="kf-eyebrow kf-card__cat">HubSpot</span>
+            <h3 class="kf-card__title">How to connect n8n with HubSpot</h3>
+            <p class="kf-card__excerpt">Sync contacts, create and update deals, and trigger follow-ups — with reliability tips.</p>
+            <div class="kf-meta"><span>6 min read</span></div>
+          </article></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="kf-cta">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l">Let's find your next automation opportunity.</h2>
+          <p class="kf-body-lead">Tell me which tasks your team repeats every week. We'll look at your current workflow and identify where reliable automation could help.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+            <a class="kf-btn kf-btn-lg" href="contact.html#inquiry-form">Describe Your Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="index.html" aria-label="Amin Sharif home">
+            <span class="brand__mark" aria-hidden="true">AS</span>
+            <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+          </a>
+          <p>Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.</p>
+          <div class="footer__social">
+            <a href="https://github.com/Aminsharif" data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="#" data-linkedin aria-label="LinkedIn profile" aria-disabled="true"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:sharifmia236@gmail.com" data-email aria-label="Email Amin Sharif"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <nav class="footer__col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="n8n-workflow-automation.html">n8n Workflow Automation</a></li>
+            <li><a href="crm-automation.html">CRM Automation &amp; Integrations</a></li>
+            <li><a href="ai-voice-agents.html">AI Voice Agents</a></li>
+            <li><a href="ai-customer-support.html">AI Customer Support</a></li>
+            <li><a href="rag-knowledge-base.html">RAG &amp; Knowledge Base AI</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:sharifmia236@gmail.com" data-email>sharifmia236@gmail.com</a></li>
+            <li><a href="contact.html" data-booking>Book a discovery call</a></li>
+            <li><a href="tel:+8801670043742">+880 1670 043742</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Amin Sharif. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

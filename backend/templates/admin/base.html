@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Admin{% endblock %} · Amin Sharif</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="{{ url_for('admin_static', filename='admin.css') }}">
+</head>
+<body class="admin">
+  <div class="admin__shell">
+
+    <aside class="sidebar">
+      <a class="sidebar__brand" href="{{ url_for('admin.dashboard') }}">
+        <span class="sidebar__mark">AS</span>
+        <span class="sidebar__brand-text">Amin Sharif<small>Admin</small></span>
+      </a>
+
+      <nav class="sidebar__nav" aria-label="Admin">
+        <a class="sidebar__link {{ 'is-active' if active == 'dashboard' }}" href="{{ url_for('admin.dashboard') }}">
+          <span class="ico">▤</span> Dashboard
+        </a>
+        <a class="sidebar__link {{ 'is-active' if active == 'articles' }}" href="{{ url_for('admin.articles') }}">
+          <span class="ico">✎</span> Insights
+        </a>
+        <a class="sidebar__link {{ 'is-active' if active == 'categories' }}" href="{{ url_for('admin.categories') }}">
+          <span class="ico">◆</span> Categories
+        </a>
+        <a class="sidebar__link {{ 'is-active' if active == 'inquiries' }}" href="{{ url_for('admin.inquiries') }}">
+          <span class="ico">✉</span> Inquiries
+          {% if new_inquiry_count %}<span class="pill">{{ new_inquiry_count }}</span>{% endif %}
+        </a>
+      </nav>
+
+      <div class="sidebar__foot">
+        <a class="sidebar__link" href="/" target="_blank" rel="noopener">↗ View site</a>
+        <a class="sidebar__link" href="{{ url_for('admin.logout') }}">⎋ Sign out</a>
+        <p class="sidebar__user">Signed in as <strong>{{ session.get('admin_user') }}</strong></p>
+      </div>
+    </aside>
+
+    <main class="admin__main">
+      <header class="topbar">
+        <div>
+          <h1 class="topbar__title">{% block heading %}{% endblock %}</h1>
+          {% block subheading %}{% endblock %}
+        </div>
+        <div class="topbar__actions">{% block actions %}{% endblock %}</div>
+      </header>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flashes">
+            {% for category, message in messages %}
+              <div class="flash flash--{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <div class="admin__content">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{% extends "admin/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block heading %}Dashboard{% endblock %}
+{% block subheading %}<p class="topbar__sub">Overview of your insights content and incoming project inquiries.</p>{% endblock %}
+
+{% block actions %}
+  <a class="btn btn--primary" href="{{ url_for('admin.article_new') }}">+ New article</a>
+{% endblock %}
+
+{% block content %}
+  <section class="stats">
+    <div class="stat">
+      <span class="stat__label">Published</span>
+      <span class="stat__value">{{ stats.published }}</span>
+      <span class="stat__meta">of {{ stats.articles }} articles</span>
+    </div>
+    <div class="stat">
+      <span class="stat__label">Drafts</span>
+      <span class="stat__value">{{ stats.drafts }}</span>
+      <span class="stat__meta">not visible yet</span>
+    </div>
+    <div class="stat">
+      <span class="stat__label">Categories</span>
+      <span class="stat__value">{{ stats.categories }}</span>
+      <span class="stat__meta">on insights</span>
+    </div>
+    <div class="stat stat--accent">
+      <span class="stat__label">New inquiries</span>
+      <span class="stat__value">{{ stats.new_inquiries }}</span>
+      <span class="stat__meta">of {{ stats.inquiries }} total</span>
+    </div>
+  </section>
+
+  <div class="grid-2">
+    <section class="panel">
+      <header class="panel__head">
+        <h2>Latest inquiries</h2>
+        <a class="panel__link" href="{{ url_for('admin.inquiries') }}">View all →</a>
+      </header>
+      {% if recent_inquiries %}
+        <ul class="list">
+          {% for item in recent_inquiries %}
+            <li class="list__item">
+              <a class="list__main" href="{{ url_for('admin.inquiry_detail', inquiry_id=item.id) }}">
+                <strong>{{ item.name }}</strong>
+                <span class="muted">{{ item.email }}</span>
+              </a>
+              <div class="list__side">
+                <span class="badge badge--{{ item.status }}">{{ item.status }}</span>
+                <time>{{ item.created_at.strftime('%d %b %H:%M') }}</time>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="empty">No inquiries yet. Submissions from the contact form will appear here.</p>
+      {% endif %}
+    </section>
+
+    <section class="panel">
+      <header class="panel__head">
+        <h2>Recently edited articles</h2>
+        <a class="panel__link" href="{{ url_for('admin.articles') }}">Manage →</a>
+      </header>
+      {% if recent_articles %}
+        <ul class="list">
+          {% for item in recent_articles %}
+            <li class="list__item">
+              <a class="list__main" href="{{ url_for('admin.article_edit', article_id=item.id) }}">
+                <strong>{{ item.title }}</strong>
+                <span class="muted">{{ item.category_name or 'Uncategorised' }}</span>
+              </a>
+              <div class="list__side">
+                <span class="badge badge--{{ item.status }}">{{ item.status }}</span>
+                <time>{{ item.published_at.strftime('%d %b %Y') }}</time>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="empty">No articles yet.</p>
+      {% endif %}
+    </section>
+  </div>
+{% endblock %}

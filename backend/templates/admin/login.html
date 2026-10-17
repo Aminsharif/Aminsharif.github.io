@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · Amin Sharif Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="{{ url_for('admin_static', filename='admin.css') }}">
+</head>
+<body class="admin admin--login">
+  <main class="login">
+    <div class="login__card">
+      <div class="login__brand">
+        <span class="sidebar__mark">AS</span>
+        <div>
+          <strong>Amin Sharif</strong>
+          <small>Admin panel</small>
+        </div>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="flash flash--{{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form method="post" class="login__form">
+        <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <label class="field">
+          <span class="field__label">Username</span>
+          <input class="field__input" type="text" name="username" autocomplete="username" autofocus required>
+        </label>
+        <label class="field">
+          <span class="field__label">Password</span>
+          <input class="field__input" type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <button class="btn btn--primary btn--block" type="submit">Sign in</button>
+      </form>
+
+      <p class="login__hint">Credentials are configured in <code>backend/.env</code>.</p>
+    </div>
+  </main>
+</body>
+</html>

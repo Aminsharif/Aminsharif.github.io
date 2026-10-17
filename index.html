@@ -1,544 +1,935 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amin Sharif - Full-Stack Developer & Data Scientist</title>
-    <meta name="description" content="Full-Stack Developer turned Data Scientist with 5+ years experience in .NET, Angular, Python, Machine Learning, and Generative AI">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Automation Agency — n8n, CRM &amp; AI Voice Agents | Amin Sharif</title>
+  <meta name="description" content="Amin Sharif is a founder-led AI automation agency. I help growing businesses connect their tools and deploy n8n workflows, CRM integrations, AI voice agents and AI customer support systems.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/">
+  <meta property="og:title" content="AI Automation Agency — n8n, CRM &amp; AI Voice Agents | Amin Sharif">
+  <meta property="og:description" content="Connect your tools and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta property="og:image:alt" content="Amin Sharif — AI automation agency">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Automation Agency — n8n, CRM &amp; AI Voice Agents | Amin Sharif">
+  <meta name="twitter:description" content="Connect your tools and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.">
+  <meta name="twitter:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/insights.css">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://aminsharif.com/#organization",
+        "name": "Amin Sharif",
+        "url": "https://aminsharif.com/",
+        "description": "Founder-led AI automation agency building n8n workflows, CRM integrations, AI voice agents and AI customer support systems for growing businesses.",
+        "email": "sharifmia236@gmail.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png"
+        },
+        "founder": { "@id": "https://aminsharif.com/#founder" },
+        "areaServed": "Worldwide",
+        "knowsAbout": ["n8n workflow automation", "CRM automation", "AI voice agents", "AI customer support", "RAG knowledge base AI", "API integrations", "business process automation"],
+        "sameAs": ["https://github.com/Aminsharif"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://aminsharif.com/#founder",
+        "name": "Amin Sharif",
+        "url": "https://aminsharif.com/about.html",
+        "jobTitle": "AI Automation Developer",
+        "worksFor": { "@id": "https://aminsharif.com/#organization" },
+        "knowsAbout": ["n8n", "CRM automation", "HubSpot", "AI voice agents", "Workflow automation", "API integrations"],
+        "sameAs": ["https://github.com/Aminsharif"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://aminsharif.com/#website",
+        "url": "https://aminsharif.com/",
+        "name": "Amin Sharif — AI Automation Agency",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://aminsharif.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://aminsharif.com/#webpage",
+        "url": "https://aminsharif.com/",
+        "name": "AI Automation Agency — n8n, CRM & AI Voice Agents | Amin Sharif",
+        "description": "Amin Sharif is a founder-led AI automation agency helping businesses automate workflows with n8n, CRM integrations, AI voice agents and AI customer support systems.",
+        "isPartOf": { "@id": "https://aminsharif.com/#website" },
+        "about": { "@id": "https://aminsharif.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://aminsharif.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What types of business processes can you automate?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Lead capture and follow-up, CRM updates, appointment scheduling, internal notifications, document handling, reporting, and customer support responses — anything repetitive that moves data between tools or waits on a manual step." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you integrate with our existing CRM?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. If your CRM has an API, webhook, or is supported by n8n (HubSpot, Pipedrive, Salesforce, Zoho and others), it can usually be integrated. If it has no API, we can discuss database-level or custom options." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does an automation project take?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Timelines depend on scope and how many systems are involved. A focused single-workflow build is measured in days, while multi-system projects run longer. You receive a clear estimate after the discovery call." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide ongoing maintenance?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maintenance for monitoring, fixes and improvements is available after handover, as an optional ongoing arrangement rather than a requirement." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Amin Sharif</a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#education" class="nav-link">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                <span class="sun-icon">☀️</span>
-                <span class="moon-icon">🌙</span>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-current="page" aria-label="Amin Sharif, AI automation agency, home">
+        <span class="brand__mark" aria-hidden="true">AS</span>
+        <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="services.html">Services</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="Show Services submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
+            <div class="nav__sub nav__sub--mega" id="sub-services">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-workflow-automation.html"><span class="mega__title">n8n Workflow Automation</span><span class="mega__desc">Connect your tools so data moves on its own</span></a></li>
+                      <li><a class="mega__item" href="crm-automation.html"><span class="mega__title">CRM Automation &amp; Integrations</span><span class="mega__desc">Capture, qualify and follow up automatically</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agents.html"><span class="mega__title">AI Voice Agents</span><span class="mega__desc">Answer calls and book appointments</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ai-customer-support.html"><span class="mega__title">AI Customer Support</span><span class="mega__desc">Answer from your own documentation</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG &amp; Knowledge Base AI</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Not sure which service fits?</p>
+                    <p class="mega__cta-text">Most projects combine two or three. Tell me the workflow that is slowing you down.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Describe your project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="case-studies.html">Case Studies</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-work" aria-label="Show Case Studies submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-work">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="lead-generation.html"><span class="mega__title">Lead Capture to CRM</span><span class="mega__desc">Automated lead discovery, scoring and follow-up</span></a></li>
+                      <li><a class="mega__item" href="ai-booking-platform.html"><span class="mega__title">AI Booking Platform</span><span class="mega__desc">Natural-language scheduling with calendar sync</span></a></li>
+                      <li><a class="mega__item" href="support-ai.html"><span class="mega__title">AI Support Agent</span><span class="mega__desc">Answers from your docs, opens tickets when needed</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ecommerce-chatbot.html"><span class="mega__title">E-commerce Chatbot</span><span class="mega__desc">Order lookups, escalations and PII masking</span></a></li>
+                      <li><a class="mega__item" href="contextmesh-ai.html"><span class="mega__title">Multi-Tenant AI Platform</span><span class="mega__desc">Hybrid retrieval with reranking and ingestion</span></a></li>
+                      <li><a class="mega__item" href="invoice-process.html"><span class="mega__title">Invoice &amp; Document Processing</span><span class="mega__desc">Extract, summarise and query documents</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG Knowledge Base</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Want the full breakdown?</p>
+                    <p class="mega__cta-text">Every project starts from a business problem. See how each one was solved.</p>
+                    <a class="mega__cta-link" href="case-studies.html">Browse all case studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="insights.html">Insights</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-insights" aria-label="Show Insights submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-insights">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-vs-zapier-vs-make.html"><span class="mega__title">n8n vs Zapier vs Make</span><span class="mega__desc">Choosing the right automation platform</span></a></li>
+                      <li><a class="mega__item" href="connect-n8n-with-hubspot.html"><span class="mega__title">Connect n8n with HubSpot</span><span class="mega__desc">A practical CRM integration walkthrough</span></a></li>
+                      <li><a class="mega__item" href="n8n-error-handling-monitoring.html"><span class="mega__title">Error Handling &amp; Monitoring</span><span class="mega__desc">Keeping workflows reliable in production</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="automate-lead-management-with-n8n.html"><span class="mega__title">Automate Lead Management</span><span class="mega__desc">An end-to-end lead pipeline in n8n</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agent-appointment-scheduling.html"><span class="mega__title">Voice Agents &amp; Scheduling</span><span class="mega__desc">Appointment booking over the phone</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Prefer a hands-on answer?</p>
+                    <p class="mega__cta-text">Skip the reading and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="about.html">About</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-about" aria-label="Show About submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-about">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="about.html"><span class="mega__title">About Amin</span><span class="mega__desc">Background, skills and how I work</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="amin-sharif-cv.html"><span class="mega__title">CV / Resume</span><span class="mega__desc">Experience, projects and certifications</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Work with me</p>
+                    <p class="mega__cta-text">Book a short call and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html" data-booking>Book a Discovery Call</a>
         </div>
-    </nav>
+      </nav>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span class="hero-greeting">Hello, I'm</span>
-                        <span class="hero-name">Amin Sharif</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        AI Engineer | LangChain & LangGraph Developer
-                    </p>
-                    <p class="hero-description">
-                        Building AI systems trained on domain data with Knowledge Base AI, agentic AI, RAG pipelines, chatbot architectures, and GPT/Ollama model integrations for reliable production workflows.
-                    </p>
-                    <div class="hero-highlights">
-                        <span class="highlight-chip">Knowledge Base AI</span>
-                        <span class="highlight-chip">LangGraph Agents</span>
-                        <span class="highlight-chip">RAG Chatbots</span>
-                        <span class="highlight-chip">GPT + Ollama</span>
-                    </div>
-                    <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="https://github.com/aminsharif" class="btn btn-secondary" target="_blank">GitHub</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-image-placeholder">
-                        <img class="hero-avatar-img" src="images/amin.jpg" alt="Amin Sharif profile photo">
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="header__actions">
+        <a class="header__cta" href="contact.html" data-booking>
+          <span class="header__cta-mark" aria-hidden="true">AS</span>Book a Discovery Call
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p class="about-intro">
-                            I build AI-first applications focused on knowledge-based intelligence, agentic AI systems, and production-ready chatbot experiences.
-                        </p>
-                        <p>
-                            My current focus is training and orchestrating AI on domain data using RAG pipelines, LangChain, and LangGraph to create reliable multi-step reasoning workflows.
-                        </p>
-                        <p>
-                            I design end-to-end Knowledge Base AI platforms with GPT and Ollama powered models, tool-calling agents, contextual retrieval, and scalable backend services for real-world business use cases.
-                        </p>
-                        <div class="about-resume">
-                            <a href="amin-sharif-cv.html" class="btn btn-outline" target="_blank">My CV</a>
-                        </div>
-                    </div>
-                    <div class="about-skills">
-                        <h3>Technical Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-category">
-                                <h4>LangChain & LangGraph</h4>
-                                <ul>
-                                    <li>LangChain</li>
-                                    <li>LangGraph</li>
-                                    <li>Agentic Workflows</li>
-                                    <li>Tool Calling</li>
-                                    <li>RAG Pipelines</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Data Science & AI</h4>
-                                <ul>
-                                    <li>Python</li>
-                                    <li>Machine Learning</li>
-                                    <li>Deep Learning</li>
-                                    <li>Generative AI</li>
-                                    <li>Prompt Engineering</li>       
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Backend Development</h4>
-                                <ul>
-                                    <li>C#.NET</li>
-                                    <li>ASP.NET Core</li>
-                                    <li>Web API & REST</li>
-                                    <li>Entity Framework</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Frontend Development</h4>
-                                <ul>
-                                    <li>Angular 7-16</li>
-                                    <li>React JS</li>
-                                    <li>Next.js</li>
-                                    <li>React Native Expo</li>
+  <main id="main-content">
 
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-grid">
-                    <!-- KnowledgeAI-FastAPI -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img class="project-cover" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Knowledge AI platform">
-                            <div class="project-placeholder">Knowledge AI</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">KnowledgeAI-FastAPI</h3>
-                            <p class="project-description">
-                                Production-ready FastAPI platform with JWT access and refresh tokens, email verification, password reset, role-based access control, file and website ingestion, and clean architecture with logging and migrations.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">FastAPI</span>
-                                <span class="tech-tag">JWT</span>
-                                <span class="tech-tag">SQLAlchemy</span>
-                                <span class="tech-tag">Docker</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="http://144.91.123.138/" class="project-link" target="_blank">Live URL</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- RAG PDF Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img class="project-cover" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="RAG PDF ingestion project">
-                            <div class="project-placeholder">RAG</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">RAG-pdf-ingest</h3>
-                            <p class="project-description">
-                                RAG operation for PDF ingestion with graph-based retrieval flow for accurate question answering from uploaded documents.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Jupyter Notebook</span>
-                                <span class="tech-tag">RAG</span>
-                                <span class="tech-tag">Graph</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Aminsharif/RAG-pdf-ingest" class="project-link" target="_blank">View Code</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- RAG Chatbot with Tools -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img class="project-cover" src="https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1200&q=80" alt="RAG chatbot with tools project">
-                            <div class="project-placeholder">RAG</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">RAG-chatbot-withtool</h3>
-                            <p class="project-description">
-                                Question and answer chatbot built with retrieval-augmented generation and tool support for grounded responses.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">RAG</span>
-                                <span class="tech-tag">Tools</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Aminsharif/RAG-chatbot-withtool" class="project-link" target="_blank">View Code</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- LlamaIndex Q&A -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img class="project-cover" src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=1200&q=80" alt="Documentation question answering project">
-                            <div class="project-placeholder">Docs QA</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">RAG-chatbot-for-llamaindex</h3>
-                            <p class="project-description">
-                                TypeScript chatbot for LlamaIndex documentation question answering, focused on developer-friendly documentation search.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">RAG</span>
-                                <span class="tech-tag">MIT License</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Aminsharif/RAG-chatbot-for-llamaindex" class="project-link" target="_blank">View Code</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- LangChain Chatbot -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img class="project-cover" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" alt="LangChain chatbot project">
-                            <div class="project-placeholder">LangChain</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">chatbot_with_langchain</h3>
-                            <p class="project-description">
-                                Documentation question answering chatbot built with LangChain and LangSmith focused workflow.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">LangChain</span>
-                                <span class="tech-tag">LangSmith</span>
-                                <span class="tech-tag">MIT License</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Aminsharif/chatbot_with_langchain" class="project-link" target="_blank">View Code</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Additional Repositories -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img class="project-cover" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="eCommerce and dataset projects">
-                            <div class="project-placeholder">C# + Data</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">eCommerce and DL-Dataset</h3>
-                            <p class="project-description">
-                                Additional repositories include a C# eCommerce solution and deep learning dataset resources.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">Apache 2.0</span>
-                                <span class="tech-tag">Dataset</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Aminsharif/eCommerce" class="project-link" target="_blank">eCommerce</a>
-                                <a href="https://github.com/Aminsharif/DL-Dataset" class="project-link" target="_blank">DL-Dataset</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="projects-cta">
-                    <a href="https://github.com/Aminsharif?tab=repositories" class="btn btn-outline" target="_blank">View All Projects on GitHub</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Experience Section -->
-        <section id="experience" class="blog">
-            <div class="container">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="blog-grid">
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2026-01-01">Current</time>
-                            <span class="blog-category">AI Engineering</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="#">Full-Stack Developer and AI Engineer</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Designing and delivering AI-enabled products with FastAPI, secure auth flows, role-based access, and scalable data and LLM workflows.
-                        </p>
-                        <a href="http://144.91.123.138/" target="_blank" class="blog-link">Knowledge AI Live URL</a>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2025-01-01">5+ Years</time>
-                            <span class="blog-category">Software Engineering</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="#">Senior Software Engineer (.NET & Angular)</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Built enterprise-grade APIs and business applications using C#.NET, ASP.NET Core, Angular, SQL, and clean architecture principles.
-                        </p>
-                        <a href="https://github.com/Aminsharif?tab=repositories" target="_blank" class="blog-link">View Repositories</a>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2024-01-01">Recent Focus</time>
-                            <span class="blog-category">Data Science</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="#">RAG and Generative AI Development</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Delivered practical RAG chatbots, PDF ingestion pipelines, and tool-enabled AI workflows for production-style use cases.
-                        </p>
-                        <a href="https://github.com/Aminsharif/RAG-chatbot-withtool" target="_blank" class="blog-link">Project Example</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="blog">
-            <div class="container">
-                <h2 class="section-title">Professional Courses</h2>
-                <div class="blog-grid">
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2025-12-18">2025</time>
-                            <span class="blog-category">LangChain Academy</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="https://academy.langchain.com/certificates/879njewsge" target="_blank">Project: Ambient Agents with LangGraph</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Certificate ID: 879njewsge. Issued on 2025-12-18.
-                        </p>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2025-11-19">2025</time>
-                            <span class="blog-category">LangChain Academy</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="https://academy.langchain.com/certificates/z9q4erwnkn" target="_blank">Foundation: Introduction to LangGraph</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Certificate ID: z9q4erwnkn. Issued on 2025-11-19.
-                        </p>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2025-11-07">2025</time>
-                            <span class="blog-category">LangChain Academy</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="https://academy.langchain.com/certificates/tzfjt0uumw" target="_blank">Quickstart: LangChain Essentials - Python</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Certificate ID: tzfjt0uumw. Issued on 2025-11-07.
-                        </p>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2024-01-01">2024</time>
-                            <span class="blog-category">Udemy</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="https://www.udemy.com/" target="_blank">Complete Generative AI Course with LangChain and Hugging Face</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Practical training in LLM workflows, prompt engineering, chaining, and AI application building.
-                        </p>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2022-01-01">2022</time>
-                            <span class="blog-category">iNeuron</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="https://ineuron.ai/" target="_blank">Full Stack Data Science BootCamp 2.0</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            End-to-end coursework across Python, machine learning, deep learning, and production data workflows.
-                        </p>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2017-01-01">2017</time>
-                            <span class="blog-category">IDB-BISEW</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="#">Diploma in Enterprise System Analysis and Design with C# .NET</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Scholarship program focused on enterprise architecture and practical software engineering.
-                        </p>
-                    </article>
-                </div>
-                <h2 class="section-title">Academic Education</h2>
-                <div class="blog-grid">
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2016-01-01">2016</time>
-                            <span class="blog-category">MBSTU</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="#">Post Graduate Diploma in ICT</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Mawlana Bhashani Science and Technology University.
-                        </p>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2015-01-01">2015</time>
-                            <span class="blog-category">MBSTU</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="#">MS in Mathematics</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Mawlana Bhashani Science and Technology University.
-                        </p>
-                    </article>
-                    <article class="blog-card">
-                        <div class="blog-meta">
-                            <time datetime="2014-01-01">2014</time>
-                            <span class="blog-category">MBSTU</span>
-                        </div>
-                        <h3 class="blog-title">
-                            <a href="#">B.Sc. (Hon's) in Mathematics</a>
-                        </h3>
-                        <p class="blog-excerpt">
-                            Mawlana Bhashani Science and Technology University.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Let's Connect</h3>
-                        <p>
-                            I'm always interested in discussing new opportunities, collaborations in data science, 
-                            AI projects, or sharing insights about software development and machine learning.
-                        </p>
-                        <div class="contact-links">
-                            <a href="mailto:sharifmia236@gmail.com" class="contact-link">
-                                <span class="contact-icon">📧</span>
-                                sharifmia236@gmail.com
-                            </a>
-                            <a href="tel:+8801670043742" class="contact-link">
-                                <span class="contact-icon">📱</span>
-                                +880 1670 043742
-                            </a>
-                            <a href="https://github.com/Aminsharif?tab=repositories" class="contact-link" target="_blank">
-                                <span class="contact-icon">🐙</span>
-                                GitHub Profile
-                            </a>
-                            <a href="http://144.91.123.138/" class="contact-link" target="_blank">
-                                <span class="contact-icon">🌐</span>
-                                Knowledge AI Live URL
-                            </a>
-                        </div>
-                    </div>
-                    <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/sharifmia236@gmail.com" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <input type="hidden" name="_subject" value="Portfolio Contact Message">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Amin Sharif. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#education">Education</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow">AI Automation Agency</p>
+          <h1 class="hero__title" id="hero-title">Automate Your Business.<br><span class="accent">Scale Without the Busywork.</span></h1>
+          <p class="hero__lead">
+            We help growing businesses streamline operations, connect their tools, and deploy
+            AI-powered workflows that reduce repetitive work and improve customer experiences.
+          </p>
+          <div class="btn-group">
+            <a class="btn btn--primary btn--lg" href="contact.html" data-booking>Book a Discovery Call</a>
+            <a class="btn btn--secondary btn--lg" href="case-studies.html">Explore Our Work</a>
+          </div>
+          <ul class="hero__meta">
+            <li><i class="fas fa-globe" aria-hidden="true"></i> Available to businesses worldwide</li>
+            <li><i class="fas fa-user-tie" aria-hidden="true"></i> Founder-led — you talk to the developer</li>
+          </ul>
         </div>
-    </footer>
 
-    <script src="js/main.js"></script>
+        <div class="hero__media reveal reveal-delay-2">
+          <div class="workflow-card" role="img" aria-label="Diagram of an automated workflow: a webhook receives a new lead, an API enriches the company data, an AI agent qualifies the lead, and the result updates the CRM while notifying the team.">
+            <div class="workflow-card__bar">
+              <span class="workflow-card__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span class="workflow-card__bar-title">Lead intake &amp; follow-up</span>
+              <span class="badge">n8n</span>
+            </div>
+            <div class="workflow" aria-hidden="true">
+              <div class="wf-node">
+                <span class="wf-node__icon"><i class="fas fa-bolt"></i></span>
+                <span class="wf-node__label">New lead received</span>
+                <span class="wf-node__type">Webhook</span>
+              </div>
+              <div class="wf-link"><i class="fas fa-arrow-down"></i></div>
+              <div class="wf-node">
+                <span class="wf-node__icon"><i class="fas fa-magnifying-glass-chart"></i></span>
+                <span class="wf-node__label">Enrich company data</span>
+                <span class="wf-node__type">HTTP API</span>
+              </div>
+              <div class="wf-link"><i class="fas fa-arrow-down"></i></div>
+              <div class="wf-node">
+                <span class="wf-node__icon"><i class="fas fa-brain"></i></span>
+                <span class="wf-node__label">Qualify &amp; draft reply</span>
+                <span class="wf-node__type">AI Agent</span>
+              </div>
+              <div class="wf-link"><i class="fas fa-arrow-down"></i></div>
+              <div class="wf-split">
+                <div class="wf-node">
+                  <span class="wf-node__icon"><i class="fas fa-address-book"></i></span>
+                  <span class="wf-node__label">Update CRM</span>
+                  <span class="wf-node__type">HubSpot</span>
+                </div>
+                <div class="wf-node">
+                  <span class="wf-node__icon"><i class="fas fa-paper-plane"></i></span>
+                  <span class="wf-node__label">Notify team</span>
+                  <span class="wf-node__type">Slack</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TRUST / TECHNOLOGIES ================= -->
+    <section class="trust section--tight" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Tools &amp; Platforms</p>
+          <h2 class="section-title" id="trust-title">Built on the systems your business already uses</h2>
+          <p class="section-lead">These are the platforms and integration types I work with regularly. If your stack is different, we can usually connect it through an API.</p>
+        </div>
+
+        <div class="trust__grid reveal">
+          <div class="trust__group">
+            <h3>Automation</h3>
+            <ul>
+              <li><i class="fas fa-check" aria-hidden="true"></i> n8n</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Webhooks &amp; REST APIs</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Scheduled &amp; event triggers</li>
+            </ul>
+          </div>
+          <div class="trust__group">
+            <h3>CRM &amp; Data</h3>
+            <ul>
+              <li><i class="fas fa-check" aria-hidden="true"></i> HubSpot</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Google Sheets &amp; Workspace</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> PostgreSQL &amp; SQL databases</li>
+            </ul>
+          </div>
+          <div class="trust__group">
+            <h3>AI &amp; LLMs</h3>
+            <ul>
+              <li><i class="fas fa-check" aria-hidden="true"></i> OpenAI &amp; LLM integrations</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Retrieval-augmented answers</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> AI voice platforms</li>
+            </ul>
+          </div>
+          <div class="trust__group">
+            <h3>Scheduling &amp; Messaging</h3>
+            <ul>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Google Calendar</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Email &amp; SMTP services</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Slack &amp; WhatsApp</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Services</p>
+          <h2 class="section-title" id="services-title">Five ways I remove repetitive work</h2>
+          <p class="section-lead">Each engagement starts with the business problem — not the technology. Here is where automation usually creates the most value.</p>
+        </div>
+
+        <div class="services__grid">
+          <article class="service-card reveal">
+            <div class="service-card__top">
+              <span class="card__icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></span>
+              <h3>Workflow Automation with n8n</h3>
+            </div>
+            <p class="service-card__problem"><strong>The problem:</strong> your team copies data between tools and fires off manual notifications all day.</p>
+            <div class="service-card__caps">
+              <span class="tag">App-to-app connections</span>
+              <span class="tag">Data sync</span>
+              <span class="tag">Notifications</span>
+            </div>
+            <p class="service-card__benefit"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i> Connect applications, eliminate repetitive tasks, automate notifications, and keep business data in sync across systems.</p>
+            <div class="card__footer">
+              <a class="link-arrow" href="n8n-workflow-automation.html">Explore n8n automation <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-1">
+            <div class="service-card__top">
+              <span class="card__icon"><i class="fas fa-address-book" aria-hidden="true"></i></span>
+              <h3>CRM Automation &amp; Integrations</h3>
+            </div>
+            <p class="service-card__problem"><strong>The problem:</strong> leads sit in inboxes and spreadsheets, and follow-ups depend on someone remembering.</p>
+            <div class="service-card__caps">
+              <span class="tag">Lead capture</span>
+              <span class="tag">Qualification</span>
+              <span class="tag">Follow-ups</span>
+              <span class="tag">Reporting</span>
+            </div>
+            <p class="service-card__benefit"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i> Automate lead capture, qualification, assignment, follow-ups, pipeline updates, and reporting inside the CRM you already own.</p>
+            <div class="card__footer">
+              <a class="link-arrow" href="crm-automation.html">Explore CRM automation <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__top">
+              <span class="card__icon"><i class="fas fa-headset" aria-hidden="true"></i></span>
+              <h3>AI Voice Agents</h3>
+            </div>
+            <p class="service-card__problem"><strong>The problem:</strong> calls go unanswered after hours and simple scheduling requests take up staff time.</p>
+            <div class="service-card__caps">
+              <span class="tag">Inbound inquiries</span>
+              <span class="tag">Appointment booking</span>
+              <span class="tag">Lead qualification</span>
+              <span class="tag">Call routing</span>
+            </div>
+            <p class="service-card__benefit"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i> Build voice workflows that answer inquiries, schedule appointments, qualify leads, and route calls to the right person.</p>
+            <div class="card__footer">
+              <a class="link-arrow" href="ai-voice-agents.html">Explore AI voice agents <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-1">
+            <div class="service-card__top">
+              <span class="card__icon"><i class="fas fa-life-ring" aria-hidden="true"></i></span>
+              <h3>AI Customer Support Systems</h3>
+            </div>
+            <p class="service-card__problem"><strong>The problem:</strong> the same questions arrive repeatedly, and slow replies cost trust.</p>
+            <div class="service-card__caps">
+              <span class="tag">Answer from your docs</span>
+              <span class="tag">Knowledge retrieval</span>
+              <span class="tag">Human escalation</span>
+            </div>
+            <p class="service-card__benefit"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i> Build support workflows that answer common questions, retrieve the right knowledge, connect to business systems, and hand complex cases to a human.</p>
+            <div class="card__footer">
+              <a class="link-arrow" href="ai-customer-support.html">Explore AI support <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2">
+            <div class="service-card__top">
+              <span class="card__icon"><i class="fas fa-magnifying-glass-chart" aria-hidden="true"></i></span>
+              <h3>RAG &amp; Knowledge Base AI</h3>
+            </div>
+            <p class="service-card__problem"><strong>The problem:</strong> answers are scattered across documents, and generic AI replies do not match your real content.</p>
+            <div class="service-card__caps">
+              <span class="tag">Answers with citations</span>
+              <span class="tag">Hybrid search</span>
+              <span class="tag">Document ingestion</span>
+            </div>
+            <p class="service-card__benefit"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i> Ground answers in your own documents, combine keyword and semantic search, and show the source behind every response.</p>
+            <div class="card__footer">
+              <a class="link-arrow" href="rag-knowledge-base.html">Explore RAG &amp; knowledge base <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="endnote reveal">
+          <p><strong>Not sure which service fits?</strong> Most projects combine two or three. Describe the workflow and I will map the options.</p>
+          <a class="btn btn--secondary" href="services.html">Compare all services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROBLEMS ================= -->
+    <section class="section section--alt" id="problems" aria-labelledby="problems-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Problems We Solve</p>
+          <h2 class="section-title" id="problems-title">The bottlenecks automation usually removes</h2>
+          <p class="section-lead">Automation does not guarantee results on its own. It removes manual friction and delays — so the outcomes depend on the process and data behind it.</p>
+        </div>
+
+        <div class="problems__grid">
+          <article class="problem-card reveal">
+            <span class="problem-card__icon"><i class="fas fa-keyboard" aria-hidden="true"></i></span>
+            <h3>Manually entering leads into a CRM</h3>
+            <p>Someone retypes form submissions and enquiries into the CRM, one by one, and details get missed.</p>
+            <p class="problem-card__fix"><i class="fas fa-arrow-right" aria-hidden="true"></i> Capture the lead once and create the CRM contact automatically, with the source attached.</p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span class="problem-card__icon"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i></span>
+            <h3>Forgetting to follow up with prospects</h3>
+            <p>Follow-ups depend on memory and reminder notes, so warm leads go cold quietly.</p>
+            <p class="problem-card__fix"><i class="fas fa-arrow-right" aria-hidden="true"></i> Schedule follow-ups that trigger on time and stop as soon as a reply arrives.</p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span class="problem-card__icon"><i class="fas fa-hourglass-half" aria-hidden="true"></i></span>
+            <h3>Responding slowly to customer inquiries</h3>
+            <p>Enquiries wait in a shared inbox until someone is free, and the first impression slips away.</p>
+            <p class="problem-card__fix"><i class="fas fa-arrow-right" aria-hidden="true"></i> Send an immediate acknowledgement and route the message to the right owner.</p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span class="problem-card__icon"><i class="fas fa-comments" aria-hidden="true"></i></span>
+            <h3>Handling repetitive support questions</h3>
+            <p>The same handful of questions is answered by hand, again and again, every week.</p>
+            <p class="problem-card__fix"><i class="fas fa-arrow-right" aria-hidden="true"></i> Answer from your own documentation and escalate anything the system is unsure about.</p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span class="problem-card__icon"><i class="fas fa-calendar-days" aria-hidden="true"></i></span>
+            <h3>Manually scheduling appointments</h3>
+            <p>Back-and-forth emails just to find a time that works for both sides.</p>
+            <p class="problem-card__fix"><i class="fas fa-arrow-right" aria-hidden="true"></i> Let people book against real availability, with confirmations and reminders handled for you.</p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span class="problem-card__icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></span>
+            <h3>Data trapped in disconnected tools</h3>
+            <p>The CRM, the billing tool, and the support desk all hold a partial version of the truth.</p>
+            <p class="problem-card__fix"><i class="fas fa-arrow-right" aria-hidden="true"></i> Keep systems in sync through APIs and webhooks, with error handling when a step fails.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SELECTED WORK ================= -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Selected Work</p>
+          <h2 class="section-title" id="work-title">Automations, built and documented</h2>
+        </div>
+
+        <div class="work__grid">
+          <article class="work-card reveal">
+            <div class="work-card__media">
+              <img src="assets/images/lead generation.png" alt="Lead generation automation workflow" width="800" height="450" loading="lazy">
+            </div>
+            <div class="work-card__body">
+              <h3><a href="lead-generation.html">Lead Capture &rarr; CRM &rarr; Automated Follow-up</a></h3>
+              <p>An end-to-end n8n pipeline that collects leads, enriches and scores them with AI, then sends personalised outreach with reply tracking and scheduled follow-ups.</p>
+              <div class="work-card__tech">
+                <span class="tag">n8n</span><span class="tag">OpenAI</span><span class="tag">Google Sheets</span>
+              </div>
+              <a class="link-arrow" href="lead-generation.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="work-card reveal reveal-delay-1">
+            <div class="work-card__media">
+              <img src="assets/images/voice-booking-flow.svg" alt="AI voice agent booking flow: inbound call or chat, an AI agent matching an open slot against Google Calendar, the booking saved to a database, and CRM updates with confirmations and reminders" width="800" height="450" loading="lazy">
+            </div>
+            <div class="work-card__body">
+              <h3><a href="ai-booking-platform.html">AI Voice Agent &rarr; Appointment Booking &rarr; CRM</a></h3>
+              <p>A booking assistant that handles natural-language requests by chat and phone, checks real Google Calendar availability, books in a database, and sends confirmations.</p>
+              <div class="work-card__tech">
+                <span class="tag">n8n</span><span class="tag">FastAPI</span><span class="tag">Google Calendar</span><span class="tag">Voice</span>
+              </div>
+              <a class="link-arrow" href="ai-booking-platform.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-card__media">
+              <img src="assets/images/customer_support.jpeg" alt="AI customer support agent with knowledge retrieval" width="800" height="450" loading="lazy">
+            </div>
+            <div class="work-card__body">
+              <h3><a href="support-ai.html">AI Support Agent &rarr; Knowledge Retrieval &rarr; Escalation</a></h3>
+              <p>A multi-channel support agent that answers from your own documentation with retrieval-augmented generation, and opens a ticket when it cannot help.</p>
+              <div class="work-card__tech">
+                <span class="tag">n8n</span><span class="tag">OpenAI</span><span class="tag">RAG</span><span class="tag">FastAPI</span>
+              </div>
+              <a class="link-arrow" href="support-ai.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="work-card reveal reveal-delay-1">
+            <div class="work-card__media">
+              <img src="assets/images/contextMesh.jpeg" alt="Multi-tenant retrieval platform interface" width="800" height="450" loading="lazy">
+              <span class="badge badge--demo">Self-initiated</span>
+            </div>
+            <div class="work-card__body">
+              <h3><a href="contextmesh-ai.html">Multi-Tenant AI Knowledge Platform</a></h3>
+              <p>A retrieval platform with hybrid search and an orchestrated ingestion pipeline, exposing a clean API for AI assistants to answer from company knowledge.</p>
+              <div class="work-card__tech">
+                <span class="tag">FastAPI</span><span class="tag">pgvector</span><span class="tag">LangGraph</span>
+              </div>
+              <a class="link-arrow" href="contextmesh-ai.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="endnote reveal">
+          <p><strong>Interested in a similar system?</strong> Tell me about your workflow and we can scope it together.</p>
+          <a class="btn btn--secondary" href="case-studies.html">View all case studies</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS ================= -->
+    <section class="section section--alt" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">How We Work</p>
+          <h2 class="section-title" id="process-title">A clear four-step process</h2>
+          <p class="section-lead">No mystery and no surprises. You always know what stage we are at and what you will receive next.</p>
+        </div>
+
+        <div class="process">
+          <article class="step reveal">
+            <span class="step__num">1</span>
+            <h3>Discover</h3>
+            <p>We walk through the business problem, the current workflow, the tools involved, and where the manual effort sits today.</p>
+            <p class="step__deliverable"><strong>You receive</strong> A written summary of the problem and the automation opportunity.</p>
+          </article>
+
+          <article class="step reveal reveal-delay-1">
+            <span class="step__num">2</span>
+            <h3>Design</h3>
+            <p>I plan the solution: the integrations, the data flow, the AI steps, and the safeguards for when something fails.</p>
+            <p class="step__deliverable"><strong>You receive</strong> A workflow outline and scope agreed before development starts.</p>
+          </article>
+
+          <article class="step reveal reveal-delay-2">
+            <span class="step__num">3</span>
+            <h3>Build</h3>
+            <p>The automation is developed, tested against real scenarios, and deployed into your environment with error handling in place.</p>
+            <p class="step__deliverable"><strong>You receive</strong> A working, tested workflow plus documentation and a handover walkthrough.</p>
+          </article>
+
+          <article class="step reveal reveal-delay-3">
+            <span class="step__num">4</span>
+            <h3>Optimize</h3>
+            <p>After launch we monitor the workflow, resolve issues, and refine it as your process or volume changes.</p>
+            <p class="step__deliverable"><strong>You receive</strong> Optional ongoing monitoring and improvements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHY ================= -->
+    <section class="section" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Why Work With Me</p>
+          <h2 class="section-title" id="why-title">A specialist, not a middleman</h2>
+          <p class="section-lead">Practical, honest reasons to work directly with an independent automation developer.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature reveal">
+            <i class="fas fa-user-tie" aria-hidden="true"></i>
+            <div>
+              <h3>Direct communication</h3>
+              <p>You speak with the person building your automation — no account managers in between.</p>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <i class="fas fa-puzzle-piece" aria-hidden="true"></i>
+            <div>
+              <h3>Tailored to your workflow</h3>
+              <p>Solutions fit how your business actually operates, not a rigid template.</p>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <i class="fas fa-plug" aria-hidden="true"></i>
+            <div>
+              <h3>Works with your tools</h3>
+              <p>I integrate with the platforms you already use rather than forcing a migration.</p>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <i class="fas fa-shield-halved" aria-hidden="true"></i>
+            <div>
+              <h3>Testing &amp; error handling</h3>
+              <p>Workflows are built to handle failures, retries, and edge cases — not just the happy path.</p>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <i class="fas fa-file-lines" aria-hidden="true"></i>
+            <div>
+              <h3>Clear documentation</h3>
+              <p>You get readable docs and a handover walkthrough, so the system is not a black box.</p>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            <div>
+              <h3>Security-conscious builds</h3>
+              <p>Credentials are handled securely, data access is limited to what is needed, and secrets stay out of the frontend.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOUNDER ================= -->
+    <section class="section section--alt" id="founder" aria-labelledby="founder-title">
+      <div class="container">
+        <div class="founder">
+          <div class="founder__portrait reveal">
+            <img src="assets/images/amin.jpg" alt="Portrait of Amin Sharif, AI automation developer" width="600" height="750" loading="lazy">
+            <div class="founder__portrait-caption">
+              <strong>Amin Sharif</strong>
+              <span>Founder &amp; AI automation developer</span>
+            </div>
+          </div>
+
+          <div class="founder__content reveal reveal-delay-1">
+            <p class="eyebrow">About the founder</p>
+            <h2 class="section-title" id="founder-title">Hi, I'm Amin Sharif.</h2>
+            <p class="section-lead">
+              I'm an AI automation developer with a background in full-stack engineering. I help businesses
+              improve operational efficiency through workflow automation, CRM integrations, and AI-powered systems.
+            </p>
+            <p class="text-muted" style="margin-top: var(--space-4);">
+              My approach is straightforward: understand the business problem first, then design the smallest
+              reliable system that solves it. I care about the unglamorous parts — error handling, clear
+              documentation, and workflows that keep running long after launch.
+            </p>
+
+            <ul class="check-list" style="margin-top: var(--space-6);">
+              <li><i class="fas fa-check" aria-hidden="true"></i> Focused on n8n, CRM automation, AI voice agents and AI support systems</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Comfortable across APIs, webhooks, databases and LLM integrations</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Practical engineering — tested and documented, not demo-only</li>
+            </ul>
+
+            <div class="btn-group" style="margin-top: var(--space-8);">
+              <a class="btn btn--primary" href="about.html">More about my work</a>
+              <a class="btn btn--secondary" href="contact.html" data-booking>Discuss a project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INSIGHTS ================= -->
+    <section class="section" id="insights" aria-labelledby="insights-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Insights</p>
+          <h2 class="section-title" id="insights-title">Notes on building automation that lasts</h2>
+          <p class="section-lead">Practical writing on n8n, CRM automation, AI agents and keeping workflows reliable in production.</p>
+        </div>
+
+        <div class="insights__grid">
+          <article class="post-card reveal">
+            <div class="post-card__meta"><span><i class="far fa-calendar" aria-hidden="true"></i> 6 min read</span><span>n8n</span></div>
+            <h3><a href="automate-lead-management-with-n8n.html">How to automate lead management with n8n</a></h3>
+            <p>A practical walkthrough of capturing, enriching, routing and following up with leads — without manual entry.</p>
+            <a class="link-arrow" href="automate-lead-management-with-n8n.html">Read article <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <article class="post-card reveal reveal-delay-1">
+            <div class="post-card__meta"><span><i class="far fa-calendar" aria-hidden="true"></i> 7 min read</span><span>Comparison</span></div>
+            <h3><a href="n8n-vs-zapier-vs-make.html">n8n vs Zapier vs Make for business automation</a></h3>
+            <p>An honest comparison of the three platforms, and when each one is the right fit for a growing business.</p>
+            <a class="link-arrow" href="n8n-vs-zapier-vs-make.html">Read article <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <article class="post-card reveal reveal-delay-2">
+            <div class="post-card__meta"><span><i class="far fa-calendar" aria-hidden="true"></i> 8 min read</span><span>Reliability</span></div>
+            <h3><a href="n8n-error-handling-monitoring.html">Adding error handling and monitoring to n8n workflows</a></h3>
+            <p>The patterns that keep automations trustworthy once they leave the test environment.</p>
+            <a class="link-arrow" href="n8n-error-handling-monitoring.html">Read article <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+        </div>
+
+        <div class="endnote reveal">
+          <p><strong>Want more?</strong> Browse the full archive for guides and build notes.</p>
+          <a class="btn btn--secondary" href="insights.html">Read all insights</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="section-title" id="faq-title">Questions clients ask before starting</h2>
+        </div>
+
+        <div class="faq reveal">
+          <details class="faq__item">
+            <summary class="faq__q">What types of business processes can you automate?</summary>
+            <div class="faq__a">Lead capture and follow-up, CRM updates, appointment scheduling, internal notifications, document handling, reporting, and customer support responses — anything repetitive that moves data between tools or waits on a manual step. If a process follows a rule, it is usually a candidate.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Can you integrate with our existing CRM?</summary>
+            <div class="faq__a">Yes. If your CRM has an API, webhooks, or is supported by n8n — that includes HubSpot, Pipedrive, Salesforce, Zoho and others — it can usually be integrated. If a tool has no API at all, we can discuss database-level or custom alternatives during discovery.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Can you connect different business applications?</summary>
+            <div class="faq__a">That is the core of most projects. I connect apps through native n8n nodes, REST APIs and webhooks so data flows automatically between them instead of being copied by hand.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Can you build AI voice agents?</summary>
+            <div class="faq__a">Yes — voice workflows for inbound inquiries, appointment scheduling, lead qualification and call routing. They are built on established voice platforms and connected to your calendar and CRM so the conversation produces a real record.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">How long does an automation project take?</summary>
+            <div class="faq__a">Timelines depend on scope and how many systems are involved. A focused, single-workflow build is measured in days, while multi-system projects run longer. You get a clear estimate after the discovery call, once the requirements are known — I do not quote fixed timelines before then.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">How do you test and secure automation workflows?</summary>
+            <div class="faq__a">Workflows are tested against real scenarios, including failure cases, before launch. Error handling, retries and alerts are built in. Credentials are stored in the platform's secure store, access is limited to what each step needs, and no secrets are placed in frontend code.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Do you provide ongoing maintenance?</summary>
+            <div class="faq__a">Yes. Monitoring, fixes and improvements are available after handover as an optional ongoing arrangement. You always receive documentation so you are not locked in.</div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">How does pricing work?</summary>
+            <div class="faq__a">Pricing is scoped per project based on complexity, the number of integrations, and the level of AI involved. After the discovery call you receive a clear proposal. I do not publish fixed prices because an honest number depends on what the project actually requires.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FINAL CTA ================= -->
+    <section class="kf-cta" aria-labelledby="cta-title">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l" id="cta-title">Let's Find Your Next Automation Opportunity.</h2>
+          <p class="kf-body-lead">Tell us about the repetitive tasks slowing down your business. We'll discuss your current workflow and identify where automation could help.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+            <a class="kf-btn kf-btn-lg" href="contact.html#inquiry-form">Describe Your Project</a>
+          </div>
+          <p class="kf-cta__note">No obligation. If automation is not the right fit for your situation, I will say so.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="index.html" aria-label="Amin Sharif home">
+            <span class="brand__mark" aria-hidden="true">AS</span>
+            <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+          </a>
+          <p>Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.</p>
+          <div class="footer__social">
+            <a href="https://github.com/Aminsharif" data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="#" data-linkedin aria-label="LinkedIn profile" aria-disabled="true"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:sharifmia236@gmail.com" data-email aria-label="Email Amin Sharif"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer__col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="n8n-workflow-automation.html">n8n Workflow Automation</a></li>
+            <li><a href="crm-automation.html">CRM Automation &amp; Integrations</a></li>
+            <li><a href="ai-voice-agents.html">AI Voice Agents</a></li>
+            <li><a href="ai-customer-support.html">AI Customer Support</a></li>
+            <li><a href="rag-knowledge-base.html">RAG &amp; Knowledge Base AI</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:sharifmia236@gmail.com" data-email>sharifmia236@gmail.com</a></li>
+            <li><a href="contact.html" data-booking>Book a discovery call</a></li>
+            <li><a href="tel:+8801670043742">+880 1670 043742</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Amin Sharif. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+  <!-- <script src="js/widget.js" data-api-url="https://api.supportagent.aminsharif.com/api/chat" data-brand="Amin Sharif Support" data-accent="#e8552e" defer></script> -->
 </body>
 </html>

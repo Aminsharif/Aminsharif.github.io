@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ContextMesh AI — Multi-Tenant RAG &amp; LangGraph Platform — Amin Sharif</title>
+  <meta name="description" content="Multi-tenant RAG platform with a LangGraph agent, hybrid pgvector + BM25 retrieval with reranking, an 8-stage idempotent ingestion pipeline, and enterprise-grade auth, auditing, and observability.">
+  <meta name="author" content="Amin Sharif">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://aminsharif.com/contextmesh-ai.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Amin Sharif — AI Automation Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aminsharif.com/contextmesh-ai.html">
+  <meta property="og:title" content="ContextMesh AI — Multi-Tenant RAG &amp; LangGraph Platform — Amin Sharif">
+  <meta property="og:description" content="Multi-tenant RAG platform with a LangGraph agent, hybrid pgvector + BM25 retrieval with reranking, an 8-stage idempotent ingestion pipeline, and enterprise-grade auth, auditing, and observability.">
+  <meta property="og:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+  <meta property="og:image:alt" content="ContextMesh AI">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ContextMesh AI — Multi-Tenant RAG &amp; LangGraph Platform — Amin Sharif">
+  <meta name="twitter:description" content="Multi-tenant RAG platform with a LangGraph agent, hybrid pgvector + BM25 retrieval with reranking, an 8-stage idempotent ingestion pipeline, and enterprise-grade auth, auditing, and observability.">
+  <meta name="twitter:image" content="https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/insights.css">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aminsharif.com/contextmesh-ai.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aminsharif.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://aminsharif.com/case-studies.html" },
+          { "@type": "ListItem", "position": 3, "name": "ContextMesh AI", "item": "https://aminsharif.com/contextmesh-ai.html" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://aminsharif.com/contextmesh-ai.html#webpage",
+        "url": "https://aminsharif.com/contextmesh-ai.html",
+        "name": "ContextMesh AI",
+        "description": "Multi-tenant RAG platform with a LangGraph agent, hybrid pgvector + BM25 retrieval with reranking, an 8-stage idempotent ingestion pipeline, and enterprise-grade auth, auditing, and observability.",
+        "isPartOf": { "@id": "https://aminsharif.com/#website" },
+        "breadcrumb": { "@id": "https://aminsharif.com/contextmesh-ai.html#breadcrumb" },
+        "about": { "@id": "https://aminsharif.com/contextmesh-ai.html#project" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://aminsharif.com/contextmesh-ai.html#project",
+        "name": "ContextMesh AI",
+        "description": "Multi-tenant RAG platform with a LangGraph agent, hybrid pgvector + BM25 retrieval with reranking, an 8-stage idempotent ingestion pipeline, and enterprise-grade auth, auditing, and observability.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://aminsharif.com/contextmesh-ai.html",
+        "image": "https://aminsharif.com/assets/images/favicons/android-chrome-512x512.png",
+        "author": { "@id": "https://aminsharif.com/#founder" },
+        "publisher": { "@id": "https://aminsharif.com/#organization" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Amin Sharif, AI automation agency, home">
+        <span class="brand__mark" aria-hidden="true">AS</span>
+        <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <button class="nav__close" id="nav-close" type="button" aria-label="Close menu">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="services.html">Services</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="Show Services submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-services">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-workflow-automation.html"><span class="mega__title">n8n Workflow Automation</span><span class="mega__desc">Connect your tools so data moves on its own</span></a></li>
+                      <li><a class="mega__item" href="crm-automation.html"><span class="mega__title">CRM Automation &amp; Integrations</span><span class="mega__desc">Capture, qualify and follow up automatically</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agents.html"><span class="mega__title">AI Voice Agents</span><span class="mega__desc">Answer calls and book appointments</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ai-customer-support.html"><span class="mega__title">AI Customer Support</span><span class="mega__desc">Answer from your own documentation</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG &amp; Knowledge Base AI</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Not sure which service fits?</p>
+                    <p class="mega__cta-text">Most projects combine two or three. Tell me the workflow that is slowing you down.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Describe your project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="case-studies.html">Case Studies</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-work" aria-label="Show Case Studies submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-work">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="lead-generation.html"><span class="mega__title">Lead Capture to CRM</span><span class="mega__desc">Automated lead discovery, scoring and follow-up</span></a></li>
+                      <li><a class="mega__item" href="ai-booking-platform.html"><span class="mega__title">AI Booking Platform</span><span class="mega__desc">Natural-language scheduling with calendar sync</span></a></li>
+                      <li><a class="mega__item" href="support-ai.html"><span class="mega__title">AI Support Agent</span><span class="mega__desc">Answers from your docs, opens tickets when needed</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="ecommerce-chatbot.html"><span class="mega__title">E-commerce Chatbot</span><span class="mega__desc">Order lookups, escalations and PII masking</span></a></li>
+                      <li><a class="mega__item" href="contextmesh-ai.html" aria-current="page"><span class="mega__title">Multi-Tenant AI Platform</span><span class="mega__desc">Hybrid retrieval with reranking and ingestion</span></a></li>
+                      <li><a class="mega__item" href="invoice-process.html"><span class="mega__title">Invoice &amp; Document Processing</span><span class="mega__desc">Extract, summarise and query documents</span></a></li>
+                      <li><a class="mega__item" href="rag-knowledge-base.html"><span class="mega__title">RAG Knowledge Base</span><span class="mega__desc">Grounded answers with cited sources</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Want the full breakdown?</p>
+                    <p class="mega__cta-text">Every project starts from a business problem. See how each one was solved.</p>
+                    <a class="mega__cta-link" href="case-studies.html">Browse all case studies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="insights.html">Insights</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-insights" aria-label="Show Insights submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-insights">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="n8n-vs-zapier-vs-make.html"><span class="mega__title">n8n vs Zapier vs Make</span><span class="mega__desc">Choosing the right automation platform</span></a></li>
+                      <li><a class="mega__item" href="connect-n8n-with-hubspot.html"><span class="mega__title">Connect n8n with HubSpot</span><span class="mega__desc">A practical CRM integration walkthrough</span></a></li>
+                      <li><a class="mega__item" href="n8n-error-handling-monitoring.html"><span class="mega__title">Error Handling &amp; Monitoring</span><span class="mega__desc">Keeping workflows reliable in production</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="automate-lead-management-with-n8n.html"><span class="mega__title">Automate Lead Management</span><span class="mega__desc">An end-to-end lead pipeline in n8n</span></a></li>
+                      <li><a class="mega__item" href="ai-voice-agent-appointment-scheduling.html"><span class="mega__title">Voice Agents &amp; Scheduling</span><span class="mega__desc">Appointment booking over the phone</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Prefer a hands-on answer?</p>
+                    <p class="mega__cta-text">Skip the reading and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="about.html">About</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-controls="sub-about" aria-label="Show About submenu">
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="nav__sub nav__sub--mega" id="sub-about">
+              <div class="container">
+                <div class="mega">
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="about.html"><span class="mega__title">About Amin</span><span class="mega__desc">Background, skills and how I work</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="mega__col">
+                    <ul class="mega__list">
+                      <li><a class="mega__item" href="amin-sharif-cv.html"><span class="mega__title">CV / Resume</span><span class="mega__desc">Experience, projects and certifications</span></a></li>
+                    </ul>
+                  </div>
+                  <aside class="mega__cta">
+                    <p class="mega__cta-title">Work with me</p>
+                    <p class="mega__cta-text">Book a short call and tell me what you want to automate.</p>
+                    <a class="mega__cta-link" href="contact.html#inquiry-form">Book a discovery call <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html" data-booking>Book a Discovery Call</a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__cta" href="contact.html" data-booking>
+          <span class="header__cta-mark" aria-hidden="true">AS</span>Book a Discovery Call
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content" class="kf">
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li aria-current="page">Multi-Tenant AI Platform</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="kf-article-hero">
+      <div class="kf-container">
+        <div class="kf-article-hero__inner">
+          <a class="kf-cat-link" href="case-studies.html">
+            <p class="kf-eyebrow kf-eyebrow-light">Case Study</p>
+          </a>
+          <h1 class="kf-article-title">ContextMesh AI — Multi-Tenant RAG &amp; LangGraph Platform</h1>
+          <p class="kf-hero-summary">A multi-tenant RAG service with a LangGraph agent, hybrid pgvector + BM25 retrieval with reranking, an 8-stage idempotent ingestion pipeline, and enterprise-grade auth, auditing, and observability.</p>
+          <ul class="kf-hero-tags">
+            <li>LangGraph</li>
+            <li>FastAPI</li>
+            <li>PostgreSQL + pgvector</li>
+            <li>Redis</li>
+            <li>Next.js</li>
+          </ul>
+          <div class="kf-article-meta">
+            <span class="kf-avatar">AS</span>
+            <a href="about.html">Amin Sharif</a>
+            <span class="kf-meta__dot">&middot;</span>
+            <span>LangGraph RAG Platform</span>
+          </div>
+          <div class="kf-btn-group">
+
+          <a href="#workflow" class="kf-btn kf-btn-white">
+            <i class="fas fa-code-branch" aria-hidden="true"></i> Explore the Architecture
+          </a>
+          <a href="contact.html" class="kf-btn kf-btn-ghost">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Build Something Similar
+          </a>
+                  </div>
+        </div>
+      </div>
+    </header>
+    <section class="kf-sec-lg kf-line-b">
+      <div class="kf-container">
+        <div class="kf-article-layout">
+          <div class="kf-cs-main">
+    <!-- ====== PROBLEM / SOLUTION ====== -->
+    <section class="section" id="overview" aria-label="Problem and solution">
+      <div class="container">
+        <h2 class="section__title">Problem &amp; Solution</h2>
+        <div class="split-grid">
+          <div class="split-card split-card--danger">
+            <div class="split-card__head">
+              <i class="fas fa-circle-exclamation" aria-hidden="true"></i>
+              <h3>Problem</h3>
+            </div>
+            <ul class="list-check">
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> Naive RAG answers drift from the source documents</li>
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> One retrieval strategy misses both keyword and semantic matches</li>
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> No tenant isolation for multi-customer deployments</li>
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> Re-ingesting unchanged documents wastes embeddings spend</li>
+              <li><i class="fas fa-circle-xmark" aria-hidden="true"></i> No observability into retrieval quality or usage</li>
+            </ul>
+          </div>
+          <div class="split-card">
+            <div class="split-card__head">
+              <i class="fas fa-circle-check" aria-hidden="true"></i>
+              <h3>Solution</h3>
+            </div>
+            <ul class="list-check">
+              <li><i class="fas fa-check" aria-hidden="true"></i> LangGraph agent — router, multi-query, grading, safe fallback</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Hybrid retrieval — pgvector + BM25 fused with RRF, then reranked</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Tenant partitioning (16 hash buckets) with strict isolation</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> 8-stage idempotent ingestion — skips unchanged content</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Per-tenant usage analytics, eval suites &amp; release gates</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Audit log, PII redaction &amp; SOC2/GDPR-ready controls</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ARCHITECTURE ====== -->
+    <section class="section" id="architecture" aria-label="System architecture">
+      <div class="container">
+        <h2 class="section__title">Architecture</h2>
+        <div class="arch-flow">
+          <div class="arch-step">
+            <i class="fas fa-globe arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Clients</div>
+            <div class="arch-step__desc">Next.js + REST</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-shield-halved arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">FastAPI Gateway</div>
+            <div class="arch-step__desc">JWT, RBAC, limits</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-sitemap arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">LangGraph Agent</div>
+            <div class="arch-step__desc">Router + RAG graph</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-filter arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Retrieval Pipeline</div>
+            <div class="arch-step__desc">Vector + BM25 + rerank</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-brain arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">AI / LLM</div>
+            <div class="arch-step__desc">7 providers + reranker</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-database arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Database</div>
+            <div class="arch-step__desc">Postgres + pgvector</div>
+          </div>
+          <i class="fas fa-chevron-right arch-arrow" aria-hidden="true"></i>
+          <div class="arch-step">
+            <i class="fas fa-network-wired arch-step__icon" aria-hidden="true"></i>
+            <div class="arch-step__label">Workers &amp; Ops</div>
+            <div class="arch-step__desc">RQ · Redis · audit</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WORKFLOW ====== -->
+    <section class="section" id="workflow" aria-label="Pipelines">
+      <div class="container">
+        <h2 class="section__title">Core Pipelines</h2>
+        <p class="contact__intro">
+          This platform is built on LangGraph and FastAPI rather than n8n. The state graph, retrieval flow, and ingestion pipeline below are the exact flows implemented in code.
+        </p>
+        <div class="workflows">
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-sitemap" aria-hidden="true"></i>
+              <h3>LangGraph Agent Graph</h3>
+              <span class="pipeline__trigger">StateGraph</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-layer-group" aria-hidden="true"></i> Context Layer <span class="pipeline__node-type">tenant context</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-brain" aria-hidden="true"></i> LLM Understanding → Dynamic Task Planner <span class="pipeline__node-type">intent</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-toolbox" aria-hidden="true"></i> Tool Registry → Execution Engine <span class="pipeline__node-type">RAG / actions / compute</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> Rewrite Question → Generate Queries <span class="pipeline__node-type">multi-query ×3</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-magnifying-glass" aria-hidden="true"></i> Retrieve — Hybrid <span class="pipeline__node-type">pgvector + BM25</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-filter" aria-hidden="true"></i> Rerank <span class="pipeline__node-type">API / local BGE</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-gauge-high" aria-hidden="true"></i> Validation &amp; Safety <span class="pipeline__node-type">grade 0–10</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-message" aria-hidden="true"></i> Generate / Chat / Fallback → END <span class="pipeline__node-type">citations</span></div>
+            </div>
+            <p class="pipeline__desc">A conversational RAG state graph: route query vs chat, rewrite and expand the query, generate multiple search queries, retrieve, rerank, grade relevance, then answer with citations — or take a safe chat-only/fallback path.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-filter" aria-hidden="true"></i>
+              <h3>Retrieval Pipeline</h3>
+              <span class="pipeline__trigger">hybrid</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> Query Rewrite + Expansion <span class="pipeline__node-type">optimizer</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-cube" aria-hidden="true"></i> Vector Search (pgvector HNSW) <span class="pipeline__node-type">tenant-scoped</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-hashtag" aria-hidden="true"></i> BM25 Search (tsvector + body_text) <span class="pipeline__node-type">parallel</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-code-merge" aria-hidden="true"></i> Merge + Dedup (RRF) <span class="pipeline__node-type">score-weighted</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-ranking-star" aria-hidden="true"></i> Rerank <span class="pipeline__node-type">cross-encoder</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-folder-open" aria-hidden="true"></i> Expand Children → Parents <span class="pipeline__node-type">adjacency hop</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-boxes-stacked" aria-hidden="true"></i> Context Packing <span class="pipeline__node-type">section stitch</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-scroll" aria-hidden="true"></i> LLM Generation + Citations → Audit <span class="pipeline__node-type">retrieval_logs</span></div>
+            </div>
+            <p class="pipeline__desc">Every query is rewritten and expanded, searched in parallel across vector and full-text indexes, fused with RRF, reranked, expanded back to parent sections, packed into context, and answered with enforced citations — all logged per tenant.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-layer-group" aria-hidden="true"></i>
+              <h3>Ingestion Pipeline</h3>
+              <span class="pipeline__trigger">8 stages</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-file-upload" aria-hidden="true"></i> raw <span class="pipeline__node-type">upload + job row</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-file-lines" aria-hidden="true"></i> extracted <span class="pipeline__node-type">PDF/HTML → markdown</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-scissors" aria-hidden="true"></i> chunked <span class="pipeline__node-type">parent ≈2.5k + child ≈500</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-cube" aria-hidden="true"></i> embedded <span class="pipeline__node-type">CachingEmbeddings</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-hashtag" aria-hidden="true"></i> bm25 <span class="pipeline__node-type">tsvector / body_text</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-vectorsquare" aria-hidden="true"></i> vectors <span class="pipeline__node-type">child rows + pgvector</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-clipboard-check" aria-hidden="true"></i> committed <span class="pipeline__node-type">ACL snapshot</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-flag-checkered" aria-hidden="true"></i> promoted <span class="pipeline__node-type">revision activated</span></div>
+            </div>
+            <p class="pipeline__desc">Each stage commits before advancing, is idempotent via completion fingerprints (retries skip completed work and preserve embedding spend), respects cancellation checkpoints, and routes failures to a dead-letter queue after max retries.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-shield-halved" aria-hidden="true"></i>
+              <h3>Auth &amp; Security</h3>
+              <span class="pipeline__trigger">enterprise</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-key" aria-hidden="true"></i> JWT Access — 30 min (HS256) <span class="pipeline__node-type">signed</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-rotate-left" aria-hidden="true"></i> Refresh Tokens — 7 days <span class="pipeline__node-type">revoke + device binding</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-envelope" aria-hidden="true"></i> Email Verification <span class="pipeline__node-type">24h · single-use</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-user-shield" aria-hidden="true"></i> Role-Based Access Control <span class="pipeline__node-type">admin / user</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-gauge-high" aria-hidden="true"></i> Rate Limits <span class="pipeline__node-type">per-IP + per-email</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Admin Audit Log <span class="pipeline__node-type">SOC2 / GDPR-ready</span></div>
+            </div>
+            <p class="pipeline__desc">JWT access + rotating refresh tokens with device binding, email verification, RBAC, per-IP rate limits, and an admin audit log that never blocks the underlying action — the table compliance reviewers read.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+              <h3>Observability &amp; Ops</h3>
+              <span class="pipeline__trigger">metrics</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-file-code" aria-hidden="true"></i> Structured JSON Logging <span class="pipeline__node-type">contextvars</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-id-card" aria-hidden="true"></i> Request Correlation <span class="pipeline__node-type">request_id end-to-end</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-chart-pie" aria-hidden="true"></i> Prometheus Metrics <span class="pipeline__node-type">/metrics</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-heart" aria-hidden="true"></i> Health / Readiness <span class="pipeline__node-type">/health + /ready</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-scroll" aria-hidden="true"></i> Retrieval Audit <span class="pipeline__node-type">logs + hits</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-user-secret" aria-hidden="true"></i> PII Redaction <span class="pipeline__node-type">all log handlers</span></div>
+            </div>
+            <p class="pipeline__desc">Every user query is traceable end-to-end through JSON log streams, retrieval is audited per tenant, metrics are Prometheus-exposed, and PII is redacted at the log layer.</p>
+          </article>
+
+          <article class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-brain" aria-hidden="true"></i>
+              <h3>Multi-Provider LLM Layer</h3>
+              <span class="pipeline__trigger">pluggable</span>
+            </div>
+            <div class="pipeline__nodes">
+              <div class="pipeline__node"><i class="fas fa-plug" aria-hidden="true"></i> OpenAI <span class="pipeline__node-type">chat + embeddings</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-plug" aria-hidden="true"></i> Anthropic · Gemini · Groq · DeepSeek <span class="pipeline__node-type">chat</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-server" aria-hidden="true"></i> Ollama (local) · HuggingFace <span class="pipeline__node-type">self-hosted</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-cube" aria-hidden="true"></i> Embeddings — OpenAI / Cohere <span class="pipeline__node-type">HF local fallback</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-ranking-star" aria-hidden="true"></i> Reranker — Cohere / HF cross-encoder <span class="pipeline__node-type">or pointwise scoring</span></div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-down" aria-hidden="true"></i></div>
+              <div class="pipeline__node"><i class="fas fa-shield-halved" aria-hidden="true"></i> Timeouts + Circuit Breakers <span class="pipeline__node-type">every provider call</span></div>
+            </div>
+            <p class="pipeline__desc">Providers are configured per tenant through admin-managed models. Every external call is timeout-bounded with circuit breakers, and the reranker falls back to a local BGE model when no API reranker is configured.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== AI / LLM LAYER ====== -->
+    <section class="section" id="ai" aria-label="AI and LLM layer">
+      <div class="container">
+        <h2 class="section__title">AI / LLM Layer</h2>
+        <p class="contact__intro">
+          A LangChain/LangGraph stack with pluggable providers, multi-query retrieval, relevance grading, and citation-enforced generation.
+        </p>
+        <div class="feature-grid">
+          <div class="feature-card"><i class="fas fa-plug" aria-hidden="true"></i><span class="feature-card__label">Multi-Provider Routing</span></div>
+          <div class="feature-card"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span class="feature-card__label">Query Rewrite &amp; Expansion</span></div>
+          <div class="feature-card"><i class="fas fa-copy" aria-hidden="true"></i><span class="feature-card__label">Multi-Query Generation</span></div>
+          <div class="feature-card"><i class="fas fa-gauge-high" aria-hidden="true"></i><span class="feature-card__label">Relevance Grading (0–10)</span></div>
+          <div class="feature-card"><i class="fas fa-ranking-star" aria-hidden="true"></i><span class="feature-card__label">Cross-Encoder Reranking</span></div>
+          <div class="feature-card"><i class="fas fa-quote-right" aria-hidden="true"></i><span class="feature-card__label">Citation-Enforced Answers</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== AUTOMATION FEATURES ====== -->
+    <section class="section" id="features" aria-label="Automation features">
+      <div class="container">
+        <h2 class="section__title">Automation Features</h2>
+        <div class="feature-grid">
+          <div class="feature-card"><i class="fas fa-file-upload" aria-hidden="true"></i><span class="feature-card__label">Document Ingestion API</span></div>
+          <div class="feature-card"><i class="fas fa-layer-group" aria-hidden="true"></i><span class="feature-card__label">Idempotent 8-Stage Indexing</span></div>
+          <div class="feature-card"><i class="fas fa-scissors" aria-hidden="true"></i><span class="feature-card__label">Section Detection &amp; Hierarchy</span></div>
+          <div class="feature-card"><i class="fas fa-stop-circle" aria-hidden="true"></i><span class="feature-card__label">Cancellation-Aware Workers</span></div>
+          <div class="feature-card"><i class="fas fa-skull" aria-hidden="true"></i><span class="feature-card__label">Failure → Dead-Letter Queue</span></div>
+          <div class="feature-card"><i class="fas fa-table-columns" aria-hidden="true"></i><span class="feature-card__label">Tenant Partitioning</span></div>
+          <div class="feature-card"><i class="fas fa-sliders" aria-hidden="true"></i><span class="feature-card__label">Adaptive Retrieval Fan-out</span></div>
+          <div class="feature-card"><i class="fas fa-clipboard-check" aria-hidden="true"></i><span class="feature-card__label">Eval Suites &amp; Benchmarks</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== INTEGRATIONS ====== -->
+    <section class="section" id="integrations" aria-label="Integrations">
+      <div class="container">
+        <h2 class="section__title">Integrations</h2>
+        <div class="chip-cloud">
+          <span class="tech-chip">LangGraph</span>
+          <span class="tech-chip">LangChain</span>
+          <span class="tech-chip">FastAPI</span>
+          <span class="tech-chip">PostgreSQL + pgvector</span>
+          <span class="tech-chip">Redis</span>
+          <span class="tech-chip">OpenAI</span>
+          <span class="tech-chip">Anthropic</span>
+          <span class="tech-chip">Gemini</span>
+          <span class="tech-chip">Groq</span>
+          <span class="tech-chip">Ollama</span>
+          <span class="tech-chip">HuggingFace</span>
+          <span class="tech-chip">Next.js</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ENGINEERING PRACTICES ====== -->
+    <section class="section" id="engineering" aria-label="Engineering practices">
+      <div class="container">
+        <h2 class="section__title">Engineering Practices</h2>
+        <div class="chip-cloud">
+          <span class="tech-chip">Alembic Migrations</span>
+          <span class="tech-chip">Partitioned Tables</span>
+          <span class="tech-chip">GIN + HNSW Indexes</span>
+          <span class="tech-chip">Per-Stage Idempotency</span>
+          <span class="tech-chip">Circuit Breakers</span>
+          <span class="tech-chip">Structured Outputs</span>
+          <span class="tech-chip">Audit Logging</span>
+          <span class="tech-chip">PII Redaction</span>
+          <span class="tech-chip">CI Migration Checks</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== RESULTS ====== -->
+    <section class="section" id="results" aria-label="Results">
+      <div class="container">
+        <h2 class="section__title">Results</h2>
+        <div class="split-card">
+          <div class="split-card__head">
+            <i class="fas fa-bullseye" aria-hidden="true"></i>
+            <h3>What This System Automates</h3>
+          </div>
+          <ul class="list-check">
+            <li><i class="fas fa-check" aria-hidden="true"></i> Multi-tenant RAG with strict isolation via 16-bucket hash partitioning of chunks and vectors</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> 8-stage ingestion where retries skip completed stages by fingerprint — preserving embedding spend</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Hybrid retrieval that fuses vector similarity and BM25 full-text via RRF, then reranks candidates</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> A LangGraph agent that routes chat vs retrieval, generates multi-queries, grades relevance, and falls back safely</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Citation-enforced answers grounded in retrieved documents, audited per tenant</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i> Admin console for providers, models, users, usage analytics, retrieval evaluation, and release-readiness gates</li>
+          </ul>
+          <p class="pipeline__desc">
+            No performance metrics have been invented here — measurable numbers will be added once live production usage produces them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== MY ROLE ====== -->
+    <section class="section" id="role" aria-label="My role">
+      <div class="container">
+        <h2 class="section__title">My Role</h2>
+        <p class="contact__intro">AI Engineer — RAG Platform Development</p>
+        <div class="role-grid">
+          <div class="feature-card"><i class="fas fa-sitemap" aria-hidden="true"></i><span class="feature-card__label">System Architecture</span></div>
+          <div class="feature-card"><i class="fas fa-diagram-project" aria-hidden="true"></i><span class="feature-card__label">LangGraph Agent Development</span></div>
+          <div class="feature-card"><i class="fas fa-filter" aria-hidden="true"></i><span class="feature-card__label">RAG Pipeline Design</span></div>
+          <div class="feature-card"><i class="fas fa-code" aria-hidden="true"></i><span class="feature-card__label">FastAPI Backend</span></div>
+          <div class="feature-card"><i class="fas fa-brain" aria-hidden="true"></i><span class="feature-card__label">LLM Integration</span></div>
+          <div class="feature-card"><i class="fas fa-database" aria-hidden="true"></i><span class="feature-card__label">Database &amp; Migrations</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TECH STACK ====== -->
+    <section class="section" id="stack" aria-label="Tech stack">
+      <div class="container">
+        <h2 class="section__title">Tech Stack</h2>
+        <div class="chip-cloud">
+          <span class="tech-chip">LangGraph</span>
+          <span class="tech-chip">LangChain</span>
+          <span class="tech-chip">FastAPI</span>
+          <span class="tech-chip">Python</span>
+          <span class="tech-chip">PostgreSQL + pgvector</span>
+          <span class="tech-chip">Redis</span>
+          <span class="tech-chip">OpenAI</span>
+          <span class="tech-chip">Next.js</span>
+          <span class="tech-chip">TypeScript</span>
+          <span class="tech-chip">Alembic</span>
+          <span class="tech-chip">RQ Workers</span>
+          <span class="tech-chip">Docker</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== DEMO ====== -->
+    <!-- <section class="section" id="demo" aria-label="Demo">
+      <div class="container">
+        <h2 class="section__title">Demo</h2>
+        <div class="workflows">
+          <div class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-code" aria-hidden="true"></i>
+              <h3>Repository &amp; Runbooks</h3>
+            </div>
+            <p class="pipeline__desc">Complete source: FastAPI app, LangGraph agent, RQ workers, 40+ Alembic migrations, Next.js admin console, CI pipeline, Docker deployment, and operational runbooks for migrations and pgvector HNSW builds.</p>
+          </div>
+          <div class="pipeline">
+            <div class="pipeline__head">
+              <i class="fas fa-camera" aria-hidden="true"></i>
+              <h3>Workflow Screenshot</h3>
+            </div>
+            <p class="pipeline__desc">The LangGraph state-graph diagram and UI screenshots will be added here as soon as they are ready.</p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+          </div>
+          <aside class="kf-aside">
+            <div>
+              <p class="kf-eyebrow">On this page</p>
+              <div class="kf-topics">
+                <a href="#overview"><span>Problem &amp; Solution</span></a>
+                <a href="#architecture"><span>Architecture</span></a>
+                <a href="#workflow"><span>Core Pipelines</span></a>
+                <a href="#ai"><span>AI / LLM Layer</span></a>
+                <a href="#features"><span>Automation Features</span></a>
+                <a href="#integrations"><span>Integrations</span></a>
+                <a href="#engineering"><span>Engineering Practices</span></a>
+                <a href="#results"><span>Results</span></a>
+                <a href="#role"><span>My Role</span></a>
+                <a href="#stack"><span>Tech Stack</span></a>
+              </div>
+            </div>
+            <div class="kf-audit">
+              <span class="kf-audit__label">Free automation audit</span>
+              <p class="kf-audit__title">Want this in your business?</p>
+              <p class="kf-audit__text">Tell me the process that slows you down and I&rsquo;ll map the fastest automation win.</p>
+              <a class="kf-btn kf-btn-white" href="contact.html">Book a call</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section class="kf-sec-lg kf-bg-soft kf-line-b kf-more-cs">
+      <div class="kf-container">
+        <p class="kf-eyebrow">More case studies</p>
+        <div class="kf-card-grid">
+            <a class="kf-card" href="lead-generation.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI-Powered Lead Generation &amp; Outreach Automation</h3>
+              <p class="kf-card__excerpt">End-to-end AI automation for lead discovery, enrichment, qualification, scoring, and personalized outreach.</p>
+            </article></a>
+            <a class="kf-card" href="ai-booking-platform.html"><article>
+              <span class="kf-eyebrow kf-card__cat">AI Booking &amp; Scheduling Platform</span>
+              <h3 class="kf-card__title">AI Booking Platform — AI Appointment Scheduling &amp; Calendar Automation</h3>
+              <p class="kf-card__excerpt">An AI booking assistant that talks to customers in natural language — by web, chat, and inbound phone call — checks real Google Calendar availability, books, reschedules and cancels appointments, stores everything in PostgreSQL, and sends confirmations and reminders. It runs on one n8n engine with a Vapi + Twilio voice line, exposed via a FastAPI backend with a Next.js dashboard.</p>
+            </article></a>
+            <a class="kf-card" href="invoice-process.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI Document Processing &amp; RAG Q&amp;A</h3>
+              <p class="kf-card__excerpt">End-to-end AI pipeline that ingests invoices and documents, extracts text, generates summaries, builds embeddings, and answers questions with cited hybrid search (BM25 + vector).</p>
+            </article></a>
+            <a class="kf-card" href="support-ai.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI Customer Support Agent — RAG + Auto-Ticketing</h3>
+              <p class="kf-card__excerpt">A multi-channel AI support agent that answers customer questions from your own docs, FAQs, and past tickets — and automatically opens a support ticket whenever it can't answer confidently.</p>
+            </article></a>
+            <a class="kf-card" href="ecommerce-chatbot.html"><article>
+              <span class="kf-eyebrow kf-card__cat">n8n Automation</span>
+              <h3 class="kf-card__title">AI E-commerce Support Chatbot</h3>
+              <p class="kf-card__excerpt">A production-grade AI support chatbot for e-commerce — intent routing, RAG answers from your knowledge base, live order and product data, human escalation, and full observability behind a secure gateway.</p>
+            </article></a>
+        </div>
+      </div>
+    </section>
+    <section class="kf-cta">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l">Interested in building a similar AI system?</h2>
+          <p class="kf-body-lead">Let's talk about your RAG platform — from agent graphs and hybrid retrieval to tenant isolation, evaluation gates, and production observability.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== BACK TO TOP ====== -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ====== FOOTER ====== -->
+    <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="index.html" aria-label="Amin Sharif home">
+            <span class="brand__mark" aria-hidden="true">AS</span>
+            <span class="brand__text">Amin Sharif<span class="brand__sub">AI Automation</span></span>
+          </a>
+          <p>Founder-led AI automation agency. I connect the tools your business already uses and deploy AI-powered workflows that reduce repetitive work and improve customer experiences.</p>
+          <div class="footer__social">
+            <a href="https://github.com/Aminsharif" data-github target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="#" data-linkedin aria-label="LinkedIn profile" aria-disabled="true"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="mailto:sharifmia236@gmail.com" data-email aria-label="Email Amin Sharif"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer__col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="n8n-workflow-automation.html">n8n Workflow Automation</a></li>
+            <li><a href="crm-automation.html">CRM Automation &amp; Integrations</a></li>
+            <li><a href="ai-voice-agents.html">AI Voice Agents</a></li>
+            <li><a href="ai-customer-support.html">AI Customer Support</a></li>
+            <li><a href="rag-knowledge-base.html">RAG &amp; Knowledge Base AI</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:sharifmia236@gmail.com" data-email>sharifmia236@gmail.com</a></li>
+            <li><a href="contact.html" data-booking>Book a discovery call</a></li>
+            <li><a href="tel:+8801670043742">+880 1670 043742</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Amin Sharif. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/widget.js" data-api-url="https://api.supportagent.aminsharif.com/api/chat" data-brand="Amin Sharif Support" data-accent="#e8552e" defer></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+{% block title %}Inquiries{% endblock %}
+{% block heading %}Project inquiries{% endblock %}
+{% block subheading %}<p class="topbar__sub">Everything submitted through the contact form. Mark items as read or archived to keep the inbox tidy.</p>{% endblock %}
+
+{% block content %}
+  <nav class="filters">
+    <a class="filters__item {{ 'is-active' if not status }}" href="{{ url_for('admin.inquiries') }}">All</a>
+    {% for option in ['new', 'read', 'archived'] %}
+      <a class="filters__item {{ 'is-active' if status == option }}"
+         href="{{ url_for('admin.inquiries', status=option) }}">{{ option|capitalize }}</a>
+    {% endfor %}
+  </nav>
+
+  <section class="panel">
+    {% if inquiries %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th><th>Email</th><th>Service</th><th>Received</th><th>Status</th>
+            <th class="table__actions-col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in inquiries %}
+            <tr class="{{ 'is-unread' if item.status == 'new' }}">
+              <td>
+                <a class="table__title" href="{{ url_for('admin.inquiry_detail', inquiry_id=item.id) }}">{{ item.name }}</a>
+                {% if item.company %}<span class="table__slug">{{ item.company }}</span>{% endif %}
+              </td>
+              <td><a href="mailto:{{ item.email }}">{{ item.email }}</a></td>
+              <td>{{ item.service or '—' }}</td>
+              <td>{{ item.created_at.strftime('%d %b %Y, %H:%M') }}</td>
+              <td><span class="badge badge--{{ item.status }}">{{ item.status }}</span></td>
+              <td class="table__actions">
+                <a class="btn btn--ghost btn--sm" href="{{ url_for('admin.inquiry_detail', inquiry_id=item.id) }}">Open</a>
+                <form method="post" action="{{ url_for('admin.inquiry_delete', inquiry_id=item.id) }}"
+                      onsubmit="return confirm('Delete the inquiry from {{ item.name }}?');">
+                  <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+                  <button class="btn btn--danger btn--sm" type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="empty">
+        {% if status %}No {{ status }} inquiries.{% else %}No inquiries yet. Submissions from the contact form will appear here.{% endif %}
+      </p>
+    {% endif %}
+  </section>
+{% endblock %}

@@ -1,0 +1,93 @@
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li aria-current="page">{{ crumb }}</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="kf-article-hero">
+      <div class="kf-container">
+        <div class="kf-article-hero__inner">
+          {% if category %}
+          <a class="kf-cat-link" href="insights.html?category={{ category.slug }}"><p class="kf-eyebrow kf-eyebrow-light">{{ category.name }}</p></a>
+          {% else %}
+          <p class="kf-eyebrow kf-eyebrow-light">Insights</p>
+          {% endif %}
+          <h1 class="kf-article-title">{{ title }}</h1>
+          <div class="kf-article-meta">
+            <span class="kf-avatar">AS</span>
+            <a href="about.html">Amin Sharif</a>
+            {% if date_display %}
+            <span class="kf-meta__dot">&middot;</span><span>{{ date_display }}</span>
+            {% endif %}
+            <span class="kf-meta__dot">&middot;</span><span>{{ read_time }} min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="kf-sec-lg kf-line-b">
+      <div class="kf-container">
+        <div class="kf-article-layout">
+          <div class="kf-prose">
+            {% if excerpt %}
+            <p class="kf-lead">{{ excerpt }}</p>
+            {% endif %}
+            <div class="kf-article-body">
+{{ content|safe }}
+            </div>
+            {% if category %}
+            <div class="kf-tags"><a class="kf-tag" href="insights.html?category={{ category.slug }}">{{ category.name }}</a></div>
+            {% endif %}
+            <div class="kf-author-box"><span class="kf-author-box__avatar">AS</span><div>
+              <p class="kf-author-box__name">Written by Amin Sharif</p>
+              <p class="kf-author-box__text">Founder-led AI automation agency. I design and ship n8n workflows, CRM integrations and AI agents that remove repetitive work. <a href="about.html">More about me &rarr;</a></p>
+            </div></div>
+          </div>
+          <aside class="kf-aside">
+            <div class="kf-audit">
+              <span class="kf-audit__label">Free automation audit</span>
+              <p class="kf-audit__title">Not sure where to start?</p>
+              <p class="kf-audit__text">Tell me the process that is slowing you down and I will map the fastest automation win.</p>
+              <a class="kf-btn kf-btn-white kf-btn-sm" href="contact.html" data-booking>Book a call</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    {% if related %}
+    <section class="kf-sec-lg kf-bg-soft kf-line-b">
+      <div class="kf-container">
+        <p class="kf-eyebrow">More articles</p>
+        <div class="kf-card-grid">
+          {% for a in related %}
+          <a class="kf-card" href="{{ a.href }}"><article>
+            <span class="kf-eyebrow kf-card__cat">{{ a.category }}</span>
+            <h3 class="kf-card__title">{{ a.title }}</h3>
+            {% if a.excerpt %}
+            <p class="kf-card__excerpt">{{ a.excerpt }}</p>
+            {% endif %}
+            <div class="kf-meta"><span>{{ a.read_time }} min read</span></div>
+          </article></a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    {% endif %}
+    <section class="kf-cta">
+      <div class="kf-container">
+        <div class="kf-cta__inner">
+          <h2 class="kf-display-l">Let's find your next automation opportunity.</h2>
+          <p class="kf-body-lead">Tell me which tasks your team repeats every week. We'll look at your current workflow and identify where reliable automation could help.</p>
+          <div class="kf-btn-group">
+            <a class="kf-btn kf-btn-white kf-btn-lg" href="contact.html" data-booking>Book a Discovery Call</a>
+            <a class="kf-btn kf-btn-lg" href="contact.html#inquiry-form">Describe Your Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
